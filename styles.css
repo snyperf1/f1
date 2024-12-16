@@ -11,6 +11,47 @@ body {
     align-items: center;
     text-align: center;
   }
+
+  /* Replace font-family */
+body {
+  font-family: 'Formula1-Regular', sans-serif;
+}
+
+.button {
+  font-family: 'Formula1-Wide', sans-serif;
+  letter-spacing: 1.5px;
+}
+
+.countdown-text {
+  font-family: 'Formula1-Bold', sans-serif;
+}
+
+.countdown-unit span {
+  font-family: 'Formula1-Black', sans-serif;
+  font-size: 2rem; /* Larger countdown numbers */
+
+}
+
+.countdown-unit label {
+  font-family: 'Formula1-Regular', sans-serif;
+  font-size: 1rem;
+  color: #bbb;
+}
+
+.button {
+    background: linear-gradient(to bottom, #30343f, #1f2229); /* Darker gradient */
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    border: 1px solid #4a4e57;
+    transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+    background: linear-gradient(to bottom, #383c48, #2a2d36);
+    transform: scale(1.08);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.7);
+}
+
   
   .button {
     background: linear-gradient(145deg, #f5f5f5, #e0e0e0); /* Light glossy gradient */
@@ -96,3 +137,23 @@ body {
     }
   }
   
+/* Formula1 Fonts Import */
+@font-face {
+  font-family: 'Formula1-Wide';
+  src: url('Fonts/Formula1-Wide.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Formula1-Regular';
+  src: url('Fonts/Formula1-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Formula1-Bold';
+  src: url('Fonts/Formula1-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Formula1-Black';
+  src: url('Fonts/Formula1-Black.ttf') format('truetype');
+}
