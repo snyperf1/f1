@@ -1,7 +1,7 @@
 # F1-Countdown
 A website, built from ground up, to display stats and timings
 
-# Dec 16 2024
+## Dec 16 2024
 
 Initial Ideas:
 
