@@ -20,9 +20,6 @@ body {
     transition: margin-left 0.3s;
 }
 
-footer {
-    height: 300vh;
-}
 
 /* Formula1 Fonts Import */
 @font-face {
