@@ -10,7 +10,7 @@ body {
     font-family: 'Formula1-Regular', sans-serif;
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: 105vh;
     background: #101218;
     color: #fff;
     display: flex;
@@ -18,6 +18,10 @@ body {
     align-items: center;
     text-align: center;
     transition: margin-left 0.3s;
+}
+
+footer {
+    height: 300vh;
 }
 
 /* Formula1 Fonts Import */
@@ -236,32 +240,65 @@ body {
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
+    /* Make Countdown text smaller */
     .countdown-text {
         font-size: 2rem;
     }
 
+    /* Adjust countdown unit font size */
     .countdown-unit span {
         font-size: 1.2rem;
     }
 
+    /* Sidebar full width on smaller screens */
     .sidebar {
         width: 100%;
+        left: -100%; /* Initially hidden */
+        transition: left 0.3s ease;
+    }
+
+    /* Adjust content when sidebar is active */
+    .sidebar.active {
+        left: 0; /* Show sidebar when active */
     }
 
     .content.active {
         margin-left: 0;
     }
+
+    /* Adjust the layout of the countdown units on smaller screens */
+    .countdown-units {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .countdown-unit {
+        margin-bottom: 10px;
+    }
+
+    /* Make hamburger menu visible on mobile */
+    .hamburger {
+        display: block;
+    }
 }
 
 @media screen and (max-width: 480px) {
+    /* Countdown text smaller for very small screens */
     .countdown-text {
         font-size: 1.5rem;
     }
 
+    /* Further adjust countdown unit font size */
     .countdown-unit span {
         font-size: 1rem;
     }
+
+    /* Ensure the countdown container uses full width */
+    .countdown-container {
+        padding: 10px;
+    }
 }
+
 
 .navbar {
     z-index: 1000; /* Ensures navbar is on top */
