@@ -10,7 +10,7 @@ body {
     font-family: 'Formula1-Regular', sans-serif;
     margin: 0;
     padding: 0;
-    height: 105vh;
+    height: 100vh;
     background: #101218;
     color: #fff;
     display: flex;
@@ -174,35 +174,7 @@ footer {
     border-radius: 10px;
 }
 
-/* Sidebar */
-.sidebar {
-    height: 100%;
-    width: 200px;
-    position: fixed;
-    top: 0;
-    left: -250px;
-    background-color: #000000;
-    padding-top: 60px;
-    transition: left 0.3s ease-in-out;
-}
 
-.sidebar.active {
-    left: 0;
-}
-
-.sidebar a {
-    padding: 15px 25px;
-    text-decoration: none;
-    font-size: 18px;
-    color: white;
-    display: block;
-    font-family: 'Formula1-Bold', sans-serif;
-    transition: background-color 0.3s ease;
-}
-
-.sidebar a:hover {
-    background-color: #000000;
-}
 
 /* Dropdown Menu */
 .dropdown {
@@ -314,3 +286,45 @@ footer {
     z-index: 1; /* Keeps countdown below navbar/sidebar */
     position: relative; /* Default stacking context */
 }
+
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Initially hidden */
+    width: 250px;
+    height: 100vh; /* Ensure sidebar takes full height of the viewport */
+    background-color: #000000;
+    padding-top: 60px;
+    overflow-y: auto; /* Enable vertical scrolling */
+    transition: left 0.3s ease-in-out;
+    z-index: 999;
+}
+
+/* When sidebar is active (visible) */
+.sidebar.active {
+    left: 0;
+}
+
+/* Content inside sidebar (links) */
+.sidebar a {
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    font-family: 'Formula1-Bold', sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+/* Links hover effect */
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+.stream-button {
+    margin-bottom: 60px; /* Adds space at the bottom */
+    text-align: left;
+}
+
