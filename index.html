@@ -4,9 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>F1 Countdown</title>
-    <link rel="stylesheet" href="styles.css">  <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button class="button">The Very Beginning</button>
+    <div>
+        <button class="button">The Very Beginning</button>
+        <div class="countdown-container">
+            <div class="countdown-text">Countdown to the Next Race:</div>
+            <div class="countdown-units">
+                <div class="countdown-unit">
+                    <span id="days">00</span>
+                    <label>Days</label>
+                </div>
+                <div class="countdown-unit">
+                    <span id="hours">00</span>
+                    <label>Hours</label>
+                </div>
+                <div class="countdown-unit">
+                    <span id="minutes">00</span>
+                    <label>Minutes</label>
+                </div>
+                <div class="countdown-unit">
+                    <span id="seconds">00</span>
+                    <label>Seconds</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
