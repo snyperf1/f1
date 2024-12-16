@@ -13,3 +13,16 @@ function toggleDropdown(event, dropdownId) {
     dropdown.classList.toggle('active');
 }
 
+
+// Add smooth scrolling to sidebar links
+document.querySelectorAll('.sidebar a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId.startsWith('#')) {
+            e.preventDefault();
+            document.querySelector(targetId).scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+    });
+});

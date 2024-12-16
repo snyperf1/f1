@@ -1,5 +1,10 @@
 /* Consolidated and cleaned up CSS */
 
+html {
+    scroll-behavior: smooth;
+}
+
+
 /* Body Styling */
 body {
     font-family: 'Formula1-Regular', sans-serif;
