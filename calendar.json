@@ -1,0 +1,27 @@
+[
+    { "date": "2025-03-16", "country": "Australia", "venue": "Melbourne" },
+    { "date": "2025-03-23", "country": "China", "venue": "Shanghai" },
+    { "date": "2025-04-06", "country": "Japan", "venue": "Suzuka" },
+    { "date": "2025-04-13", "country": "Bahrain", "venue": "Sakhir" },
+    { "date": "2025-04-20", "country": "Saudi Arabia", "venue": "Jeddah" },
+    { "date": "2025-05-04", "country": "USA", "venue": "Miami" },
+    { "date": "2025-05-18", "country": "Italy", "venue": "Imola" },
+    { "date": "2025-05-25", "country": "Monaco", "venue": "Monaco" },
+    { "date": "2025-06-01", "country": "Spain", "venue": "Barcelona" },
+    { "date": "2025-06-15", "country": "Canada", "venue": "Montreal" },
+    { "date": "2025-06-29", "country": "Austria", "venue": "Spielberg" },
+    { "date": "2025-07-06", "country": "United Kingdom", "venue": "Silverstone" },
+    { "date": "2025-07-27", "country": "Belgium", "venue": "Spa" },
+    { "date": "2025-08-03", "country": "Hungary", "venue": "Budapest" },
+    { "date": "2025-08-31", "country": "Netherlands", "venue": "Zandvoort" },
+    { "date": "2025-09-07", "country": "Italy", "venue": "Monza" },
+    { "date": "2025-09-21", "country": "Azerbaijan", "venue": "Baku" },
+    { "date": "2025-10-05", "country": "Singapore", "venue": "Singapore" },
+    { "date": "2025-10-19", "country": "USA", "venue": "Austin" },
+    { "date": "2025-10-26", "country": "Mexico", "venue": "Mexico City" },
+    { "date": "2025-11-09", "country": "Brazil", "venue": "Sao Paulo" },
+    { "date": "2025-11-22", "country": "USA", "venue": "Las Vegas" },
+    { "date": "2025-11-30", "country": "Qatar", "venue": "Lusail" },
+    { "date": "2025-12-07", "country": "Abu Dhabi", "venue": "Yas Marina" }
+  ]
+  
