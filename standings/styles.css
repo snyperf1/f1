@@ -1,0 +1,84 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Formula1-Regular, sans-serif;
+  }
+  
+  body {
+    background-color: #f8f8f8;
+    color: #0e143e;
+  }
+  
+  header {
+    text-align: center;
+    padding: 1rem;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  #standings {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 Columns */
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+  
+  .driver-card {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid #0e143e;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    position: relative;
+  }
+  
+  .driver-card img {
+    height: 80px;
+    width: auto;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+  
+  .driver-info h2 {
+    font-size: 1.5rem;
+  }
+  
+  .driver-info p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .points {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0e143e;
+  }
+
+@font-face {
+    font-family: 'Formula1-Wide';
+    src: url('/Fonts/Formula1-Wide.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Formula1-Regular';
+    src: url('/Fonts/Formula1-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Formula1-Bold';
+    src: url('/Fonts/Formula1-Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Formula1-Black';
+    src: url('/Fonts/Formula1-Black.ttf') format('truetype');
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2024 F1 Standings with Flags</title>
+  <style>
+    body {
+      font-family: Formula1-Regular, sans-serif;
+      margin: 20px;
+      font-size: medium;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+    img {
+      width: 24px;
+      height: 16px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    @font-face {
+    font-family: 'Formula1-Wide';
+    src: url('Fonts/Formula1-Wide.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Formula1-Regular';
+    src: url('Fonts/Formula1-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Formula1-Bold';
+    src: url('Fonts/Formula1-Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Formula1-Black';
+    src: url('Fonts/Formula1-Black.ttf') format('truetype');
+}
+  </style>
+</head>
+<body>
+  <h1>2024 F1 Standings</h1>
+  <h2>Driver Standings</h2>
+  <table id="driverStandingsTable"></table>
+
+  <h2>Constructor Standings</h2>
+  <table id="constructorStandingsTable"></table>
+
+  <script>
+    // Driver Standings Data
+    const driverStandings = [
+      {POS: 1, DRIVER: "Max Verstappen", NATIONALITY: "NED", CAR: "Red Bull Racing Honda RBPT", PTS: 437},
+      {POS: 2, DRIVER: "Lando Norris", NATIONALITY: "GBR", CAR: "McLaren Mercedes", PTS: 374},
+      {POS: 3, DRIVER: "Charles Leclerc", NATIONALITY: "MON", CAR: "Ferrari", PTS: 356},
+      {POS: 4, DRIVER: "Oscar Piastri", NATIONALITY: "AUS", CAR: "McLaren Mercedes", PTS: 292},
+      {POS: 5, DRIVER: "Carlos Sainz", NATIONALITY: "ESP", CAR: "Ferrari", PTS: 290},
+      {POS: 6, DRIVER: "George Russell", NATIONALITY: "GBR", CAR: "Mercedes", PTS: 245},
+      {POS: 7, DRIVER: "Lewis Hamilton", NATIONALITY: "GBR", CAR: "Mercedes", PTS: 223},
+      {POS: 8, DRIVER: "Sergio Perez", NATIONALITY: "MEX", CAR: "Red Bull Racing Honda RBPT", PTS: 152},
+      {POS: 9, DRIVER: "Fernando Alonso", NATIONALITY: "ESP", CAR: "Aston Martin Aramco Mercedes", PTS: 70},
+      {POS: 10, DRIVER: "Pierre Gasly", NATIONALITY: "FRA", CAR: "Alpine Renault", PTS: 42},
+      {POS: 11, DRIVER: "Nico Hulkenberg", NATIONALITY: "GER", CAR: "Haas Ferrari", PTS: 41},
+      {POS: 12, DRIVER: "Yuki Tsunoda", NATIONALITY: "JPN", CAR: "RB Honda RBPT", PTS: 30},
+      {POS: 13, DRIVER: "Lance Stroll", NATIONALITY: "CAN", CAR: "Aston Martin Aramco Mercedes", PTS: 24},
+      {POS: 14, DRIVER: "Esteban Ocon", NATIONALITY: "FRA", CAR: "Alpine Renault", PTS: 23},
+      {POS: 15, DRIVER: "Kevin Magnussen", NATIONALITY: "DEN", CAR: "Haas Ferrari", PTS: 16},
+      {POS: 16, DRIVER: "Alexander Albon", NATIONALITY: "THA", CAR: "Williams Mercedes", PTS: 12},
+      {POS: 17, DRIVER: "Daniel Ricciardo", NATIONALITY: "AUS", CAR: "RB Honda RBPT", PTS: 12},
+      {POS: 18, DRIVER: "Oliver Bearman", NATIONALITY: "GBR", CAR: "Haas Ferrari", PTS: 7},
+      {POS: 19, DRIVER: "Franco Colapinto", NATIONALITY: "ARG", CAR: "Williams Mercedes", PTS: 5},
+      {POS: 20, DRIVER: "Zhou Guanyu", NATIONALITY: "CHN", CAR: "Kick Sauber Ferrari", PTS: 4},
+      {POS: 21, DRIVER: "Liam Lawson", NATIONALITY: "NZL", CAR: "RB Honda RBPT", PTS: 4},
+      {POS: 22, DRIVER: "Valtteri Bottas", NATIONALITY: "FIN", CAR: "Kick Sauber Ferrari", PTS: 0},
+      {POS: 23, DRIVER: "Logan Sargeant", NATIONALITY: "USA", CAR: "Williams Mercedes", PTS: 0},
+      {POS: 24, DRIVER: "Jack Doohan", NATIONALITY: "AUS", CAR: "Alpine Renault", PTS: 0}
+    ];
+
+    // Constructor Standings Data
+    const constructorStandings = [
+      {POS: 1, TEAM: "McLaren Mercedes", PTS: 666},
+      {POS: 2, TEAM: "Ferrari", PTS: 652},
+      {POS: 3, TEAM: "Red Bull Racing Honda RBPT", PTS: 589},
+      {POS: 4, TEAM: "Mercedes", PTS: 468},
+      {POS: 5, TEAM: "Aston Martin Aramco Mercedes", PTS: 94},
+      {POS: 6, TEAM: "Alpine Renault", PTS: 65},
+      {POS: 7, TEAM: "Haas Ferrari", PTS: 58},
+      {POS: 8, TEAM: "RB Honda RBPT", PTS: 46},
+      {POS: 9, TEAM: "Williams Mercedes", PTS: 17},
+      {POS: 10, TEAM: "Kick Sauber Ferrari", PTS: 4}
+    ];
+
+    // Mapping nationality codes to flag emojis
+function getFlagEmoji(nationality) {
+  const emojiMap = {
+    NED: "🇳🇱", GBR: "🇬🇧", MON: "🇲🇨", AUS: "🇦🇺", ESP: "🇪🇸", MEX: "🇲🇽",
+    FRA: "🇫🇷", GER: "🇩🇪", JPN: "🇯🇵", CAN: "🇨🇦", DEN: "🇩🇰", THA: "🇹🇭",
+    ARG: "🇦🇷", CHN: "🇨🇳", NZL: "🇳🇿", FIN: "🇫🇮", USA: "🇺🇸"
+  };
+  return emojiMap[nationality] || "🏳"; // Default to a plain flag if unknown
+}
+
+// Render Driver Standings Table
+    const driverTable = document.getElementById('driverStandingsTable');
+    driverTable.innerHTML = `
+    <tr>
+        <th>POS</th>
+        <th>DRIVER</th>
+        <th>NATIONALITY</th>
+        <th>CAR</th>
+        <th>PTS</th>
+    </tr>
+    ` + driverStandings.map(row => `
+    <tr>
+        <td>${row.POS}</td>
+        <td>${row.DRIVER}</td>
+        <td>${getFlagEmoji(row.NATIONALITY)}</td>
+        <td>${row.CAR}</td>
+        <td>${row.PTS}</td>
+    </tr>
+    `).join('');
+
+    // Render Constructor Standings Table
+    const constructorTable = document.getElementById('constructorStandingsTable');
+    constructorTable.innerHTML = `
+      <tr>
+        <th>POS</th>
+        <th>TEAM</th>
+        <th>PTS</th>
+      </tr>
+    ` + constructorStandings.map(row => `
+      <tr>
+        <td>${row.POS}</td>
+        <td>${row.TEAM}</td>
+        <td>${row.PTS}</td>
+      </tr>
+    `).join('');
+
+  </script>
+</body>
+</html>
+
