@@ -75,13 +75,13 @@ body {
 }
 
 .countdown-unit span {
-    font-family: 'Formula1-Black', sans-serif;
+    font-family: 'Formula1-Bold', sans-serif;
     font-size: 1.5rem;
     font-weight: bold;
 }
 
 .countdown-unit label {
-    font-family: 'Formula1-Regular', sans-serif;
+    font-family: 'Formula1-Bold', sans-serif;
     font-size: 0.9rem;
     text-transform: uppercase;
     color: #bbb;
@@ -210,7 +210,7 @@ body {
 }
 
 /* Responsive Design */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 468px) {
     /* Make Countdown text smaller */
     .countdown-text {
         font-size: 2rem;
@@ -221,17 +221,6 @@ body {
         font-size: 1.2rem;
     }
 
-    /* Sidebar full width on smaller screens */
-    .sidebar {
-        width: 100%;
-        left: -100%; /* Initially hidden */
-        transition: left 0.3s ease;
-    }
-
-    /* Adjust content when sidebar is active */
-    .sidebar.active {
-        left: 0; /* Show sidebar when active */
-    }
 
     .content.active {
         margin-left: 0;
@@ -247,28 +236,9 @@ body {
         margin-bottom: 10px;
     }
 
-    /* Make hamburger menu visible on mobile */
-    .hamburger {
-        display: block;
-    }
+
 }
 
-@media screen and (max-width: 480px) {
-    /* Countdown text smaller for very small screens */
-    .countdown-text {
-        font-size: 1.5rem;
-    }
-
-    /* Further adjust countdown unit font size */
-    .countdown-unit span {
-        font-size: 1rem;
-    }
-
-    /* Ensure the countdown container uses full width */
-    .countdown-container {
-        padding: 10px;
-    }
-}
 
 
 .navbar {
