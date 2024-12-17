@@ -11,7 +11,9 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background: #101218;
+    background: url('back.png');
+    background-repeat: repeat;
+    background-size: cover;
     color: #fff;
     display: flex;
     justify-content: center;
@@ -324,4 +326,5 @@ body {
     margin-bottom: 60px; /* Adds space at the bottom */
     text-align: left;
 }
+
 
