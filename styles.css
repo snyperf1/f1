@@ -240,7 +240,6 @@ body {
 }
 
 
-
 .navbar {
     z-index: 1000; /* Ensures navbar is on top */
     position: fixed;
