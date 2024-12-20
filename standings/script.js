@@ -1,3 +1,4 @@
+/*
 document.addEventListener("DOMContentLoaded", () => {
   const standingsSection = document.getElementById("standings");
 
@@ -25,4 +26,51 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     })
     .catch(error => console.error('Error fetching data:', error));
+});
+*/
+// Wait for the DOM to load
+document.addEventListener("DOMContentLoaded", () => {
+  // GSAP ScrollTrigger for animating sections on scroll
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.utils.toArray("section").forEach((section) => {
+      gsap.from(section, {
+          scrollTrigger: {
+              trigger: section,
+              start: "top 80%",
+              toggleActions: "play none none reverse"
+          },
+          opacity: 0,
+          y: 50,
+          duration: 1.2
+      });
+  });
+
+  // Parallax effect for hero section
+  const hero = document.querySelector(".hero");
+  window.addEventListener("scroll", () => {
+      const scrollPosition = window.scrollY;
+      gsap.to(hero, { backgroundPositionY: `${scrollPosition * 0.5}px`, duration: 0.3 });
+  });
+
+  // Smooth scrolling to sections
+  document.querySelectorAll("a[href^='#']").forEach((link) => {
+      link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const target = document.querySelector(link.getAttribute("href"));
+          gsap.to(window, {
+              scrollTo: { y: target, offsetY: 50 },
+              duration: 1.5,
+              ease: "power2.out"
+          });
+      });
+  });
+
+  // Custom animation using GSAP TextPlugin
+  gsap.registerPlugin(TextPlugin);
+  gsap.to(".hero h1", {
+      text: "iPhone X - The Future is Here.",
+      duration: 2,
+      ease: "power2.inOut"
+  });
 });
