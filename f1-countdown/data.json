@@ -7,7 +7,7 @@
       "laps": "58",
       "distance": "306.124 km",
       "record": "1:19.813 - Charles Leclerc (2024)",
-      "image": "/assets/albert-park.png"
+      "image": "assets/albert-park.png"
     },
     "timings": [
       { "series": "F1 Academy", "type": "Practice", "time": "16:30 - 17:10" },
