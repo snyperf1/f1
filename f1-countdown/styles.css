@@ -47,7 +47,7 @@ p, span {
 /* Info Bar Styles */
 .info-bar {
     margin-top: 60px;
-    background-color: red;
+    background-color: #870000;
     color: white;
     font-size: 1.2rem;
     white-space: nowrap;
