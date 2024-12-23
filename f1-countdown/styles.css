@@ -7,6 +7,8 @@ body {
     background-color: #121212;
     color: #ffffff;
     line-height: 1.6;
+    background-image: url('/assets/back.png');
+    background-size: cover;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -181,6 +183,7 @@ p, span {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     width: 100%;
     font-style: italic;
+    padding-right: 25px;
 }
 
 .circuit-info h2 {
@@ -273,6 +276,8 @@ p, span {
     font-size: 1.2rem;
     color: #ff3d00;
     font-style: italic;
+    margin-top: 0px;
+    margin-bottom: -15px;
 }
 
 .timing-card p {
@@ -281,6 +286,9 @@ p, span {
     font-size: 0.9rem;
     color: #cccccc;
     font-style: italic;
+    margin-top: 15px;
+    margin-bottom: 0px;
+    text-align: left;
 }
 
 /* Responsive Design */
