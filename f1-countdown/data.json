@@ -1,0 +1,19 @@
+{
+    "breakingNews": "Australian GP - Melbourne - 14-16 March 2025",
+    "nextSessionDate": "2025-03-14T16:30:00",
+    "circuit": {
+      "name": "Albert Park Street Circuit",
+      "length": "5.278 km",
+      "laps": "58",
+      "distance": "306.124 km",
+      "record": "1:19.813 - Charles Leclerc (2024)",
+      "image": "/assets/albert-park.png"
+    },
+    "timings": [
+      { "series": "F1 Academy", "type": "Practice", "time": "16:30 - 17:10" },
+      { "series": "Formula 3", "type": "Qualifying", "time": "17:30 - 17:50" },
+      { "series": "Formula 2", "type": "Qualifying", "time": "18:00 - 18:30" },
+      { "series": "Formula 1", "type": "Practice", "time": "19:00 - 20:00" }
+    ]
+  }
+  

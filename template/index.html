@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>F1 Countdown</title>
+    <title>Navbar Template</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="countdown.css">
-    <meta http-equiv="refresh" content="0; url=/f1-countdown/">
-
 </head>
 <body>
 
     <!-- Navbar Section -->
+     
     <div class="navbar">
         <div class="hamburger" onclick="toggleSidebar()">
             <div class="line"></div>
@@ -26,6 +24,7 @@
         <div class="dropdown">
             <a href="#" class="dropdown-toggle" onclick="toggleDropdown(event, 'f1Dropdown')">F1 (WIP)</a>
             <div class="dropdown-content" id="f1Dropdown">
+                <a href="#">Home</a>               
                 <a href="#">Countdown</a>
                 <a href="/f1/standings/index.html">Drivers</a>
                 <a href="#">Constructors</a>
@@ -36,6 +35,7 @@
         <div class="dropdown">
             <a href="#" class="dropdown-toggle" onclick="toggleDropdown(event, 'f2Dropdown')">F2 (WIP)</a>
             <div class="dropdown-content" id="f2Dropdown">
+                <a href="#">Home</a>               
                 <a href="#">Countdown</a>
                 <a href="#">Drivers</a>
                 <a href="#">Constructors</a>
@@ -46,6 +46,7 @@
         <div class="dropdown">
             <a href="#" class="dropdown-toggle" onclick="toggleDropdown(event, 'f3Dropdown')">F3 (WIP)</a>
             <div class="dropdown-content" id="f3Dropdown">
+                <a href="#">Home</a>               
                 <a href="#">Countdown</a>
                 <a href="#">Drivers</a>
                 <a href="#">Constructors</a>
@@ -56,6 +57,7 @@
         <div class="dropdown">
             <a href="#" class="dropdown-toggle" onclick="toggleDropdown(event, 'f1AcademyDropdown')">Acad (WIP)</a>
             <div class="dropdown-content" id="f1AcademyDropdown">
+                <a href="#">Home</a>               
                 <a href="#">Countdown</a>
                 <a href="#">Drivers</a>
                 <a href="#">Constructors</a>
@@ -67,30 +69,6 @@
         </div>        
     </div>
 
-    <!-- Main Countdown Section -->
-    <div class="countdown-container">
-        <div class="countdown-text">Countdown to the Next Race</div>
-        <div class="countdown-units">
-            <div class="countdown-unit">
-                <span id="days">00</span>
-                <label>Days</label>
-            </div>
-            <div class="countdown-unit">
-                <span id="hours">00</span>
-                <label>Hours</label>
-            </div>
-            <div class="countdown-unit">
-                <span id="minutes">00</span>
-                <label>Minutes</label>
-            </div>
-            <div class="countdown-unit">
-                <span id="seconds">00</span>
-                <label>Seconds</label>
-            </div>
-        </div>
-    </div>
-
     <script src="script.js"></script>
 </body>
-
 </html>

@@ -4,10 +4,9 @@ html {
     scroll-behavior: smooth;
 }
 
-
 /* Body Styling */
 body {
-    font-family: 'Formula1-Regular', sans-serif;
+    font-family: 'Poppins-BlackItalic', sans-serif;
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -21,7 +20,6 @@ body {
     text-align: center;
     transition: margin-left 0.3s;
 }
-
 
 /* Formula1 Fonts Import */
 @font-face {
@@ -40,10 +38,14 @@ body {
     font-family: 'Formula1-Black';
     src: url('/assets/Formula1-Black.ttf') format('truetype');
 }
+@font-face {
+    font-family: 'Poppins-BlackItalic';
+    src: url('/assets/Poppins-BlackItalic.ttf') format('truetype');
+}
 
 /* Buttons */
 .button {
-    font-family: 'Formula1-Wide', sans-serif;
+    font-family: 'Poppins-BlackItalic', sans-serif;
     letter-spacing: 1.5px;
     background: linear-gradient(135deg, #f44336, #101218);
     padding: 20px 40px;
@@ -78,6 +80,7 @@ body {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    font-family: 'Poppins-BlackItalic', sans-serif;
 }
 
 .hamburger {
@@ -127,24 +130,24 @@ body {
     border-radius: 10px;
 }
 
-
-
 /* Dropdown Menu */
 .dropdown {
     position: relative;
     text-align: left;
+    font-family: 'Poppins-BlackItalic', sans-serif;
 }
 
 .dropdown-toggle {
     cursor: pointer;
     display: block;
-
+    font-family: 'Poppins-BlackItalic', sans-serif;
 }
 
 .dropdown-content {
     display: none;
     background-color: #222;
     margin-left: 20px;
+    font-family: 'Poppins-BlackItalic', sans-serif;
 }
 
 .dropdown-content a {
@@ -153,6 +156,7 @@ body {
     color: white;
     display: block;
     font-size: 16px;
+    font-family: 'Poppins-BlackItalic', sans-serif;
 }
 
 .dropdown-content a:hover {
@@ -175,7 +179,6 @@ body {
         font-size: 1.2rem;
     }
 
-
     .content.active {
         margin-left: 0;
     }
@@ -189,25 +192,21 @@ body {
     .countdown-unit {
         margin-bottom: 10px;
     }
-
-
 }
-
 
 .navbar {
     z-index: 1000; /* Ensures navbar is on top */
     position: fixed;
 }
 
+.sidebar {
+    z-index: 999; /* Sidebar is just below navbar */
+    position: fixed;
+}
 
 .countdown-container {
     z-index: 1; /* Keeps countdown below navbar/sidebar */
     position: relative; /* Default stacking context */
-}
-
-.sidebar {
-    z-index: 999; /* Sidebar is just below navbar */
-    position: fixed;
 }
 
 /* Sidebar */
@@ -222,6 +221,7 @@ body {
     overflow-y: auto; /* Enable vertical scrolling */
     transition: left 0.3s ease-in-out;
     z-index: 999;
+    font-family: 'Poppins-BlackItalic', sans-serif;
 }
 
 /* When sidebar is active (visible) */
@@ -236,7 +236,7 @@ body {
     font-size: 18px;
     color: white;
     display: block;
-    font-family: 'Formula1-Bold', sans-serif;
+    font-family: 'Poppins-BlackItalic', sans-serif;
     transition: background-color 0.3s ease;
 }
 
@@ -248,4 +248,5 @@ body {
 .stream-button {
     margin-bottom: 60px; /* Adds space at the bottom */
     text-align: left;
+    font-family: 'Poppins-BlackItalic', sans-serif;
 }

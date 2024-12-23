@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>F1 Countdown</title>
+    <title>Navbar Template</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="countdown.css">
-    <meta http-equiv="refresh" content="0; url=/f1-countdown/">
-
 </head>
 <body>
 
@@ -21,41 +18,41 @@
     </div>
 
     <!-- Sidebar Section -->
-     
     <div class="sidebar" id="sidebar">
         <div class="dropdown">
             <a href="#" class="dropdown-toggle" onclick="toggleDropdown(event, 'f1Dropdown')">F1 (WIP)</a>
             <div class="dropdown-content" id="f1Dropdown">
+                <a href="#">Home</a>               
                 <a href="#">Countdown</a>
-                <a href="/f1/standings/index.html">Drivers</a>
+                <a href="#">Drivers</a>
                 <a href="#">Constructors</a>
                 <a href="#">Timings</a>
             </div>
         </div>
-
         <div class="dropdown">
             <a href="#" class="dropdown-toggle" onclick="toggleDropdown(event, 'f2Dropdown')">F2 (WIP)</a>
             <div class="dropdown-content" id="f2Dropdown">
+                <a href="#">Home</a>               
                 <a href="#">Countdown</a>
                 <a href="#">Drivers</a>
                 <a href="#">Constructors</a>
                 <a href="#">Timings</a>
             </div>
         </div>
-
         <div class="dropdown">
             <a href="#" class="dropdown-toggle" onclick="toggleDropdown(event, 'f3Dropdown')">F3 (WIP)</a>
             <div class="dropdown-content" id="f3Dropdown">
+                <a href="#">Home</a>               
                 <a href="#">Countdown</a>
                 <a href="#">Drivers</a>
                 <a href="#">Constructors</a>
                 <a href="#">Timings</a>
             </div>
         </div>
-
         <div class="dropdown">
             <a href="#" class="dropdown-toggle" onclick="toggleDropdown(event, 'f1AcademyDropdown')">Acad (WIP)</a>
             <div class="dropdown-content" id="f1AcademyDropdown">
+                <a href="#">Home</a>               
                 <a href="#">Countdown</a>
                 <a href="#">Drivers</a>
                 <a href="#">Constructors</a>
@@ -67,30 +64,52 @@
         </div>        
     </div>
 
-    <!-- Main Countdown Section -->
-    <div class="countdown-container">
-        <div class="countdown-text">Countdown to the Next Race</div>
-        <div class="countdown-units">
-            <div class="countdown-unit">
-                <span id="days">00</span>
-                <label>Days</label>
+    <!-- Info Bar Section -->
+    <div class="info-bar">
+        <div class="info-bar-content" id="breaking-news-container">
+            <!-- News will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="content-grid">
+        <div class="left-column">
+            <!-- Countdown Section -->
+            <div class="countdown-container">
+                <h2>Countdown to FP1</h2>
+                <div id="countdown">
+                    <span class="time" id="days">00</span><span> Days </span>
+                    <span class="time" id="hours">00</span><span> Hours </span>
+                    <span class="time" id="minutes">00</span><span> Minutes </span>
+                    <span class="time" id="seconds">00</span><span> Seconds</span>
+                </div>
             </div>
-            <div class="countdown-unit">
-                <span id="hours">00</span>
-                <label>Hours</label>
+
+            <!-- Circuit Info Section -->
+            <div class="circuit-info">
+                <h2>Circuit Info</h2>
+                <div class="circuit-details">
+                    <img id="circuit-image" src="" alt="Circuit Image">
+                    <div class="details-text">
+                        <h3 id="circuit-name"></h3>
+                        <p>Length: <span id="circuit-length"></span></p>
+                        <p>Laps: <span id="circuit-laps"></span></p>
+                        <p>Distance: <span id="circuit-distance"></span></p>
+                        <p>Record: <span id="circuit-record"></span></p>
+                    </div>
+                </div>
             </div>
-            <div class="countdown-unit">
-                <span id="minutes">00</span>
-                <label>Minutes</label>
-            </div>
-            <div class="countdown-unit">
-                <span id="seconds">00</span>
-                <label>Seconds</label>
+        </div>
+
+        <div class="right-column">
+            <!-- Timings Section -->
+            <div class="timings">
+                <h2>Timings</h2>
+                <div id="timings-list"></div>
             </div>
         </div>
     </div>
 
     <script src="script.js"></script>
 </body>
-
 </html>

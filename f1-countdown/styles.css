@@ -1,0 +1,603 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900; /* Black */
+    font-style: italic;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700; /* Bold */
+    font-style: italic;
+}
+
+p, span {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400; /* Regular */
+    font-size: 1rem;
+    color: #cccccc;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Info Bar Styles */
+.info-bar {
+    margin-top: 60px;
+    background-color: red;
+    color: white;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700; /* Bold */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 998;
+    height: 30px;
+    line-height: 30px;
+
+    font-style: italic;
+}
+
+.info-bar-content {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll-left 20s linear infinite;
+    padding-left: 100%;
+    font-style: italic;
+}
+
+.info-bar-content span {
+    display: inline-block;
+    padding-right: 50px;
+    color: white;
+    font-style: italic;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Navbar */
+.navbar {
+    background-color: #121f45;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700; /* Bold */
+    font-style: italic;
+}
+
+.hamburger {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    z-index: 1001;
+    transition: all 0.3s ease;
+}
+
+.hamburger .line {
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .line:nth-child(2) {
+    opacity: 0; /* Hide middle line */
+}
+
+.hamburger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Countdown Section */
+.countdown-container {
+    text-align: center;
+    margin: 20px auto;
+    margin-top: 100px;
+    padding: 20px;
+    width: 100%;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    font-style: italic;
+}
+
+.countdown-container h2 {
+    color: #ff3d00;
+    margin-bottom: 15px;
+    margin-top: -10px;
+    font-weight: 700; /* Bold */
+    font-style: italic;
+}
+
+#countdown {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-style: italic;
+}
+
+.time {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700; /* Bold */
+    font-size: 2rem;
+    color: #ffffff;
+    font-style: italic;
+}
+
+/* Circuit Info */
+.circuit-info {
+    text-align: center;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    font-style: italic;
+}
+
+.circuit-info h2 {
+    margin-top: -10px;
+    font-weight: 900; /* Black */
+    font-style: italic;
+}
+
+.circuit-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-style: italic;
+}
+
+#circuit-image {
+    max-width: 300px;
+    height: auto;
+    margin-left: -10px;
+    padding-right: 40px;
+    font-style: italic;
+}
+
+.details-text {
+    max-width: 300px;
+    text-align: left;
+    font-size: 1rem;
+    font-style: italic;
+}
+
+.details-text h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700; /* Bold */
+    margin-bottom: 10px;
+    color: #ff3d00;
+    font-style: italic;
+}
+
+.details-text p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400; /* Regular */
+    color: #cccccc;
+    font-style: italic;
+}
+
+/* Timings Section */
+.timings {
+    text-align: center;
+    margin: 100px;
+    margin-left: 60px;
+    padding: 15px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    width: 70%;
+    font-style: italic;
+}
+
+.timings h2 {
+    margin-bottom: 10px;
+    margin-top: -10px;
+    font-weight: 700; /* Bold */
+    font-style: italic;
+}
+
+#timings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-style: italic;
+}
+
+.timing-card {
+    background-color: #333333;
+    border: 1px solid #444444;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: left;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    font-style: italic;
+}
+
+.timing-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700; /* Bold */
+    font-size: 1.2rem;
+    color: #ff3d00;
+    font-style: italic;
+}
+
+.timing-card p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400; /* Regular */
+    font-size: 0.9rem;
+    color: #cccccc;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .circuit-details {
+        flex-direction: column;
+    }
+
+    .details-text, #circuit-image {
+        max-width: 100%;
+    }
+
+    #countdown {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr; /* Single column for mobile */
+    }
+}
+
+.navbar {
+    z-index: 1000; /* Ensures navbar is on top */
+    position: fixed;
+}
+
+.sidebar {
+    z-index: 999; /* Sidebar is just below navbar */
+    position: fixed;
+}
+
+/* Sidebar */
+.sidebar {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700; /* Bold */
+    font-style: italic;
+    position: fixed;
+    top: 0;
+    left: -250px; /* Initially hidden */
+    width: 250px;
+    height: 100vh; /* Ensure sidebar takes full height of the viewport */
+    background-color: #000000;
+    padding-top: 60px;
+    overflow-y: auto; /* Enable vertical scrolling */
+    transition: left 0.3s ease-in-out;
+    z-index: 999;
+}
+
+/* When sidebar is active (visible) */
+.sidebar.active {
+    left: 0;
+}
+
+/* Content inside sidebar (links) */
+.sidebar a {
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400; /* Regular */
+    transition: background-color 0.3s ease;
+    font-style: italic;
+}
+
+/* Links hover effect */
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+.stream-button {
+    margin-bottom: 60px; /* Adds space at the bottom */
+    text-align: left;
+    font-style: italic;
+}
+
+/* Updated Navbar and Sidebar Dropdown Styles */
+
+/* Dropdown Menu */
+.dropdown-content {
+    display: none;
+    background-color: #222;
+    margin-left: 20px;
+    /* border-radius: 5px; */ /* Removed rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Retained shadow for depth */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400; /* Regular */
+    font-style: italic;
+}
+
+.dropdown-content a {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    display: block;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400; /* Regular */
+    font-style: italic;
+}
+
+.dropdown-content a:hover {
+    background-color: #575757;
+}
+
+.dropdown-content.active {
+    display: block;
+}
+
+/* Dropdown Toggle */
+.dropdown-toggle {
+    cursor: pointer;
+    display: block;
+    padding: 15px 25px; /* Added padding for better click area */
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700; /* Bold */
+    font-style: italic;
+}
+
+.dropdown-toggle:hover {
+    background-color: #575757;
+}
+
+/* Hamburger Menu */
+.hamburger .line {
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    border-radius: 10px; /* Ensured consistent border radius */
+    transition: all 0.3s ease;
+}
+
+.hamburger.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .line:nth-child(2) {
+    opacity: 0; /* Hide middle line */
+}
+
+.hamburger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Responsive Design Enhancements */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 200px; /* Adjusted width for smaller screens */
+    }
+
+    .dropdown-content {
+        margin-left: 15px; /* Reduced margin for better fit */
+    }
+
+    .dropdown-toggle {
+        font-size: 16px; /* Slightly smaller font */
+        padding: 10px 20px;
+    }
+}
+
+/* Add grid container */
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Two columns: 2/3 for main content, 1/3 for sidebar */
+    gap: 20px; /* Space between columns */
+    margin-top: 180px; /* Adjusted space for navbar and info bar */
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.body {
+    margin-top: 100px;
+}
+
+/* Formula1 Fonts Import */
+@font-face {
+    font-family: 'Poppins';
+    src: url('/assets/Poppins-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/assets/Poppins-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/assets/Poppins-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/assets/Poppins-ExtraLightItalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/assets/Poppins-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/assets/Poppins-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/assets/Poppins-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/assets/Poppins-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/assets/Poppins-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/assets/Poppins-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/assets/Poppins-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/assets/Poppins-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/assets/Poppins-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/assets/Poppins-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/assets/Poppins-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/assets/Poppins-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/assets/Poppins-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/assets/Poppins-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}

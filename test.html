@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrollable Layout</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: auto;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 6fr 3fr;
+      width: 80vw; /* Adjust width as needed */
+      gap: 1rem;
+      padding: 1rem;
+      overflow-x: auto;
+    }
+
+    .middle, .right {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .title {
+      background-color: #f0f0f0;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+    }
+
+    .card {
+      background-color: #ccc;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-radius: 5px;
+    }
+
+    .scrollable {
+      overflow-y: auto;
+      max-height: 100vh;
+    }
+
+    .right {
+      padding-right: 0rem; /* Adjust gap on the left of the right column */
+    }
+
+    .middle {
+      padding-left: 14rem; /* Adjust gap on the left of the right column */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="middle scrollable">
+      <div class="title">Middle Title</div>
+      <div class="card">Middle Card 1</div>
+      <div class="card">Middle Card 2</div>
+      <div class="card">Middle Card 3</div>
+    </div>
+    <div class="right">
+      <div class="title">Right Title 1</div>
+      <div class="card">Right Card 1</div>
+      <div class="card">Right Card 2</div>
+      <div class="card">Right Card 3</div>
+      <div class="card">Right Card 4</div>
+    </div>
+  </div>
+</body>
+</html>
