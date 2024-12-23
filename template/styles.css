@@ -13,6 +13,7 @@ body {
     background: url('/assets/back.png');
     background-repeat: repeat;
     background-size: cover;
+    background-repeat: repeat-y;
     color: #fff;
     display: flex;
     justify-content: center;
