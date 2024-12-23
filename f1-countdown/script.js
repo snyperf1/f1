@@ -52,7 +52,6 @@ fetch('data.json')
 
         // Populate Circuit Info
         const circuitInfo = data.circuit;
-        document.getElementById('circuit-image').src = circuitInfo.image;
         document.getElementById('circuit-name').innerText = circuitInfo.name;
         document.getElementById('circuit-length').innerText = circuitInfo.length;
         document.getElementById('circuit-laps').innerText = circuitInfo.laps;
