@@ -4,24 +4,332 @@ html {
     scroll-behavior: smooth;
 }
 
-
-/* Body Styling */
-body {
-    font-family: 'Formula1-Regular', sans-serif;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    background: url('/assets/back.png');
-    background-repeat: repeat;
-    background-size: cover;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    transition: margin-left 0.3s;
+:root {
+    /* Core colors - Dark theme defaults */
+    --primary-color: #e31837; /* F1 red */
+    --secondary-color: #15151e;
+    --background-color: #000000;
+    
+    /* Navbar specific */
+    --nav-bg: rgba(0, 0, 0, 0.8);
+    --nav-text: rgba(255, 255, 255, 0.92);
+    --nav-border: rgba(255, 255, 255, 0.1);
+    
+    /* Remove duplicates, keep one instance of each */
+    --glass-bg: rgba(28, 28, 30, 0.7);
+    --text-primary: rgba(255, 255, 255, 0.92);
+    --text-secondary: rgba(255, 255, 255, 0.82);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glow-primary: 0 0 20px rgba(227, 24, 55, 0.2);
+    
+    /* Text colors - Dark theme */
+    --text-tertiary: rgba(255, 255, 255, 0.65);
+    
+    /* Glass effects */
+    --glass-hover: rgba(255, 255, 255, 0.05);
+    --blur-amount: 20px;
+    
+    /* Shadows and glows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+    
+    /* Layout */
+    --nav-height: 44px;
+    --sidebar-width: 256px;
+    
+    /* Core colors - Light theme defaults */
+    --accent-color: #30d158;
+    --text-color: #ffffff;
+    --secondary-text: #86868b;
+    --glow-accent: 0 0 25px rgba(48, 209, 88, 0.2);
+    --glow-white: 0 0 30px rgba(255, 255, 255, 0.1);
+    
+    /* Dynamic effects */
+    --hover-scale: 1.04;
+    --transition-speed: 0.4s;
+    --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #2997ff, #1d6abf);
+    --gradient-accent: linear-gradient(135deg, #30d158, #27ae60);
+    --gradient-dark: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+    
+    /* Animation curves */
+    --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    
+    --text-color: #ffffff;
+    --secondary-text: #86868b;
+    
+    /* Glow Effects */
+    --glow-accent: 0 0 25px rgba(48, 209, 88, 0.2);
+    --glow-white: 0 0 30px rgba(255, 255, 255, 0.1);
+    
+    /* Vignette */
+    --vignette-color: radial-gradient(
+        circle at center,
+        transparent 0%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
+    
+    /* Shine effect */
+    --shine-gradient: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent
+    );
 }
 
+/* Dark theme variables */
+[data-theme="dark"] {
+    --background-color: #000000;
+    --glass-bg: rgba(28, 28, 30, 0.7);
+    --text-primary: rgba(255, 255, 255, 0.92);
+    --text-secondary: rgba(255, 255, 255, 0.82);
+    --text-tertiary: rgba(255, 255, 255, 0.65);
+}
+
+/* Light theme overrides */
+[data-theme="light"] {
+    /* Core colors */
+    --background-color: #ffffff; /* Pure white background */
+    --primary-color: #e31837; /* Keep F1 red */
+    
+    /* Navigation */
+    --nav-bg: rgba(255, 255, 255, 0.8); /* White nav with slight transparency */
+    --nav-text: rgba(0, 0, 0, 0.85);
+    --nav-border: rgba(0, 0, 0, 0.1);
+    
+    /* Text colors - Using SF semantic colors */
+    --text-primary: rgba(0, 0, 0, 0.85);
+    --text-secondary: rgba(0, 0, 0, 0.65);
+    --text-tertiary: rgba(0, 0, 0, 0.45);
+    
+    /* Glass effects */
+    --glass-bg: rgba(255, 255, 255, 0.95); /* More opaque for better contrast */
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --glass-hover: rgba(0, 0, 0, 0.03);
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.08);
+    
+    /* Schedule section specific */
+    --schedule-bg: rgba(255, 255, 255, 1); /* Solid white */
+    --schedule-border: rgba(0, 0, 0, 0.1);
+    --schedule-hover: rgba(0, 0, 0, 0.02);
+    --sidebar-bg: rgba(255, 255, 255, 0.95);
+    --sidebar-hover: rgba(0, 0, 0, 0.04);
+    --sidebar-active: rgba(0, 0, 0, 0.08);
+    
+    /* Gradients */
+    --gradient-dark: linear-gradient(180deg, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 1) 100%
+    );
+    
+    /* Vignette for light mode */
+    --vignette-color: radial-gradient(
+        circle at center,
+        transparent 0%,
+        rgba(0, 0, 0, 0.02) 100%
+    );
+
+    /* Add specific countdown section text color */
+    --countdown-title: rgba(0, 0, 0, 0.85);
+}
+
+/* Navbar styling */
+.navbar {
+    height: var(--nav-height);
+    background: var(--nav-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--nav-border);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    box-sizing: border-box;
+}
+
+/* Menu button styling */
+.menu-button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: none;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+    position: relative;
+}
+
+.menu-button:hover {
+    background-color: var(--glass-hover);
+}
+
+/* Hamburger icon styling */
+.menu-button span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background-color: var(--nav-text);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.menu-button span::before,
+.menu-button span::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 2px;
+    background-color: var(--nav-text);
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.menu-button span::before {
+    top: -6px;
+}
+
+.menu-button span::after {
+    bottom: -6px;
+}
+
+/* Active state animations */
+.menu-button.active span {
+    background-color: transparent;
+}
+
+.menu-button.active span::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.menu-button.active span::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+
+/* Nav title styling */
+.nav-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--nav-text);
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+/* Theme toggle styling */
+.theme-toggle {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: none;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+    background-color: var(--glass-hover);
+}
+
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--nav-text);
+}
+
+/* Theme toggle animations */
+[data-theme="dark"] .theme-toggle .sun-icon {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.5);
+}
+
+[data-theme="dark"] .theme-toggle .moon-icon {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+}
+
+[data-theme="light"] .theme-toggle .sun-icon {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+}
+
+[data-theme="light"] .theme-toggle .moon-icon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.5);
+}
+
+/* Smooth theme transition */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    font-size: 17px; /* Apple's recommended base size */
+    line-height: 1.47059; /* Apple's recommended line height */
+    letter-spacing: -0.022em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+}
+
+h1 {
+    font-size: 34px;
+    line-height: 1.17649;
+    letter-spacing: -0.022em;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 28px;
+    line-height: 1.21053;
+    letter-spacing: -0.021em;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 22px;
+    line-height: 1.23536;
+    letter-spacing: -0.021em;
+    font-weight: 600;
+}
+
+p {
+    font-size: 17px;
+    line-height: 1.47059;
+    letter-spacing: -0.022em;
+}
+
+/* Update glass effects for both themes */
+.glass-effect {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--blur-amount));
+    -webkit-backdrop-filter: blur(var(--blur-amount));
+    border: 1px solid var(--glass-border);
+}
 
 /* Formula1 Fonts Import */
 @font-face {
@@ -45,7 +353,7 @@ body {
 .button {
     font-family: 'Formula1-Wide', sans-serif;
     letter-spacing: 1.5px;
-    background: linear-gradient(135deg, #f44336, #101218);
+    background: linear-gradient(135deg, #e31837, #b71c1c);
     padding: 20px 40px;
     border-radius: 30px;
     color: #fff;
@@ -56,78 +364,14 @@ body {
     border: none;
     position: relative;
     overflow: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    transition: all var(--transition-speed) var(--ease-out-expo);
+    box-shadow: var(--shadow-md), var(--glow-primary);
 }
 
 .button:hover {
     transform: scale(1.05);
-    background: linear-gradient(135deg, #c62828, #b71c1c);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.7);
+    box-shadow: var(--shadow-lg), 0 0 30px rgba(227, 24, 55, 0.4);
 }
-
-/* Navbar */
-.navbar {
-    background-color: #121f45;
-    padding: 15px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.hamburger {
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 30px;
-    z-index: 1001;
-    transition: all 0.3s ease;
-}
-
-.hamburger .line {
-    width: 30px;
-    height: 4px;
-    background-color: white;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-}
-
-.hamburger.active .line:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active .line:nth-child(2) {
-    opacity: 0; /* Hide middle line */
-}
-
-.hamburger.active .line:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
-
-.hamburger {
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 30px;
-    width: 30px;
-}
-
-.hamburger .line {
-    width: 30px;
-    height: 4px;
-    background-color: white;
-    border-radius: 10px;
-}
-
-
 
 /* Dropdown Menu */
 .dropdown {
@@ -138,7 +382,6 @@ body {
 .dropdown-toggle {
     cursor: pointer;
     display: block;
-
 }
 
 .dropdown-content {
@@ -175,7 +418,6 @@ body {
         font-size: 1.2rem;
     }
 
-
     .content.active {
         margin-left: 0;
     }
@@ -189,16 +431,12 @@ body {
     .countdown-unit {
         margin-bottom: 10px;
     }
-
-
 }
-
 
 .navbar {
     z-index: 1000; /* Ensures navbar is on top */
     position: fixed;
 }
-
 
 .countdown-container {
     z-index: 1; /* Keeps countdown below navbar/sidebar */
@@ -208,9 +446,71 @@ body {
 .sidebar {
     z-index: 999; /* Sidebar is just below navbar */
     position: fixed;
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--blur-amount));
+    -webkit-backdrop-filter: blur(var(--blur-amount));
+    border-right: 1px solid var(--glass-border);
+    padding-top: var(--nav-height);
 }
 
 /* Sidebar */
+.sidebar {
+    position: fixed;
+    top: var(--nav-height);
+    left: -var(--sidebar-width);
+    width: var(--sidebar-width);
+    height: calc(100vh - var(--nav-height));
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--blur-amount));
+    -webkit-backdrop-filter: blur(var(--blur-amount));
+    border-right: 1px solid var(--glass-border);
+    transition: left 0.3s var(--ease-out-expo);
+    z-index: 999;
+    overflow-y: auto;
+    padding: 16px 0;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.nav-group {
+    padding: 0;
+    margin: 0 0 24px 0;
+}
+
+.nav-group:last-child {
+    margin-bottom: 0;
+}
+
+.nav-group h3 {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin: 0 0 8px 0;
+    padding: 0 16px;
+    letter-spacing: 0.05em;
+}
+
+.nav-group a {
+    display: block;
+    padding: 8px 16px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s var(--ease-out-expo);
+    border-radius: 0;
+}
+
+.nav-group a:hover {
+    background: var(--glass-hover);
+}
+
+.nav-group a.active {
+    color: var(--primary-color);
+    background: var(--glass-hover);
+}
+
 .sidebar {
     position: fixed;
     top: 0;
@@ -231,21 +531,611 @@ body {
 
 /* Content inside sidebar (links) */
 .sidebar a {
-    padding: 15px 25px;
+    padding: 8px 16px;
     text-decoration: none;
     font-size: 18px;
-    color: white;
+    color: var(--text-primary);
     display: block;
     font-family: 'Formula1-Bold', sans-serif;
-    transition: background-color 0.3s ease;
+    transition: all 0.2s var(--ease-out-expo);
 }
 
 /* Links hover effect */
 .sidebar a:hover {
-    background-color: #575757;
+    background-color: var(--sidebar-hover);
+}
+
+.sidebar a.active {
+    background-color: var(--sidebar-active);
+    color: var(--primary-color);
 }
 
 .stream-button {
     margin-bottom: 60px; /* Adds space at the bottom */
     text-align: left;
+}
+
+/* Content Grid Layout */
+.content-grid {
+    display: grid;
+    grid-template-columns: 65fr 35fr;
+    gap: 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 64px 24px 24px; /* Reduced top padding */
+    min-height: calc(100vh - var(--nav-height));
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 32px; /* Consistent spacing between sections */
+}
+
+.right-column {
+    position: sticky;
+    top: calc(var(--nav-height) + 32px);
+    height: calc(100vh - var(--nav-height) - 64px);
+    margin-top: 0;
+}
+
+/* Schedule Styles */
+.schedule-section {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--blur-amount));
+    -webkit-backdrop-filter: blur(var(--blur-amount));
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    height: calc(100vh - var(--nav-height) - 160px);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.schedule-section h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 16px; /* Reduced margin bottom from 24px to 16px */
+    letter-spacing: -0.5px;
+}
+
+.schedule-list {
+    overflow-y: auto;
+    padding-right: 8px; /* Add slight padding for scrollbar */
+    margin-top: 0; /* Remove any top margin */
+}
+
+.schedule-date-header {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin: 20px 0 12px; /* Increased margins */
+    padding: 0 8px;
+}
+
+.schedule-item {
+    position: relative;
+    overflow: hidden;
+    background: var(--schedule-bg);
+    border: 1px solid var(--schedule-border);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 8px;
+    transition: all 0.2s var(--ease-out-expo);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.schedule-item:hover {
+    background: var(--schedule-hover);
+    transform: translateY(-1px);
+}
+
+.schedule-item-time {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.schedule-item-content {
+    flex: 1;
+}
+
+.schedule-item-details h3 {
+    font-size: 14px;
+    margin: 0 0 2px;
+    font-weight: 500;
+}
+
+.schedule-item-details p {
+    font-size: 13px;
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+/* Custom Scrollbar */
+.schedule-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.schedule-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.schedule-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.schedule-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Countdown Section */
+.countdown-section {
+    background: var(--gradient-dark);
+    padding: 32px 24px; /* Reduced top padding */
+    border-radius: 24px;
+    text-align: center;
+    min-height: auto; /* Remove full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align to top instead of center */
+    align-items: center;
+    margin-bottom: 32px; /* Add margin bottom for spacing */
+}
+
+.countdown-section h2 {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+.countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 800px;
+    margin: 32px auto;
+    padding: 0 16px;
+}
+
+.countdown-item {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 24px 16px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.countdown-item span {
+    display: block;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+}
+
+.countdown-item label {
+    display: block;
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Add shine effect on hover */
+.countdown-item::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: var(--shine-gradient);
+    transform: translateX(-100%) rotate(45deg);
+    animation: none;
+    pointer-events: none;
+}
+
+.countdown-item:hover::after {
+    animation: shine 1.5s ease-out;
+}
+
+/* Fix circuit section styling */
+.circuit-section {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 24px;
+    transition: all var(--transition-speed) var(--ease-out-expo);
+}
+
+.circuit-info {
+    position: relative;
+    overflow: hidden;
+    background: none; /* Remove glass background */
+    border: none; /* Remove border */
+    box-shadow: none; /* Remove shadow */
+    padding: 40px 24px;
+}
+
+.circuit-info h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0 0 24px 0;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+}
+
+.circuit-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.details-text {
+    padding-right: 24px;
+}
+
+.details-text h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 16px 0;
+    color: var(--text-primary);
+    letter-spacing: -0.3px;
+}
+
+.details-text p {
+    margin: 8px 0;
+    font-size: 15px;
+    line-height: 1.4;
+    color: var(--text-secondary);
+}
+
+.details-text p strong {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.details-text p span {
+    color: var(--text-secondary);
+}
+
+.circuit-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    transition: transform var(--transition-speed) var(--ease-out-expo);
+}
+
+/* Light mode specific adjustments */
+[data-theme="light"] {
+    /* Update existing light mode colors */
+    --text-primary: rgba(0, 0, 0, 0.85);
+    --text-secondary: rgba(0, 0, 0, 0.65);
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    
+    /* Add specific countdown section text color */
+    --countdown-title: rgba(0, 0, 0, 0.85);
+}
+
+/* Countdown section text color */
+[data-theme="light"] .countdown-section h2,
+[data-theme="light"] .countdown-text {
+    color: var(--countdown-title);
+}
+
+/* Circuit section light mode */
+[data-theme="light"] .circuit-section {
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: var(--shadow-sm);
+}
+
+[data-theme="light"] .circuit-info h2,
+[data-theme="light"] .details-text h3 {
+    color: var(--text-primary);
+}
+
+[data-theme="light"] .details-text p {
+    color: var(--text-secondary);
+}
+
+[data-theme="light"] .details-text p strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .content-grid {
+        padding-top: 48px; /* Even smaller padding on mobile */
+    }
+    
+    .countdown-section {
+        padding: 24px 16px; /* Smaller padding on mobile */
+    }
+
+    .right-column {
+        position: relative;
+        height: auto;
+        top: 0;
+    }
+
+    .schedule-section {
+        height: auto;
+        max-height: 600px;
+    }
+
+    .circuit-details {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .details-text {
+        max-width: 100%;
+    }
+}
+
+/* Enhanced glass morphism effects */
+.glass-effect {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--blur-amount));
+    -webkit-backdrop-filter: blur(var(--blur-amount));
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-speed) var(--ease-out-expo);
+}
+
+.glass-effect:hover {
+    background: rgba(28, 28, 30, 0.9);
+    transform: scale(var(--hover-scale));
+    box-shadow: var(--shadow-lg);
+}
+
+/* Enhanced schedule section */
+.schedule-section {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 24px;
+    transition: all var(--transition-speed) var(--ease-out-expo);
+}
+
+.schedule-item {
+    background: var(--schedule-bg);
+    border: 1px solid var(--schedule-border);
+    padding: 16px;
+    margin-bottom: 8px;
+    transition: all 0.2s var(--ease-out-expo);
+    cursor: pointer;
+}
+
+.schedule-item:hover {
+    background: var(--schedule-hover);
+    transform: translateY(-1px);
+}
+
+/* Enhanced circuit section */
+.circuit-section {
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    transition: all var(--transition-speed) var(--ease-out-expo);
+}
+
+.circuit-image {
+    width: 100%;
+    height: auto;
+    transform-origin: center;
+    transition: transform var(--transition-speed) var(--ease-out-expo);
+}
+
+.circuit-image:hover {
+    transform: scale(1.05);
+}
+
+/* Enhanced countdown section */
+.countdown-section {
+    background: var(--gradient-dark);
+    padding: 48px 24px;
+    border-radius: 24px;
+    text-align: center;
+}
+
+.countdown-item:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Typography enhancements */
+h1, h2, h3 {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+    letter-spacing: -0.5px;
+    font-weight: 600;
+}
+
+/* Add vignette overlay to main content */
+.main-content::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--vignette-color);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Add shine animation */
+@keyframes shine {
+    to {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .countdown-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        padding: 0 12px;
+    }
+
+    .countdown-item span {
+        font-size: 40px;
+    }
+
+    .countdown-item {
+        padding: 20px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .countdown-item span {
+        font-size: 32px;
+    }
+    
+    .countdown-item label {
+        font-size: 12px;
+    }
+}
+
+/* Enhance schedule section for light mode */
+[data-theme="light"] .schedule-section {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+}
+
+[data-theme="light"] .schedule-item {
+    background: var(--schedule-bg);
+    border: 1px solid var(--schedule-border);
+}
+
+[data-theme="light"] .schedule-item:hover {
+    background: var(--schedule-hover);
+}
+
+/* Update calendar button and popover styles */
+.calendar-button {
+    background: none;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s var(--ease-out-expo);
+    position: relative;
+    flex-shrink: 0;
+    padding: 0;
+    border: 1.5px solid var(--text-secondary);
+    border-radius: 8px;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+.calendar-button:hover {
+    opacity: 1;
+    border-color: var(--text-primary);
+}
+
+.calendar-button svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--text-secondary);
+    transition: all 0.2s var(--ease-out-expo);
+    /* Add this to ensure the path is centered */
+    display: block;
+}
+
+.calendar-button:hover svg {
+    fill: var(--text-primary);
+}
+
+/* Calendar Popover */
+
+.calendar-popover {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: calc(100% + 8px);
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--blur-amount));
+    border-radius: 8px;
+    padding: 8px;
+    width: auto;
+    min-width: 240px; /* Increased min-width */
+    height: auto;
+    min-height: 90px; /* Added min-height to accommodate both buttons */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s var(--ease-out-expo);
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border: 0.5px solid var(--glass-border);
+}
+
+.calendar-popover-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 8px 12px;
+    border: none;
+    background: none;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    cursor: pointer;
+    transition: all 0.1s var(--ease-out-expo);
+    border-radius: 6px;
+    text-align: left;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.calendar-popover.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+.calendar-popover-button:not(:last-child) {
+    margin-bottom: 4px;
+}
+
+.calendar-popover-button svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.calendar-popover-button:hover {
+    background: var(--glass-hover);
+}
+
+/* Add this to ensure the calendar actions container is positioned correctly */
+.calendar-actions {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }

@@ -1,0 +1,99 @@
+{
+  "events": [
+    {
+      "series": "Formula 1",
+      "sessions": [
+        {
+          "name": "Practice 1",
+          "time": "2025-10-03T16:30:00+08:00",
+          "category": "Formula 1"
+        },
+        {
+          "name": "Practice 2",
+          "time": "2025-10-03T20:00:00+08:00",
+          "category": "Formula 1"
+        },
+        {
+          "name": "Practice 3",
+          "time": "2025-10-04T16:30:00+08:00",
+          "category": "Formula 1"
+        },
+        {
+          "name": "Qualifying",
+          "time": "2025-10-04T20:00:00+08:00",
+          "category": "Formula 1"
+        },
+        {
+          "name": "Race",
+          "time": "2025-10-05T20:00:00+08:00",
+          "category": "Formula 1"
+        }
+      ]
+    },
+    {
+      "series": "Formula 2",
+      "sessions": [
+        {
+          "name": "Practice",
+          "time": "2025-10-03T15:00:00+08:00",
+          "category": "Formula 2"
+        },
+        {
+          "name": "Qualifying",
+          "time": "2025-10-03T18:30:00+08:00",
+          "category": "Formula 2"
+        },
+        {
+          "name": "Sprint Race",
+          "time": "2025-10-04T14:00:00+08:00",
+          "category": "Formula 2"
+        },
+        {
+          "name": "Feature Race",
+          "time": "2025-10-05T16:00:00+08:00",
+          "category": "Formula 2"
+        }
+      ]
+    },
+    {
+      "series": "F1 Academy",
+      "sessions": [
+        {
+          "name": "Practice",
+          "time": "2025-10-03T14:00:00+08:00",
+          "category": "F1 Academy"
+        },
+        {
+          "name": "Race 1",
+          "time": "2025-10-04T13:00:00+08:00",
+          "category": "F1 Academy"
+        },
+        {
+          "name": "Race 2",
+          "time": "2025-10-05T13:00:00+08:00",
+          "category": "F1 Academy"
+        }
+      ]
+    },
+    {
+      "series": "Porsche Carrera Cup Asia",
+      "sessions": [
+        {
+          "name": "Practice",
+          "time": "2025-10-03T13:00:00+08:00",
+          "category": "Porsche"
+        },
+        {
+          "name": "Qualifying",
+          "time": "2025-10-04T11:00:00+08:00",
+          "category": "Porsche"
+        },
+        {
+          "name": "Race",
+          "time": "2025-10-05T14:30:00+08:00",
+          "category": "Porsche"
+        }
+      ]
+    }
+  ]
+} 
