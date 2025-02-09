@@ -153,19 +153,9 @@ function populateSchedule() {
                                     <path d="M12 7v4H8v2h4v4h2v-4h4v-2h-4V7h-2z"/>
                                 </svg>
                             </button>
-                            <div class="calendar-popover">
-                                <button class="calendar-popover-button" onclick="addToGoogleCalendar(event, '${session.name}', '${session.time}')">
-                                    <svg viewBox="0 0 24 24">
-                                        <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
-                                    </svg>
-                                    Add to Google Calendar
-                                </button>
-                                <button class="calendar-popover-button" onclick="addToAppleCalendar(event, '${session.name}', '${session.time}')">
-                                    <svg viewBox="0 0 24 24">
-                                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11"/>
-                                    </svg>
-                                    Add to Apple Calendar
-                                </button>
+                            <div class="calendar-options" style="display: none;">
+                                <button class="add-to-apple">Add to Apple Calendar</button>
+                                <button class="add-to-google">Add to Google Calendar</button>
                             </div>
                         </div>
                     `;
@@ -173,18 +163,35 @@ function populateSchedule() {
                     
                     // Add click handler for the calendar button
                     const calendarButton = scheduleItem.querySelector('.calendar-button');
-                    const popover = scheduleItem.querySelector('.calendar-popover');
+                    const calendarOptions = scheduleItem.querySelector('.calendar-options');
                     
                     calendarButton.addEventListener('click', (e) => {
                         e.stopPropagation();
                         // Close all other popovers
-                        document.querySelectorAll('.calendar-popover.active').forEach(p => {
-                            if (p !== popover) {
-                                p.classList.remove('active');
-                            }
+                        document.querySelectorAll('.calendar-options').forEach(options => {
+                            options.classList.remove('active'); // Hide all
+                            options.parentElement.classList.remove('active'); // Reset the card position
                         });
-                        // Toggle this popover
-                        popover.classList.toggle('active');
+                        
+                        // Toggle this options section
+                        calendarOptions.classList.toggle('active');
+                        scheduleItem.classList.toggle('active'); // Slide the card
+                    });
+
+                    // Add functionality for the Apple and Google buttons
+                    const appleButton = scheduleItem.querySelector('.add-to-apple');
+                    const googleButton = scheduleItem.querySelector('.add-to-google');
+
+                    appleButton.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const title = `${session.series} Practice`;
+                        addToAppleCalendar(e, title, session.time);
+                    });
+
+                    googleButton.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const title = `${session.series} Practice`;
+                        addToGoogleCalendar(e, title, session.time);
                     });
                 });
             });
@@ -276,42 +283,28 @@ function toggleTheme() {
 
 // Close popovers when clicking outside
 document.addEventListener('click', (e) => {
+    // Check if the click is outside the calendar actions
     if (!e.target.closest('.calendar-actions')) {
-        document.querySelectorAll('.calendar-popover.active').forEach(popover => {
-            popover.classList.remove('active');
+        // Hide all calendar options
+        document.querySelectorAll('.calendar-options').forEach(options => {
+            options.classList.remove('active'); // Hide all
+            options.parentElement.classList.remove('active'); // Reset the card position
         });
     }
 });
 
-// Calendar helper functions
-function addToGoogleCalendar(e, title, dateTime) {
-    e.stopPropagation();
-    const date = new Date(dateTime);
-    const endDate = new Date(date.getTime() + (60 * 60 * 1000)); // Add 1 hour
-    
-    const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${date.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')}/${endDate.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')}`;
-    window.open(url, '_blank');
-}
+// Add this function to handle form submission
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent default form submission
 
-function addToAppleCalendar(e, title, dateTime) {
-    e.stopPropagation();
-    const date = new Date(dateTime);
-    // Create .ics file content
-    const icsContent = `BEGIN:VCALENDAR
-VERSION:2.0
-BEGIN:VEVENT
-DTSTART:${date.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')}
-DTEND:${new Date(date.getTime() + (60 * 60 * 1000)).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')}
-SUMMARY:${title}
-END:VEVENT
-END:VCALENDAR`;
-    
-    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
-    const link = document.createElement('a');
-    link.href = window.URL.createObjectURL(blob);
-    link.download = `${title.replace(/\s+/g, '_')}.ics`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-}
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    // Here you can handle the form data, e.g., send it to a server
+    console.log('Form submitted:', { name, email, message });
+
+    // Optionally, reset the form
+    this.reset();
+});
 

@@ -1,0 +1,70 @@
+/* Mobile Styles */
+@media (max-width: 968px) {
+    /* Adjust sidebar for mobile */
+    .sidebar {
+        width: 100%; /* Full width on mobile */
+        left: -100%; /* Initially hidden off-screen */
+    }
+
+    /* When sidebar is active (visible) */
+    .sidebar.active {
+        left: 0; /* Bring it into view */
+    }
+
+    /* Adjust countdown section */
+    .countdown-section {
+        margin-top: -768px; /* Adjust based on your sidebar height */
+        padding: 16px; /* Add padding for better spacing */
+    }
+
+    /* Adjust countdown item */
+    .countdown-item {
+        padding: 16px; /* Increased padding for touch targets */
+        margin-bottom: 16px; /* Add margin between items */
+    }
+
+    /* Position the calendar button */
+    .calendar-button {
+        position: absolute; /* Position it absolutely */
+        right: 16px; /* Move it to the right */
+        top: 16px; /* Adjust top position as needed */
+        z-index: 10; /* Ensure it is above other elements */
+    }
+
+    /* Adjust font sizes for mobile */
+    .navbar h1 {
+        font-size: 20px; /* Smaller font size for mobile */
+        margin: 0; /* Remove default margin */
+    }
+
+    .schedule-section h2 {
+        font-size: 20px; /* Smaller font size for mobile */
+        margin: 0; /* Remove default margin */
+    }
+
+    .schedule-item h3 {
+        font-size: 16px; /* Smaller font size for mobile */
+        margin: 0; /* Remove default margin */
+    }
+
+    .schedule-item p {
+        font-size: 14px; /* Smaller font size for mobile */
+        margin: 0; /* Remove default margin */
+    }
+
+    .nav-title {
+        font-size: 24px;
+    }
+  
+    @media (max-width: 768px) {
+        .nav-title {
+            font-size: 18px;
+        }
+    }
+
+    /* Adjust content grid */
+    .content-grid {
+        grid-template-columns: 1fr; /* Single column layout */
+        padding: 16px; /* Reduced padding */
+    }
+}

@@ -6,80 +6,77 @@ html {
 
 :root {
     /* Core colors - Dark theme defaults */
-    --primary-color: #e31837; /* F1 red */
+    --primary-color: #e31837;
+    /* F1 red */
     --secondary-color: #15151e;
     --background-color: #000000;
-    
+
     /* Navbar specific */
     --nav-bg: rgba(0, 0, 0, 0.8);
     --nav-text: rgba(255, 255, 255, 0.92);
     --nav-border: rgba(255, 255, 255, 0.1);
-    
+
     /* Remove duplicates, keep one instance of each */
     --glass-bg: rgba(28, 28, 30, 0.7);
     --text-primary: rgba(255, 255, 255, 0.92);
     --text-secondary: rgba(255, 255, 255, 0.82);
     --glass-border: rgba(255, 255, 255, 0.1);
     --glow-primary: 0 0 20px rgba(227, 24, 55, 0.2);
-    
+
     /* Text colors - Dark theme */
     --text-tertiary: rgba(255, 255, 255, 0.65);
-    
+
     /* Glass effects */
     --glass-hover: rgba(255, 255, 255, 0.05);
     --blur-amount: 20px;
-    
+
     /* Shadows and glows */
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
-    
+
     /* Layout */
-    --nav-height: 44px;
+    --nav-height: 78px;
     --sidebar-width: 256px;
-    
+
     /* Core colors - Light theme defaults */
     --accent-color: #30d158;
     --text-color: #ffffff;
     --secondary-text: #86868b;
     --glow-accent: 0 0 25px rgba(48, 209, 88, 0.2);
     --glow-white: 0 0 30px rgba(255, 255, 255, 0.1);
-    
+
     /* Dynamic effects */
     --hover-scale: 1.04;
     --transition-speed: 0.4s;
     --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-    
+
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, #2997ff, #1d6abf);
     --gradient-accent: linear-gradient(135deg, #30d158, #27ae60);
-    --gradient-dark: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
-    
+    --gradient-dark: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+
     /* Animation curves */
     --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-    
+
     --text-color: #ffffff;
     --secondary-text: #86868b;
-    
+
     /* Glow Effects */
     --glow-accent: 0 0 25px rgba(48, 209, 88, 0.2);
     --glow-white: 0 0 30px rgba(255, 255, 255, 0.1);
-    
+
     /* Vignette */
-    --vignette-color: radial-gradient(
-        circle at center,
-        transparent 0%,
-        rgba(0, 0, 0, 0.4) 100%
-    );
-    
+    --vignette-color: radial-gradient(circle at center,
+            transparent 0%,
+            rgba(0, 0, 0, 0.4) 100%);
+
     /* Shine effect */
-    --shine-gradient: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.1) 50%,
-        transparent
-    );
+    --shine-gradient: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.1) 50%,
+            transparent);
 }
 
 /* Dark theme variables */
@@ -94,48 +91,50 @@ html {
 /* Light theme overrides */
 [data-theme="light"] {
     /* Core colors */
-    --background-color: #ffffff; /* Pure white background */
-    --primary-color: #e31837; /* Keep F1 red */
-    
+    --background-color: #ffffff;
+    /* Pure white background */
+    --primary-color: #e31837;
+    /* Keep F1 red */
+
     /* Navigation */
-    --nav-bg: rgba(255, 255, 255, 0.8); /* White nav with slight transparency */
+    --nav-bg: rgba(255, 255, 255, 0.8);
+    /* White nav with slight transparency */
     --nav-text: rgba(0, 0, 0, 0.85);
     --nav-border: rgba(0, 0, 0, 0.1);
-    
+
     /* Text colors - Using SF semantic colors */
     --text-primary: rgba(0, 0, 0, 0.85);
     --text-secondary: rgba(0, 0, 0, 0.65);
     --text-tertiary: rgba(0, 0, 0, 0.45);
-    
+
     /* Glass effects */
-    --glass-bg: rgba(255, 255, 255, 0.95); /* More opaque for better contrast */
+    --glass-bg: rgba(255, 255, 255, 0.95);
+    /* More opaque for better contrast */
     --glass-border: rgba(0, 0, 0, 0.1);
     --glass-hover: rgba(0, 0, 0, 0.03);
-    
+
     /* Shadows */
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
     --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.08);
-    
+
     /* Schedule section specific */
-    --schedule-bg: rgba(255, 255, 255, 1); /* Solid white */
+    --schedule-bg: rgba(255, 255, 255, 1);
+    /* Solid white */
     --schedule-border: rgba(0, 0, 0, 0.1);
     --schedule-hover: rgba(0, 0, 0, 0.02);
     --sidebar-bg: rgba(255, 255, 255, 0.95);
     --sidebar-hover: rgba(0, 0, 0, 0.04);
     --sidebar-active: rgba(0, 0, 0, 0.08);
-    
+
     /* Gradients */
-    --gradient-dark: linear-gradient(180deg, 
-        rgba(255, 255, 255, 0) 0%, 
-        rgba(255, 255, 255, 1) 100%
-    );
-    
+    --gradient-dark: linear-gradient(180deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 1) 100%);
+
     /* Vignette for light mode */
-    --vignette-color: radial-gradient(
-        circle at center,
-        transparent 0%,
-        rgba(0, 0, 0, 0.02) 100%
-    );
+    --vignette-color: radial-gradient(circle at center,
+            transparent 0%,
+            rgba(0, 0, 0, 0.02) 100%);
 
     /* Add specific countdown section text color */
     --countdown-title: rgba(0, 0, 0, 0.85);
@@ -287,8 +286,10 @@ html {
 body {
     transition: background-color 0.3s ease, color 0.3s ease;
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
-    font-size: 17px; /* Apple's recommended base size */
-    line-height: 1.47059; /* Apple's recommended line height */
+    font-size: 17px;
+    /* Apple's recommended base size */
+    line-height: 1.47059;
+    /* Apple's recommended line height */
     letter-spacing: -0.022em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -336,14 +337,17 @@ p {
     font-family: 'Formula1-Wide';
     src: url('/assets/Formula1-Wide.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'Formula1-Regular';
     src: url('/assets/Formula1-Regular.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'Formula1-Bold';
     src: url('/assets/Formula1-Bold.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'Formula1-Black';
     src: url('/assets/Formula1-Black.ttf') format('truetype');
@@ -408,6 +412,7 @@ p {
 
 /* Responsive Design */
 @media screen and (max-width: 468px) {
+
     /* Make Countdown text smaller */
     .countdown-text {
         font-size: 2rem;
@@ -434,99 +439,33 @@ p {
 }
 
 .navbar {
-    z-index: 1000; /* Ensures navbar is on top */
+    z-index: 1000;
+    /* Ensures navbar is on top */
     position: fixed;
 }
 
 .countdown-container {
-    z-index: 1; /* Keeps countdown below navbar/sidebar */
-    position: relative; /* Default stacking context */
-}
-
-.sidebar {
-    z-index: 999; /* Sidebar is just below navbar */
-    position: fixed;
-    background: var(--glass-bg);
-    backdrop-filter: blur(var(--blur-amount));
-    -webkit-backdrop-filter: blur(var(--blur-amount));
-    border-right: 1px solid var(--glass-border);
-    padding-top: var(--nav-height);
-}
-
-/* Sidebar */
-.sidebar {
-    position: fixed;
-    top: var(--nav-height);
-    left: -var(--sidebar-width);
-    width: var(--sidebar-width);
-    height: calc(100vh - var(--nav-height));
-    background: var(--glass-bg);
-    backdrop-filter: blur(var(--blur-amount));
-    -webkit-backdrop-filter: blur(var(--blur-amount));
-    border-right: 1px solid var(--glass-border);
-    transition: left 0.3s var(--ease-out-expo);
-    z-index: 999;
-    overflow-y: auto;
-    padding: 16px 0;
-}
-
-.sidebar.active {
-    left: 0;
-}
-
-.nav-group {
-    padding: 0;
-    margin: 0 0 24px 0;
-}
-
-.nav-group:last-child {
-    margin-bottom: 0;
-}
-
-.nav-group h3 {
-    font-size: 12px;
-    text-transform: uppercase;
-    color: var(--text-secondary);
-    margin: 0 0 8px 0;
-    padding: 0 16px;
-    letter-spacing: 0.05em;
-}
-
-.nav-group a {
-    display: block;
-    padding: 8px 16px;
-    color: var(--text-primary);
-    text-decoration: none;
-    font-size: 14px;
-    transition: all 0.2s var(--ease-out-expo);
-    border-radius: 0;
-}
-
-.nav-group a:hover {
-    background: var(--glass-hover);
-}
-
-.nav-group a.active {
-    color: var(--primary-color);
-    background: var(--glass-hover);
+    z-index: 1;
+    /* Keeps countdown below navbar/sidebar */
+    position: relative;
+    /* Default stacking context */
 }
 
 .sidebar {
     position: fixed;
     top: 0;
-    left: -250px; /* Initially hidden */
-    width: 250px;
-    height: 100vh; /* Ensure sidebar takes full height of the viewport */
-    background-color: #000000;
-    padding-top: 60px;
+    left: -256px; /* Initially hidden off-screen */
+    width: var(--sidebar-width); /* Set width */
+    height: 100vh; /* Full height */
+    z-index: 999; /* Ensure it's above other content */
+    padding-top: 60px; /* Space for the navbar */
     overflow-y: auto; /* Enable vertical scrolling */
-    transition: left 0.3s ease-in-out;
-    z-index: 999;
+    transition: left 0.3s ease-in-out; /* Smooth transition */
 }
 
 /* When sidebar is active (visible) */
 .sidebar.active {
-    left: 0;
+    left: 0; /* Bring it into view */
 }
 
 /* Content inside sidebar (links) */
@@ -551,7 +490,8 @@ p {
 }
 
 .stream-button {
-    margin-bottom: 60px; /* Adds space at the bottom */
+    margin-bottom: 60px;
+    /* Adds space at the bottom */
     text-align: left;
 }
 
@@ -562,14 +502,16 @@ p {
     gap: 32px;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 64px 24px 24px; /* Reduced top padding */
+    padding: 64px 24px 24px;
+    /* Reduced top padding */
     min-height: calc(100vh - var(--nav-height));
 }
 
 .left-column {
     display: flex;
     flex-direction: column;
-    gap: 32px; /* Consistent spacing between sections */
+    gap: 32px;
+    /* Consistent spacing between sections */
 }
 
 .right-column {
@@ -596,20 +538,24 @@ p {
 .schedule-section h2 {
     font-size: 22px;
     font-weight: 600;
-    margin: 0 0 16px; /* Reduced margin bottom from 24px to 16px */
+    margin: 0 0 16px;
+    /* Reduced margin bottom from 24px to 16px */
     letter-spacing: -0.5px;
 }
 
 .schedule-list {
     overflow-y: auto;
-    padding-right: 8px; /* Add slight padding for scrollbar */
-    margin-top: 0; /* Remove any top margin */
+    padding-right: 8px;
+    /* Add slight padding for scrollbar */
+    margin-top: 0;
+    /* Remove any top margin */
 }
 
 .schedule-date-header {
     font-size: 15px;
     color: var(--text-secondary);
-    margin: 20px 0 12px; /* Increased margins */
+    margin: 20px 0 12px;
+    /* Increased margins */
     padding: 0 8px;
 }
 
@@ -627,6 +573,8 @@ p {
     justify-content: space-between;
     align-items: flex-start;
     gap: 16px;
+    transition: transform 0.3s ease; /* Smooth transition for sliding */
+    z-index: 100; /* Lower z-index than calendar options */
 }
 
 .schedule-item:hover {
@@ -678,15 +626,21 @@ p {
 /* Countdown Section */
 .countdown-section {
     background: var(--gradient-dark);
-    padding: 32px 24px; /* Reduced top padding */
+    padding: 48px 24px;
+    /* Ensure padding is sufficient */
     border-radius: 24px;
     text-align: center;
-    min-height: auto; /* Remove full viewport height */
+    min-height: auto;
+    /* Remove full viewport height */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Align to top instead of center */
+    justify-content: flex-start;
+    /* Align to top instead of center */
     align-items: center;
-    margin-bottom: 32px; /* Add margin bottom for spacing */
+    margin-top: 60px; /* Adjust based on your sidebar height */
+    padding: 16px; /* Add padding for better spacing */
+    margin-bottom: 32px;
+    /* Add margin bottom for spacing */
 }
 
 .countdown-section h2 {
@@ -694,7 +648,6 @@ p {
     font-weight: 600;
     margin-bottom: 40px;
     background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
-    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
@@ -713,10 +666,11 @@ p {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     border-radius: 16px;
-    padding: 24px 16px;
+    padding: 16px; /* Increased padding for touch targets */
     text-align: center;
     position: relative;
     overflow: hidden;
+    margin-bottom: 16px; /* Add margin between items */
 }
 
 .countdown-item span {
@@ -768,9 +722,12 @@ p {
 .circuit-info {
     position: relative;
     overflow: hidden;
-    background: none; /* Remove glass background */
-    border: none; /* Remove border */
-    box-shadow: none; /* Remove shadow */
+    background: none;
+    /* Remove glass background */
+    border: none;
+    /* Remove border */
+    box-shadow: none;
+    /* Remove shadow */
     padding: 40px 24px;
 }
 
@@ -819,6 +776,7 @@ p {
 
 .circuit-image {
     width: 100%;
+    max-width: 600px;
     height: auto;
     border-radius: 12px;
     transition: transform var(--transition-speed) var(--ease-out-expo);
@@ -831,7 +789,7 @@ p {
     --text-secondary: rgba(0, 0, 0, 0.65);
     --glass-bg: rgba(255, 255, 255, 0.8);
     --glass-border: rgba(0, 0, 0, 0.1);
-    
+
     /* Add specific countdown section text color */
     --countdown-title: rgba(0, 0, 0, 0.85);
 }
@@ -865,11 +823,13 @@ p {
 /* Responsive Design */
 @media (max-width: 1024px) {
     .content-grid {
-        padding-top: 48px; /* Even smaller padding on mobile */
+        padding-top: 48px;
+        /* Even smaller padding on mobile */
     }
-    
+
     .countdown-section {
-        padding: 24px 16px; /* Smaller padding on mobile */
+        padding: 24px 16px;
+        /* Smaller padding on mobile */
     }
 
     .right-column {
@@ -965,7 +925,9 @@ p {
 }
 
 /* Typography enhancements */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
     letter-spacing: -0.5px;
     font-weight: 600;
@@ -1006,15 +968,133 @@ h1, h2, h3 {
     .countdown-item {
         padding: 20px 12px;
     }
+
+    /* Adjust sidebar */
+    .sidebar {
+        width: 100%;
+        /* Full width on mobile */
+        position: relative;
+        /* Change to relative for stacking */
+    }
+
+    /* Adjust content grid */
+    .content-grid {
+        grid-template-columns: 1fr;
+        /* Single column layout */
+        padding: 16px;
+        /* Reduced padding */
+    }
+
+    /* Schedule Section */
+    .schedule-section {
+        padding: 16px;
+        /* Reduced padding */
+        height: auto;
+        /* Allow height to adjust */
+    }
+
+    /* Schedule Item */
+    .schedule-item {
+        flex-direction: column;
+        /* Stack content vertically */
+        padding: 12px;
+        /* Reduced padding */
+    }
+
+    /* Countdown Section */
+    .countdown-section {
+        padding: 16px;
+        /* Reduced padding */
+    }
+
+    /* Countdown Item */
+    .countdown-item {
+        padding: 16px;
+        /* Increased padding for touch targets */
+    }
+
+    /* Font Sizes */
+    h1 {
+        font-size: 28px;
+        /* Smaller font size */
+    }
+
+    h2 {
+        font-size: 24px;
+        /* Smaller font size */
+    }
+
+    h3 {
+        font-size: 20px;
+        /* Smaller font size */
+    }
+
+    p {
+        font-size: 16px;
+        /* Smaller font size */
+    }
+
+    /* Calendar Popover */
+    .calendar-popover {
+        width: 90%;
+        /* Full width on mobile */
+        left: 5%;
+        /* Center it */
+    }
+
+    /* Adjust button sizes */
+    .calendar-button {
+        width: 40px;
+        /* Larger touch target */
+        height: 40px;
+        /* Larger touch target */
+        opacity: 1; /* Ensure buttons are visible */
+    }
+
+    /* Adjust sidebar links */
+    .sidebar a {
+        font-size: 16px;
+        /* Smaller font size */
+        padding: 12px;
+        /* Increased padding for touch targets */
+    }
 }
 
+/* Further adjustments for very small screens */
 @media (max-width: 480px) {
     .countdown-item span {
         font-size: 32px;
     }
-    
+
     .countdown-item label {
         font-size: 12px;
+    }
+
+    /* Adjust font sizes further */
+    h1 {
+        font-size: 24px;
+        /* Smaller font size */
+    }
+
+    h2 {
+        font-size: 20px;
+        /* Smaller font size */
+    }
+
+    h3 {
+        font-size: 18px;
+        /* Smaller font size */
+    }
+
+    p {
+        font-size: 14px;
+        /* Smaller font size */
+    }
+
+    /* Adjust countdown item */
+    .countdown-item {
+        padding: 12px;
+        /* Reduced padding */
     }
 }
 
@@ -1048,8 +1128,7 @@ h1, h2, h3 {
     padding: 0;
     border: 1.5px solid var(--text-secondary);
     border-radius: 8px;
-    opacity: 0.8;
-    z-index: 1;
+    opacity: 1; /* Ensure buttons are visible */
 }
 
 .calendar-button:hover {
@@ -1062,8 +1141,6 @@ h1, h2, h3 {
     height: 16px;
     fill: var(--text-secondary);
     transition: all 0.2s var(--ease-out-expo);
-    /* Add this to ensure the path is centered */
-    display: block;
 }
 
 .calendar-button:hover svg {
@@ -1071,71 +1148,194 @@ h1, h2, h3 {
 }
 
 /* Calendar Popover */
-
 .calendar-popover {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: calc(100% + 8px);
+    top: -8px;
+    left: calc(100% + 12px);
     background: var(--glass-bg);
     backdrop-filter: blur(var(--blur-amount));
-    border-radius: 8px;
-    padding: 8px;
-    width: auto;
-    min-width: 240px; /* Increased min-width */
-    height: auto;
-    min-height: 90px; /* Added min-height to accommodate both buttons */
+    border-radius: 12px;
+    padding: 12px;
+    width: 280px;
     opacity: 0;
     visibility: hidden;
+    transform: translateX(-8px);
     transition: all 0.2s var(--ease-out-expo);
-    z-index: 2;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    border: 0.5px solid var(--glass-border);
-}
-
-.calendar-popover-button {
+    z-index: 100;
+    box-shadow: var(--shadow-md);
     display: flex;
-    align-items: center;
-    gap: 8px;
-    width: 100%;
-    padding: 8px 12px;
-    border: none;
-    background: none;
-    color: var(--text-primary);
-    font-size: 14px;
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
-    cursor: pointer;
-    transition: all 0.1s var(--ease-out-expo);
-    border-radius: 6px;
-    text-align: left;
-    white-space: nowrap; /* Prevent text wrapping */
+    flex-direction: column;
+    gap: 8px; /* Increased gap for better spacing */
 }
 
+/* Active state for the popover */
 .calendar-popover.active {
     opacity: 1;
     visibility: visible;
-    pointer-events: auto;
+    transform: translateX(0);
 }
 
-
-.calendar-popover-button:not(:last-child) {
-    margin-bottom: 4px;
+/* Button styles */
+.calendar-popover-button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align text to the left */
+    padding: 16px;
+    border: none;
+    background: var(--primary-color);
+    color: white;
+    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    border-radius: 8px;
 }
 
+/* Hover effect for buttons */
+.calendar-popover-button:hover {
+    background: darken(var(--primary-color), 10%);
+    transform: scale(1.02); /* Slight scale effect */
+}
+
+/* Icon styles */
 .calendar-popover-button svg {
     width: 20px;
     height: 20px;
     fill: currentColor;
 }
 
-.calendar-popover-button:hover {
-    background: var(--glass-hover);
+/* Ensure all text elements use these variables */
+.schedule-item h3 {
+    color: var(--text-primary);
+    /* Use primary text color */
 }
 
-/* Add this to ensure the calendar actions container is positioned correctly */
-.calendar-actions {
-    position: relative;
+.schedule-item p {
+    color: var(--text-secondary);
+    /* Use secondary text color */
+}
+
+.countdown-section h2 {
+    color: var(--text-primary);
+    /* Use primary text color */
+}
+
+.circuit-info h2 {
+    color: var(--text-primary);
+    /* Use primary text color */
+}
+
+.details-text p {
+    color: var(--text-secondary);
+    /* Use secondary text color */
+}
+
+/* Add more elements as necessary */
+
+/* Increase text size for the top bar */
+.navbar h1 {
+    font-size: 28px; /* Increase font size */
+    margin: 0; /* Remove default margin */
+}
+
+/* Calendar options */
+.calendar-options {
+    position: absolute;
+    top: 0;
+    right: 0; /* Position it to the right */
+    width: 200px; /* Width of the buttons */
+    height: 100%; /* Full height */
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--blur-amount));
+    border-radius: 0 12px 12px 0; /* Rounded corners on the left */
+    box-shadow: var(--shadow-md);
     display: flex;
-    align-items: center;
-    gap: 8px;
+    flex-direction: column;
+    justify-content: center; /* Center buttons vertically */
+    gap: 16px; /* Space between buttons */
+    opacity: 0; /* Initially hidden */
+    transform: translateX(100%); /* Start off-screen */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    z-index: 200; /* Ensure it's above the schedule item */
+}
+
+/* Show the options */
+.calendar-options.active {
+    opacity: 1; /* Make it visible */
+    transform: translateX(0); /* Slide in */
+}
+
+/* Schedule item */
+.schedule-item {
+    position: relative;
+    transition: transform 0.3s ease; /* Smooth transition for sliding */
+    z-index: 100; /* Lower z-index than calendar options */
+}
+
+/* When the calendar button is clicked */
+.schedule-item.active {
+    transform: translateX(-100%); /* Slide the card to the left */
+}
+
+/* Upcoming Events Section */
+.upcoming-events-section {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--blur-amount));
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 24px;
+    margin: 20px 0;
+}
+
+.event-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.event-item {
+    background: var(--background-color);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 16px;
+}
+
+/* Contact Us Section */
+.contact-us-section {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--blur-amount));
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 24px;
+    margin: 20px 0;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#contact-form label {
+    font-weight: bold;
+}
+
+#contact-form input,
+#contact-form textarea {
+    padding: 8px;
+    border: 1px solid var(--glass-border);
+    border-radius: 4px;
+}
+
+#contact-form button {
+    background: var(--primary-color);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#contact-form button:hover {
+    background: darken(var(--primary-color), 10%);
 }
