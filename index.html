@@ -1,112 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Singapore Motorsport Hub</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="mobile.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <button class="menu-button" aria-label="Menu" onclick="toggleSidebar()">
-            <span></span>
-        </button>
-        <h1 class="nav-title">Singapore Motorsport Hub</h1>
-        <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
-            <svg class="sun-icon" viewBox="0 0 24 24">
-                <path d="M12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3zm0-2c.28 0 .5-.22.5-.5v-3c0-.28-.22-.5-.5-.5s-.5.22-.5.5v3c0 .28.22.5.5.5zm0 14c-.28 0-.5.22-.5.5v3c0 .28.22.5.5.5s.5-.22.5-.5v-3c0-.28-.22-.5-.5-.5zm8.5-8.5h-3c-.28 0-.5.22-.5.5s.22.5.5.5h3c.28 0 .5-.22.5-.5s-.22-.5-.5-.5zm-14 0h-3c-.28 0-.5.22-.5.5s.22.5.5.5h3c.28 0 .5-.22.5-.5s-.22-.5-.5-.5z"/>
-            </svg>
-            <svg class="moon-icon" viewBox="0 0 24 24" style="display: none;">
-                <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-3.03 0-5.5-2.47-5.5-5.5 0-1.82.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/>
-            </svg>
-        </button>
-    </nav>
-
-    <!-- Sidebar Navigation -->
-    <aside class="sidebar" id="sidebar">
-        <nav class="sidebar-nav">
-            <div class="nav-group">
-                <h3>Formula 1</h3>
-                <a href="#" class="active">Singapore GP</a>
-                <a href="#">Championship</a>
-                <a href="#">Schedule</a>
-                <a href="new_index.html">New Page</a>
-            </div>
-            
-            <div class="nav-group">
-                <h3>Support Races</h3>
-                <a href="#">F2</a>
-                <a href="#">F1 Academy</a>
-                <a href="#">Porsche Carrera Cup</a>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Singapore Motorsport Hub – F1 Experience</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet" />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+      <div class="container nav-content">
+        <h1 class="logo">F1&nbsp;Hub</h1>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#standings">Standings</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
         </nav>
-    </aside>
+      </div>
+    </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="content-grid">
-            <!-- Left Column -->
-            <div class="left-column">
-                <section class="countdown-section">
-                    <h2>Singapore Grand Prix 2025</h2>
-                    <div class="countdown-grid">
-                        <div class="countdown-item">
-                            <span id="days">00</span>
-                            <label>Days</label>
-                        </div>
-                        <div class="countdown-item">
-                            <span id="hours">00</span>
-                            <label>Hours</label>
-                        </div>
-                        <div class="countdown-item">
-                            <span id="minutes">00</span>
-                            <label>Minutes</label>
-                        </div>
-                        <div class="countdown-item">
-                            <span id="seconds">00</span>
-                            <label>Seconds</label>
-                        </div>
-                    </div>
-                </section>
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h2>Experience the Thrill of Formula&nbsp;1</h2>
+        <p>Get up close to the action with race schedules, standings and more.</p>
+        <a href="#schedule" class="btn-primary">View Schedule</a>
+      </div>
+    </section>
 
-                <section class="circuit-section">
-                    <div class="circuit-info">
-                        <h2>Marina Bay Street Circuit</h2>
-                        <div class="circuit-details">
-                            <div class="details-text">
-                                <h3>Circuit Details</h3>
-                                <p><strong>Length:</strong> <span>5.063 km</span></p>
-                                <p><strong>Race Laps:</strong> <span>62</span></p>
-                                <p><strong>Race Distance:</strong> <span>313.906 km</span></p>
-                                <p><strong>Lap Record:</strong> <span>1:35.867 - Lewis Hamilton (2018)</span></p>
-                                <p><strong>First GP:</strong> <span>2008</span></p>
-                            </div>
-                            <img 
-                                alt="Marina Bay Circuit" 
-                                class="circuit-image" 
-                                src="https://res.cloudinary.com/ddzssf2sx/image/upload/v1710652743/Singapore_Circuit.png"
-                                loading="lazy"
-                            >
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            <!-- Right Column -->
-            <div class="right-column">
-                <section class="schedule-section">
-                    <h2>Race Weekend Schedule</h2>
-                    <div class="schedule-list" id="schedule-list">
-                        <!-- Schedule items populated by JS -->
-                    </div>
-                </section>
-            </div>
+    <!-- Countdown Section -->
+    <section id="countdown" class="countdown-section">
+      <div class="container countdown-content">
+        <h2>Next Race Countdown</h2>
+        <div class="countdown-timer">
+          <div class="time-box"><span id="days">00</span><span class="label">Days</span></div>
+          <div class="time-box"><span id="hours">00</span><span class="label">Hours</span></div>
+          <div class="time-box"><span id="minutes">00</span><span class="label">Minutes</span></div>
+          <div class="time-box"><span id="seconds">00</span><span class="label">Seconds</span></div>
         </div>
-    </main>
+      </div>
+    </section>
 
+    <!-- Schedule Section -->
+    <section id="schedule" class="schedule-section">
+      <div class="container">
+        <h2>2025 Race Schedule</h2>
+        <p class="section-intro">Stay on top of the upcoming races. All dates are local to Singapore (SGT).</p>
+        <div class="schedule-table">
+          <div class="schedule-row schedule-header">
+            <div class="schedule-col col-round">Round</div>
+            <div class="schedule-col col-name">Grand Prix</div>
+            <div class="schedule-col col-date">Date</div>
+            <div class="schedule-col col-location">Location</div>
+          </div>
+          <!-- Round 1 -->
+          <div class="schedule-row">
+            <div class="schedule-col col-round">1</div>
+            <div class="schedule-col col-name">Australian Grand Prix</div>
+            <div class="schedule-col col-date">14–16 Mar</div>
+            <div class="schedule-col col-location">Melbourne, Australia</div>
+          </div>
+          <!-- Round 2 -->
+          <div class="schedule-row">
+            <div class="schedule-col col-round">2</div>
+            <div class="schedule-col col-name">Chinese Grand Prix</div>
+            <div class="schedule-col col-date">21–23 Mar</div>
+            <div class="schedule-col col-location">Shanghai, China</div>
+          </div>
+          <!-- Round 3 -->
+          <div class="schedule-row">
+            <div class="schedule-col col-round">3</div>
+            <div class="schedule-col col-name">Japanese Grand Prix</div>
+            <div class="schedule-col col-date">04–06 Apr</div>
+            <div class="schedule-col col-location">Suzuka, Japan</div>
+          </div>
+          <!-- Round 4 -->
+          <div class="schedule-row">
+            <div class="schedule-col col-round">4</div>
+            <div class="schedule-col col-name">Bahrain Grand Prix</div>
+            <div class="schedule-col col-date">11–13 Apr</div>
+            <div class="schedule-col col-location">Sakhir, Bahrain</div>
+          </div>
+          <!-- Round 5 -->
+          <div class="schedule-row">
+            <div class="schedule-col col-round">5</div>
+            <div class="schedule-col col-name">Saudi Arabian Grand Prix</div>
+            <div class="schedule-col col-date">18–20 Apr</div>
+            <div class="schedule-col col-location">Jeddah, Saudi Arabia</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Standings Section (Placeholder) -->
+    <section id="standings" class="standings-section">
+      <div class="container">
+        <h2>Championship Standings</h2>
+        <p class="section-intro">Driver and team standings will be updated throughout the season.</p>
+        <div class="standings-placeholder">
+          <p>Data coming soon...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <h2>About Formula&nbsp;1</h2>
+        <p class="section-intro">Formula&nbsp;1 is the premier international motorsport. Cutting‑edge technology, unparalleled speed and precision come together to create an unforgettable spectacle. Our mission is to bring you closer to the heart of the action – on and off the track.</p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+      <h2>Contact Us</h2>
+      <p class="section-intro">Have questions or feedback? We'd love to hear from you.</p>
+      <form class="contact-form" onsubmit="return false;">
+        <div class="form-row">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Email Address" required />
+        </div>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn-primary">Send Message</button>
+      </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-content">
+        <p>&copy; 2025 Singapore Motorsport Hub. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
