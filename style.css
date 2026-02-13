@@ -405,6 +405,10 @@ h1 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.cards-1 {
+  grid-template-columns: 1fr;
+}
+
 .card {
   border: 1px solid var(--line-soft);
   border-radius: 14px;
@@ -415,6 +419,11 @@ h1 {
   flex-direction: column;
   align-items: flex-start;
   gap: 0.45rem;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
 }
 
 .card:hover {
@@ -434,8 +443,37 @@ h1 {
   line-height: 1.45;
 }
 
+.card p strong {
+  color: #e6f2ff;
+  font-weight: 700;
+}
+
 .link-card h3 {
   color: #dcecff;
+}
+
+.inline-link {
+  color: #8defff;
+  text-decoration: underline;
+  text-decoration-color: rgba(141, 239, 255, 0.35);
+  text-underline-offset: 2px;
+}
+
+.inline-link:hover {
+  color: #b6f7ff;
+  text-decoration-color: rgba(182, 247, 255, 0.85);
+}
+
+.tiny-link {
+  margin-top: 0.25rem;
+  font-size: 0.78rem;
+  color: #8defff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.tiny-link:hover {
+  color: #b6f7ff;
 }
 
 .card p.badge,

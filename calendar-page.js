@@ -1,16 +1,17 @@
 import { RACES_2026, TESTING_SESSIONS } from "./f1-data.js";
-import { initSite, formatDateRange } from "./site.js";
+import { initSite, formatDateRange, buildCircuitUrl } from "./site.js";
 
 function renderTesting() {
   const wrap = document.getElementById("testingGrid");
   if (!wrap) return;
+
   wrap.innerHTML = TESTING_SESSIONS.map(
     (session) => `
-      <article class="card">
+      <a class="card card-link" href="calendar.html" aria-label="View full calendar">
         <h3>${session.name}</h3>
         <p class="race-date">${formatDateRange(session.start, session.end)}</p>
         <p>${session.location}</p>
-      </article>
+      </a>
     `
   ).join("");
 }
@@ -25,9 +26,9 @@ function renderCalendar(filterSprint = false) {
       (race) => `
         <tr>
           <td>${String(race.round).padStart(2, "0")}</td>
-          <td>${race.grandPrix}</td>
+          <td><a class="inline-link" href="${buildCircuitUrl(race.round)}">${race.grandPrix}</a></td>
           <td>${race.city}, ${race.country}</td>
-          <td>${race.circuit}</td>
+          <td><a class="inline-link" href="${buildCircuitUrl(race.round)}">${race.circuit}</a></td>
           <td>${formatDateRange(race.start, race.end)}</td>
           <td>${race.raceStartLocal}</td>
           <td>${race.sprint ? "Yes" : "No"}</td>

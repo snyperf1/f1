@@ -1,5 +1,12 @@
 import { RACES_2026, TESTING_SESSIONS, SEASON } from "./f1-data.js";
-import { initSite, getNextRace, getSeasonProgress, parseUtcDay, formatDateRange } from "./site.js";
+import {
+  initSite,
+  getNextRace,
+  getSeasonProgress,
+  parseUtcDay,
+  formatDateRange,
+  buildCircuitUrl,
+} from "./site.js";
 
 function renderUpcoming() {
   const wrap = document.getElementById("upcomingRaces");
@@ -17,14 +24,14 @@ function renderUpcoming() {
   wrap.innerHTML = slice
     .map(
       (race) => `
-      <article class="card race-card">
+      <a class="card race-card card-link" href="${buildCircuitUrl(race.round)}" aria-label="Open ${race.circuit} page">
         <p class="badge">Round ${String(race.round).padStart(2, "0")}</p>
         <h3>${race.grandPrix}</h3>
         <p class="race-date">${formatDateRange(race.start, race.end)}</p>
         <p>${race.city}, ${race.country}</p>
         <p>${race.circuit}</p>
         ${race.sprint ? '<p class="race-tag">Sprint weekend</p>' : ""}
-      </article>
+      </a>
     `
     )
     .join("");
@@ -36,11 +43,11 @@ function renderTesting() {
 
   wrap.innerHTML = TESTING_SESSIONS.map(
     (session) => `
-      <article class="card">
+      <a class="card card-link" href="calendar.html" aria-label="Open calendar page">
         <h3>${session.name}</h3>
         <p class="race-date">${formatDateRange(session.start, session.end)}</p>
         <p>${session.location}</p>
-      </article>
+      </a>
     `
   ).join("");
 }
@@ -72,7 +79,9 @@ function updateCountdown() {
   const end = parseUtcDay(nextRace.end);
   end.setUTCHours(23, 59, 59, 999);
 
-  if (nameEl) nameEl.textContent = `${nextRace.grandPrix} (Round ${String(nextRace.round).padStart(2, "0")})`;
+  if (nameEl) {
+    nameEl.innerHTML = `<a class="inline-link" href="${buildCircuitUrl(nextRace.round)}">${nextRace.grandPrix} (Round ${String(nextRace.round).padStart(2, "0")})</a>`;
+  }
   if (metaEl) {
     metaEl.textContent = `${nextRace.city}, ${nextRace.country} | ${formatDateRange(nextRace.start, nextRace.end)} | Race start ${nextRace.raceStartLocal} local`;
   }

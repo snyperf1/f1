@@ -1,5 +1,5 @@
 import { DRIVERS_2026 } from "./f1-data.js";
-import { initSite } from "./site.js";
+import { initSite, buildDriverUrl, buildTeamUrl } from "./site.js";
 
 function renderDrivers() {
   const wrap = document.getElementById("driversGrid");
@@ -9,9 +9,10 @@ function renderDrivers() {
     (driver, index) => `
       <article class="card driver-card">
         <p class="badge">Driver ${String(index + 1).padStart(2, "0")}</p>
-        <h3>${driver.name}</h3>
+        <h3><a class="inline-link" href="${buildDriverUrl(driver.name)}">${driver.name}</a></h3>
         <p class="race-date">${driver.nationality}</p>
-        <p>${driver.team}</p>
+        <p><a class="inline-link" href="${buildTeamUrl(driver.team)}">${driver.team}</a></p>
+        <a class="tiny-link" href="${buildDriverUrl(driver.name)}">Open driver page</a>
       </article>
     `
   ).join("");

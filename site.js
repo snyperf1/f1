@@ -23,6 +23,50 @@ export function formatDateRange(start, end) {
   return `${a} - ${b}`;
 }
 
+export function slugify(value) {
+  return String(value)
+    .toLowerCase()
+    .replace(/\(.*?\)/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+export function getQueryParam(key) {
+  return new URLSearchParams(window.location.search).get(key);
+}
+
+export function buildDriverUrl(name) {
+  return `driver.html?driver=${encodeURIComponent(slugify(name))}`;
+}
+
+export function buildTeamUrl(name) {
+  return `team.html?team=${encodeURIComponent(slugify(name))}`;
+}
+
+export function buildCircuitUrl(round) {
+  return `circuit.html?round=${encodeURIComponent(String(round))}`;
+}
+
+export function getTeamByName(name) {
+  return TEAMS_2026.find((team) => team.name === name) || null;
+}
+
+export function getDriversByTeam(name) {
+  return DRIVERS_2026.filter((driver) => driver.team === name);
+}
+
+export function findDriverBySlug(slug) {
+  return DRIVERS_2026.find((driver) => slugify(driver.name) === slug) || null;
+}
+
+export function findTeamBySlug(slug) {
+  return TEAMS_2026.find((team) => slugify(team.name) === slug) || null;
+}
+
+export function findRaceByRound(roundNumber) {
+  return RACES_2026.find((race) => race.round === roundNumber) || null;
+}
+
 export function getNextRace(now = new Date()) {
   return RACES_2026.find((race) => now <= parseUtcDayEnd(race.end)) || null;
 }
@@ -67,6 +111,10 @@ function setupNav() {
 
 export function setupReveal() {
   const nodes = document.querySelectorAll(".reveal");
+  if (!nodes.length) {
+    return;
+  }
+
   if (!("IntersectionObserver" in window)) {
     nodes.forEach((node) => node.classList.add("is-visible"));
     return;

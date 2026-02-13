@@ -1,5 +1,5 @@
 import { RACES_2026 } from "./f1-data.js";
-import { initSite, formatDateRange } from "./site.js";
+import { initSite, formatDateRange, buildCircuitUrl } from "./site.js";
 
 function renderCircuits() {
   const wrap = document.getElementById("circuitsGrid");
@@ -7,7 +7,7 @@ function renderCircuits() {
 
   wrap.innerHTML = RACES_2026.map(
     (race) => `
-      <article class="card circuit-card">
+      <a class="card circuit-card card-link" href="${buildCircuitUrl(race.round)}" aria-label="Open ${race.circuit} detail page">
         <p class="badge">Round ${String(race.round).padStart(2, "0")}</p>
         <h3>${race.circuit}</h3>
         <p class="race-date">${race.grandPrix}</p>
@@ -15,7 +15,7 @@ function renderCircuits() {
         <p>${formatDateRange(race.start, race.end)}</p>
         <p><strong>Local start:</strong> ${race.raceStartLocal}</p>
         ${race.sprint ? '<p class="race-tag">Sprint weekend</p>' : ""}
-      </article>
+      </a>
     `
   ).join("");
 }

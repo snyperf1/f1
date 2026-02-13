@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Formula 1 2026 regulations summary with official FIA and Formula 1 source links." />
-    <title>Formula 1 2026 Hub | Regulations</title>
+    <meta name="description" content="Circuit detail page for a Formula 1 2026 race weekend, including track, teams, and drivers." />
+    <title>Formula 1 2026 Hub | Circuit</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,7 +13,7 @@
     />
     <link rel="stylesheet" href="style.css?v=20260213h" />
   </head>
-  <body data-page="regulations">
+  <body data-page="circuits">
     <div class="ambient ambient-one" aria-hidden="true"></div>
     <div class="ambient ambient-two" aria-hidden="true"></div>
 
@@ -34,33 +34,50 @@
       </nav>
     </header>
 
-    <main class="page-main">
+    <main id="circuitDetailRoot" class="page-main">
       <section class="module page-hero reveal">
-        <p class="eyebrow">Regulations</p>
-        <h1>What changed for Formula 1 in 2026</h1>
-        <p id="rulesMeta" class="lead">Loading official regulation summary...</p>
+        <p id="circuitKicker" class="eyebrow">Round</p>
+        <h1 id="circuitTitle">Loading circuit...</h1>
+        <p id="circuitLead" class="lead">Loading track details.</p>
+        <div class="hero-actions">
+          <a id="jumpCircuits" class="btn btn-outline" href="circuits.html">All circuits</a>
+          <a id="jumpCalendar" class="btn btn-primary" href="calendar.html">Full calendar</a>
+        </div>
       </section>
 
       <section class="module reveal">
         <div class="module-head">
-          <h2>Major technical and sporting facts</h2>
+          <h2>Track weekend info</h2>
         </div>
-        <div id="regFacts" class="cards cards-3"></div>
+        <div id="circuitInfoCards" class="cards cards-3"></div>
       </section>
 
       <section class="module reveal">
         <div class="module-head">
-          <h2>Official references</h2>
-          <p class="subtle">Sources used throughout this site.</p>
+          <h2>Teams at this round</h2>
         </div>
-        <ul id="regSources" class="source-list"></ul>
+        <div id="circuitTeams" class="cards cards-2"></div>
+      </section>
+
+      <section class="module reveal">
+        <div class="module-head">
+          <h2>Driver grid for this weekend</h2>
+        </div>
+        <div id="circuitDrivers" class="cards cards-3"></div>
+      </section>
+
+      <section class="module reveal">
+        <div class="module-head">
+          <h2>Adjacent rounds</h2>
+        </div>
+        <div id="relatedRaces" class="cards cards-2"></div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>Formula 1 2026 Hub. Regulation summary sourced from FIA and Formula 1 publications.</p>
+      <p>Formula 1 2026 Hub. Circuit page generated from official schedule and entry data.</p>
     </footer>
 
-    <script type="module" src="regulations-page.js?v=20260213h"></script>
+    <script type="module" src="circuit-page.js?v=20260213h"></script>
   </body>
 </html>
