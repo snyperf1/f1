@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Formula 1 2026 official calendar with testing sessions, all 24 rounds, and sprint filters." />
+    <title>Formula 1 2026 Hub | Calendar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css?v=20260213e" />
+  </head>
+  <body data-page="calendar">
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a href="index.html" class="brand" aria-label="Formula 1 2026 Hub home">
+        <span class="brand-mark">F1</span>
+        <span class="brand-text">Formula 1 2026 Hub</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="Open navigation">Menu</button>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="index.html" data-page="home">Home</a>
+        <a href="calendar.html" data-page="calendar">Calendar</a>
+        <a href="standings.html" data-page="standings">Standings</a>
+        <a href="drivers.html" data-page="drivers">Drivers</a>
+        <a href="teams.html" data-page="teams">Teams</a>
+        <a href="circuits.html" data-page="circuits">Circuits</a>
+        <a href="regulations.html" data-page="regulations">Regulations</a>
+      </nav>
+    </header>
+
+    <main class="page-main">
+      <section class="module page-hero reveal">
+        <p class="eyebrow">Calendar</p>
+        <h1>Full Formula 1 2026 schedule</h1>
+        <p class="lead">Testing sessions plus all 24 rounds, with sprint weekend flags and official local race start times.</p>
+      </section>
+
+      <section class="module reveal">
+        <div class="module-head">
+          <h2>Pre-season testing</h2>
+        </div>
+        <div id="testingGrid" class="cards cards-2"></div>
+      </section>
+
+      <section class="module reveal">
+        <div class="module-head table-header">
+          <div>
+            <p class="eyebrow">Rounds</p>
+            <h2>All 24 Grand Prix weekends</h2>
+            <p id="calendarCount" class="subtle">24 rounds shown</p>
+          </div>
+          <label class="toggle-wrap">
+            <input type="checkbox" id="sprintOnlyToggle" />
+            <span>Show sprint weekends only</span>
+          </label>
+        </div>
+
+        <div class="table-wrap">
+          <table class="data-table" aria-label="2026 Formula 1 calendar">
+            <thead>
+              <tr>
+                <th>Rnd</th>
+                <th>Grand Prix</th>
+                <th>Location</th>
+                <th>Circuit</th>
+                <th>Weekend</th>
+                <th>Race Start</th>
+                <th>Sprint</th>
+              </tr>
+            </thead>
+            <tbody id="calendarBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Formula 1 2026 Hub. Calendar sourced from official Formula 1 publications.</p>
+    </footer>
+
+    <script type="module" src="calendar-page.js?v=20260213e"></script>
+  </body>
+</html>

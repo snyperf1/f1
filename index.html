@@ -5,465 +5,149 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="F1 2026 Quantum Grid: verified Formula 1 facts, official 2026 calendar, sprint weekends, and regulation updates."
+      content="Formula 1 2026 Hub with official calendar, teams, drivers, standings, circuits, and regulation updates."
     />
-    <title>Formula 1 2026 Hub | Calendar, Standings, and Rules</title>
+    <title>Formula 1 2026 Hub | Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css?v=20260213c" />
+    <link rel="stylesheet" href="style.css?v=20260213e" />
   </head>
-  <body>
+  <body data-page="home">
     <div class="ambient ambient-one" aria-hidden="true"></div>
     <div class="ambient ambient-two" aria-hidden="true"></div>
 
     <header class="site-header">
-      <a href="#hero" class="brand" aria-label="F1 2026 Quantum Grid home">
+      <a href="index.html" class="brand" aria-label="Formula 1 2026 Hub home">
         <span class="brand-mark">F1</span>
-        <span class="brand-text">Quantum Grid 2026</span>
+        <span class="brand-text">Formula 1 2026 Hub</span>
       </a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="Open navigation">Menu</button>
       <nav class="site-nav" aria-label="Primary navigation">
-        <a href="#countdown">Countdown</a>
-        <a href="#schedule">Calendar</a>
-        <a href="#standings">Standings</a>
-        <a href="#tech">Regs</a>
-        <a href="#sources">Sources</a>
+        <a href="index.html" data-page="home">Home</a>
+        <a href="calendar.html" data-page="calendar">Calendar</a>
+        <a href="standings.html" data-page="standings">Standings</a>
+        <a href="drivers.html" data-page="drivers">Drivers</a>
+        <a href="teams.html" data-page="teams">Teams</a>
+        <a href="circuits.html" data-page="circuits">Circuits</a>
+        <a href="regulations.html" data-page="regulations">Regulations</a>
       </nav>
-      <a class="btn btn-ghost" href="#join">Get Pit Pass</a>
     </header>
 
-    <main>
-      <section id="hero" class="hero">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">Official 2026 data</p>
-          <h1>Everything you need for the 2026 F1 season.</h1>
+    <main class="page-main">
+      <section class="module hero-grid reveal">
+        <div class="hero-copy">
+          <p class="eyebrow">Official 2026 Coverage</p>
+          <h1>One place for the full Formula 1 2026 season.</h1>
           <p class="lead">
-            Built from official Formula 1 and FIA publications: complete calendar, sprint venues, confirmed entries, and regulation changes.
+            Calendar, standings, teams, drivers, circuits, and regulations in a full multi-page hub built from official F1 and FIA references.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#countdown">Next race countdown</a>
-            <a class="btn btn-outline" href="#schedule">Open full calendar</a>
+            <a class="btn btn-primary" href="calendar.html">Open full calendar</a>
+            <a class="btn btn-outline" href="standings.html">View standings</a>
           </div>
-          <ul class="telemetry-strip">
-            <li>
-              <span>2026 Calendar</span>
-              <strong>24 Grand Prix weekends</strong>
-            </li>
-            <li>
-              <span>Sprint Weekends</span>
-              <strong>6 confirmed rounds</strong>
-            </li>
-            <li>
-              <span>Grid Size</span>
-              <strong>11 teams with Cadillac</strong>
-            </li>
-          </ul>
         </div>
-
-        <aside class="hero-panel reveal" aria-label="Official season facts">
-          <p class="panel-label">Season status</p>
-          <h2>2026 key dates</h2>
-          <ul class="fact-list">
-            <li>
-              <span>Pre-season testing</span>
-              <strong>Feb 11-13 and Feb 18-20 in Bahrain</strong>
-            </li>
-            <li>
-              <span>Season opener</span>
-              <strong>Australian GP, March 6-8</strong>
-            </li>
-            <li>
-              <span>Madrid debut</span>
-              <strong>Spanish GP, Sep 11-13 (homologation pending)</strong>
-            </li>
-            <li>
-              <span>Season finale</span>
-              <strong>Abu Dhabi GP, Dec 4-6</strong>
-            </li>
-          </ul>
-          <p class="panel-note">Data verified against Formula1.com and FIA posts on February 13, 2026.</p>
+        <aside class="hero-panel">
+          <p class="panel-label">Season at a glance</p>
+          <div class="kpi-grid mini">
+            <article class="kpi-card">
+              <span>Rounds</span>
+              <strong id="statRounds">24</strong>
+            </article>
+            <article class="kpi-card">
+              <span>Teams</span>
+              <strong id="statTeams">11</strong>
+            </article>
+            <article class="kpi-card">
+              <span>Drivers</span>
+              <strong id="statDrivers">22</strong>
+            </article>
+            <article class="kpi-card">
+              <span>Sprints</span>
+              <strong id="statSprint">6</strong>
+            </article>
+            <article class="kpi-card">
+              <span>Completed</span>
+              <strong id="statCompleted">0</strong>
+            </article>
+            <article class="kpi-card">
+              <span>Remaining</span>
+              <strong id="statRemaining">24</strong>
+            </article>
+          </div>
+          <p class="panel-note">Current season phase: <strong id="statPhase">Pre-season</strong></p>
         </aside>
       </section>
 
-      <section id="countdown" class="module glass reveal">
+      <section class="module glass reveal">
         <div class="module-head">
-          <p class="eyebrow">Season Clock</p>
-          <h2>Countdown to <span id="nextRaceName">the next race</span></h2>
-          <p id="nextRaceMeta" class="subtle">Loading official race time...</p>
+          <p class="eyebrow">Countdown</p>
+          <h2>Next race weekend</h2>
+          <p id="nextRaceName" class="subtle">Loading...</p>
+          <p id="nextRaceMeta" class="subtle">Loading official schedule data...</p>
         </div>
         <div class="countdown-grid" aria-live="polite">
-          <article class="digit-box">
-            <span id="days">00</span>
-            <p>Days</p>
-          </article>
-          <article class="digit-box">
-            <span id="hours">00</span>
-            <p>Hours</p>
-          </article>
-          <article class="digit-box">
-            <span id="minutes">00</span>
-            <p>Minutes</p>
-          </article>
-          <article class="digit-box">
-            <span id="seconds">00</span>
-            <p>Seconds</p>
-          </article>
+          <article class="digit-box"><span id="days">00</span><p>Days</p></article>
+          <article class="digit-box"><span id="hours">00</span><p>Hours</p></article>
+          <article class="digit-box"><span id="minutes">00</span><p>Minutes</p></article>
+          <article class="digit-box"><span id="seconds">00</span><p>Seconds</p></article>
         </div>
         <p id="countdownStatus" class="countdown-status">System sync in progress.</p>
       </section>
 
-      <section id="schedule" class="module reveal">
+      <section class="module reveal">
         <div class="module-head">
-          <p class="eyebrow">Official Calendar</p>
-          <h2>2026 Formula 1 race calendar</h2>
-          <p class="subtle">Dates from Formula1.com racing calendar (24 rounds).</p>
+          <p class="eyebrow">Pre-Season</p>
+          <h2>Official testing sessions</h2>
         </div>
-        <div class="schedule-grid">
-          <article class="race-card">
-            <p class="badge">Round 01</p>
-            <h3>Australian Grand Prix</h3>
-            <p class="race-date">Mar 6-8</p>
-            <p>Melbourne</p>
-          </article>
-          <article class="race-card">
-            <p class="badge">Round 02</p>
-            <h3>Chinese Grand Prix</h3>
-            <p class="race-date">Mar 13-15</p>
-            <p>Shanghai</p>
-            <p class="race-tag">Sprint weekend</p>
-          </article>
-          <article class="race-card">
-            <p class="badge">Round 03</p>
-            <h3>Japanese Grand Prix</h3>
-            <p class="race-date">Mar 27-29</p>
-            <p>Suzuka</p>
-          </article>
-          <article class="race-card">
-            <p class="badge">Round 04</p>
-            <h3>Bahrain Grand Prix</h3>
-            <p class="race-date">Apr 10-12</p>
-            <p>Sakhir</p>
-          </article>
-          <article class="race-card">
-            <p class="badge">Round 05</p>
-            <h3>Saudi Arabian Grand Prix</h3>
-            <p class="race-date">Apr 17-19</p>
-            <p>Jeddah</p>
-          </article>
-          <article class="race-card">
-            <p class="badge">Round 06</p>
-            <h3>Miami Grand Prix</h3>
-            <p class="race-date">May 1-3</p>
-            <p>Miami</p>
-            <p class="race-tag">Sprint weekend</p>
-          </article>
-          <article class="race-card">
-            <p class="badge">Round 07</p>
-            <h3>Canadian Grand Prix</h3>
-            <p class="race-date">May 22-24</p>
-            <p>Montreal</p>
-            <p class="race-tag">Sprint weekend</p>
-          </article>
-          <article class="race-card">
-            <p class="badge">Round 08</p>
-            <h3>Monaco Grand Prix</h3>
-            <p class="race-date">Jun 5-7</p>
-            <p>Monaco</p>
-          </article>
-          <article class="race-card">
-            <p class="badge">Round 09</p>
-            <h3>Spanish Grand Prix</h3>
-            <p class="race-date">Jun 12-14</p>
-            <p>Barcelona-Catalunya</p>
-          </article>
-          <article class="race-card">
-            <p class="badge">Round 10</p>
-            <h3>Austrian Grand Prix</h3>
-            <p class="race-date">Jun 26-28</p>
-            <p>Spielberg</p>
-          </article>
-          <article class="race-card">
-            <p class="badge">Round 11</p>
-            <h3>British Grand Prix</h3>
-            <p class="race-date">Jul 3-5</p>
-            <p>Silverstone</p>
-            <p class="race-tag">Sprint weekend</p>
-          </article>
-          <article class="race-card">
-            <p class="badge">Round 12</p>
-            <h3>Belgian Grand Prix</h3>
-            <p class="race-date">Jul 17-19</p>
-            <p>Spa-Francorchamps</p>
-          </article>
-          <article class="race-card">
-            <p class="badge">Round 13</p>
-            <h3>Hungarian Grand Prix</h3>
-            <p class="race-date">Jul 24-26</p>
-            <p>Budapest</p>
-          </article>
-          <article class="race-card">
-            <p class="badge">Round 14</p>
-            <h3>Dutch Grand Prix</h3>
-            <p class="race-date">Aug 21-23</p>
-            <p>Zandvoort</p>
-            <p class="race-tag">Sprint weekend</p>
-          </article>
-          <article class="race-card">
-            <p class="badge">Round 15</p>
-            <h3>Italian Grand Prix</h3>
-            <p class="race-date">Sep 4-6</p>
-            <p>Monza</p>
-          </article>
-          <article class="race-card">
-            <p class="badge">Round 16</p>
-            <h3>Spanish Grand Prix</h3>
-            <p class="race-date">Sep 11-13</p>
-            <p>Madrid</p>
-          </article>
-          <article class="race-card">
-            <p class="badge">Round 17</p>
-            <h3>Azerbaijan Grand Prix</h3>
-            <p class="race-date">Sep 24-26</p>
-            <p>Baku</p>
-          </article>
-          <article class="race-card">
-            <p class="badge">Round 18</p>
-            <h3>Singapore Grand Prix</h3>
-            <p class="race-date">Oct 9-11</p>
-            <p>Singapore</p>
-            <p class="race-tag">Sprint weekend</p>
-          </article>
-          <article class="race-card">
-            <p class="badge">Round 19</p>
-            <h3>United States Grand Prix</h3>
-            <p class="race-date">Oct 23-25</p>
-            <p>Austin</p>
-          </article>
-          <article class="race-card">
-            <p class="badge">Round 20</p>
-            <h3>Mexico City Grand Prix</h3>
-            <p class="race-date">Oct 30-Nov 1</p>
-            <p>Mexico City</p>
-          </article>
-          <article class="race-card">
-            <p class="badge">Round 21</p>
-            <h3>Sao Paulo Grand Prix</h3>
-            <p class="race-date">Nov 6-8</p>
-            <p>Interlagos</p>
-          </article>
-          <article class="race-card">
-            <p class="badge">Round 22</p>
-            <h3>Las Vegas Grand Prix</h3>
-            <p class="race-date">Nov 19-21</p>
-            <p>Las Vegas</p>
-          </article>
-          <article class="race-card">
-            <p class="badge">Round 23</p>
-            <h3>Qatar Grand Prix</h3>
-            <p class="race-date">Nov 27-29</p>
-            <p>Lusail</p>
-          </article>
-          <article class="race-card">
-            <p class="badge">Round 24</p>
-            <h3>Abu Dhabi Grand Prix</h3>
-            <p class="race-date">Dec 4-6</p>
-            <p>Yas Marina</p>
-          </article>
+        <div id="testingBlocks" class="cards cards-2"></div>
+      </section>
+
+      <section class="module reveal">
+        <div class="module-head">
+          <p class="eyebrow">Upcoming</p>
+          <h2>Next six race weekends</h2>
+        </div>
+        <div id="upcomingRaces" class="cards cards-3"></div>
+      </section>
+
+      <section class="module reveal">
+        <div class="module-head">
+          <p class="eyebrow">Explore</p>
+          <h2>Deep-dive pages</h2>
+        </div>
+        <div class="cards cards-3">
+          <a class="card link-card" href="calendar.html"><h3>Calendar</h3><p>All 24 rounds, testing sessions, sprint filter, and race local start times.</p></a>
+          <a class="card link-card" href="standings.html"><h3>Standings</h3><p>Drivers and constructors tables built with the official 2026 entry list.</p></a>
+          <a class="card link-card" href="drivers.html"><h3>Drivers</h3><p>All 22 confirmed drivers with team and nationality.</p></a>
+          <a class="card link-card" href="teams.html"><h3>Teams</h3><p>All 11 teams, power unit info, and driver pairings.</p></a>
+          <a class="card link-card" href="circuits.html"><h3>Circuits</h3><p>Track list across all 2026 rounds with sprint indicators.</p></a>
+          <a class="card link-card" href="regulations.html"><h3>Regulations</h3><p>2026 technical and sporting rule updates with official source links.</p></a>
         </div>
       </section>
 
-      <section id="standings" class="module reveal">
-        <div class="module-head">
-          <p class="eyebrow">Standings</p>
-          <h2>2026 championship standings</h2>
-          <p class="subtle">Driver and team names match the FIA 2026 entry list. Points are set to 0 for now.</p>
-        </div>
-        <div class="standings-layout">
-          <article class="standings-board">
-            <h3>Drivers' Championship</h3>
-            <div class="table-wrap">
-              <table class="standings-table" aria-label="Drivers championship table">
-                <thead>
-                  <tr>
-                    <th>P</th>
-                    <th>Driver</th>
-                    <th>Team</th>
-                    <th>PTS</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td>1</td><td>Lando Norris</td><td>McLaren Mastercard F1 Team</td><td>0</td></tr>
-                  <tr><td>2</td><td>Oscar Piastri</td><td>McLaren Mastercard F1 Team</td><td>0</td></tr>
-                  <tr><td>3</td><td>George Russell</td><td>Mercedes-AMG PETRONAS Formula One Team</td><td>0</td></tr>
-                  <tr><td>4</td><td>Andrea Kimi Antonelli</td><td>Mercedes-AMG PETRONAS Formula One Team</td><td>0</td></tr>
-                  <tr><td>5</td><td>Max Verstappen</td><td>Oracle Red Bull Racing</td><td>0</td></tr>
-                  <tr><td>6</td><td>Isack Hadjar</td><td>Oracle Red Bull Racing</td><td>0</td></tr>
-                  <tr><td>7</td><td>Charles Leclerc</td><td>Scuderia Ferrari HP</td><td>0</td></tr>
-                  <tr><td>8</td><td>Lewis Hamilton</td><td>Scuderia Ferrari HP</td><td>0</td></tr>
-                  <tr><td>9</td><td>Alexander Albon</td><td>Atlassian Williams F1 Team</td><td>0</td></tr>
-                  <tr><td>10</td><td>Carlos Sainz</td><td>Atlassian Williams F1 Team</td><td>0</td></tr>
-                  <tr><td>11</td><td>Arvid Lindblad</td><td>Visa Cash App Racing Bulls Formula One Team</td><td>0</td></tr>
-                  <tr><td>12</td><td>Liam Lawson</td><td>Visa Cash App Racing Bulls Formula One Team</td><td>0</td></tr>
-                  <tr><td>13</td><td>Lance Stroll</td><td>Aston Martin Aramco Formula One Team</td><td>0</td></tr>
-                  <tr><td>14</td><td>Fernando Alonso</td><td>Aston Martin Aramco Formula One Team</td><td>0</td></tr>
-                  <tr><td>15</td><td>Esteban Ocon</td><td>TGR Haas F1 Team</td><td>0</td></tr>
-                  <tr><td>16</td><td>Oliver Bearman</td><td>TGR Haas F1 Team</td><td>0</td></tr>
-                  <tr><td>17</td><td>Nico Hulkenberg</td><td>Audi Revolut F1 Team</td><td>0</td></tr>
-                  <tr><td>18</td><td>Gabriel Bortoleto</td><td>Audi Revolut F1 Team</td><td>0</td></tr>
-                  <tr><td>19</td><td>Pierre Gasly</td><td>BWT Alpine Formula One Team</td><td>0</td></tr>
-                  <tr><td>20</td><td>Franco Colapinto</td><td>BWT Alpine Formula One Team</td><td>0</td></tr>
-                  <tr><td>21</td><td>Sergio Perez</td><td>Cadillac Formula 1 Team</td><td>0</td></tr>
-                  <tr><td>22</td><td>Valtteri Bottas</td><td>Cadillac Formula 1 Team</td><td>0</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </article>
-
-          <article class="standings-board">
-            <h3>Constructors' Championship</h3>
-            <div class="table-wrap">
-              <table class="standings-table" aria-label="Constructors championship table">
-                <thead>
-                  <tr>
-                    <th>P</th>
-                    <th>Team</th>
-                    <th>PTS</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td>1</td><td>McLaren Mastercard F1 Team</td><td>0</td></tr>
-                  <tr><td>2</td><td>Mercedes-AMG PETRONAS Formula One Team</td><td>0</td></tr>
-                  <tr><td>3</td><td>Oracle Red Bull Racing</td><td>0</td></tr>
-                  <tr><td>4</td><td>Scuderia Ferrari HP</td><td>0</td></tr>
-                  <tr><td>5</td><td>Atlassian Williams F1 Team</td><td>0</td></tr>
-                  <tr><td>6</td><td>Visa Cash App Racing Bulls Formula One Team</td><td>0</td></tr>
-                  <tr><td>7</td><td>Aston Martin Aramco Formula One Team</td><td>0</td></tr>
-                  <tr><td>8</td><td>TGR Haas F1 Team</td><td>0</td></tr>
-                  <tr><td>9</td><td>Audi Revolut F1 Team</td><td>0</td></tr>
-                  <tr><td>10</td><td>BWT Alpine Formula One Team</td><td>0</td></tr>
-                  <tr><td>11</td><td>Cadillac Formula 1 Team</td><td>0</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="tech" class="module reveal">
-        <div class="module-head">
-          <p class="eyebrow">Regulation Facts</p>
-          <h2>Confirmed FIA 2026 technical changes</h2>
-        </div>
-        <div class="tech-grid">
-          <article>
-            <h3>Smaller Chassis</h3>
-            <p>Maximum wheelbase drops to 3400 mm (from 3600 mm) and width to 1900 mm (from 2000 mm).</p>
-          </article>
-          <article>
-            <h3>Lighter Cars</h3>
-            <p>Minimum mass target reduced by 30 kg to 768 kg, improving agility and raceability.</p>
-          </article>
-          <article>
-            <h3>Power Unit Shift</h3>
-            <p>Electrical output from the MGU-K rises to 350 kW while the MGU-H is removed.</p>
-          </article>
-          <article>
-            <h3>100% Sustainable Fuel</h3>
-            <p>New power unit regulations require use of 100% advanced sustainable fuels.</p>
-          </article>
-          <article>
-            <h3>Active Aero Modes</h3>
-            <p>Cars switch between Z mode (downforce) and X mode (low drag) for straights and racing phases.</p>
-          </article>
-          <article>
-            <h3>Calendar Structure</h3>
-            <p>24 rounds are regionally grouped to reduce travel impact, with Madrid joining and Barcelona retained.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="join" class="module join reveal">
+      <section class="module join reveal">
         <div>
-          <p class="eyebrow">Insider Feed</p>
-          <h2>Get official schedule and regulation updates.</h2>
-          <p class="subtle">No rumors, only FIA and Formula 1 source links.</p>
+          <p class="eyebrow">Official Updates</p>
+          <h2>Get schedule and regulation alerts.</h2>
+          <p class="subtle">No rumors. Official references only.</p>
         </div>
         <form id="joinForm" class="join-form">
           <label for="emailInput" class="sr-only">Email address</label>
-          <input id="emailInput" type="email" placeholder="team@gridpulse.com" required />
-          <button type="submit" class="btn btn-primary">Request pit pass</button>
+          <input id="emailInput" type="email" placeholder="you@example.com" required />
+          <button type="submit" class="btn btn-primary">Join update list</button>
           <p id="formStatus" class="form-status" aria-live="polite"></p>
         </form>
-      </section>
-
-      <section id="sources" class="module reveal">
-        <div class="module-head">
-          <p class="eyebrow">Sources</p>
-          <h2>Official references</h2>
-          <p class="subtle">Verified on February 13, 2026.</p>
-        </div>
-        <ul class="source-list">
-          <li>
-            <a
-              href="https://www.fia.com/events/fia-formula-one-world-championship/season-2026/2026-fia-formula-one-world-championship-entry"
-              target="_blank"
-              rel="noopener"
-            >
-              FIA 2026 entry list (official team and driver names)
-            </a>
-          </li>
-          <li>
-            <a href="https://www.formula1.com/en/racing/2026.html" target="_blank" rel="noopener">
-              Formula 1 2026 calendar page (latest round dates)
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-calendar.1Tju97VfN6MZsN7x5TLw9q"
-              target="_blank"
-              rel="noopener"
-            >
-              Formula 1 and FIA 2026 calendar announcement
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.formula1.com/en/latest/article/formula-1-and-fia-announce-2026-sprint-calendar.3PyLPAazrBNe8kQIS3wOfY"
-              target="_blank"
-              rel="noopener"
-            >
-              2026 sprint calendar announcement
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.formula1.com/en/latest/article/cadillac-f1-team-secures-final-approval-to-join-grid-in-2026.20X1NwXJ7R6bM4gA4Q8wR8"
-              target="_blank"
-              rel="noopener"
-            >
-              Cadillac receives final approval to join in 2026
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.fia.com/news/fia-unveils-2026-f1-regulations-breakthrough-car-concept-closer-racing-and-improved"
-              target="_blank"
-              rel="noopener"
-            >
-              FIA 2026 regulations overview
-            </a>
-          </li>
-        </ul>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>F1 2026 Quantum Grid. Facts sourced from official Formula 1 and FIA publications.</p>
+      <p>Formula 1 2026 Hub. Built with official Formula 1 and FIA information.</p>
     </footer>
 
-    <script src="script.js?v=20260213c"></script>
+    <script type="module" src="index-page.js?v=20260213e"></script>
   </body>
 </html>
