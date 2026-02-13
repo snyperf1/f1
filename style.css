@@ -499,7 +499,7 @@ main {
 .standings-table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 280px;
+  min-width: 520px;
 }
 
 .standings-table thead th {
