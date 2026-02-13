@@ -268,13 +268,31 @@ main {
   letter-spacing: 0.05em;
 }
 
-.sector {
-  padding: 0.85rem 0;
-  border-top: 1px solid rgba(121, 181, 242, 0.22);
+.fact-list {
+  list-style: none;
+  display: grid;
+  gap: 0.6rem;
 }
 
-.sector:first-of-type {
-  border-top: 0;
+.fact-list li {
+  border: 1px solid rgba(118, 180, 246, 0.22);
+  border-radius: 12px;
+  padding: 0.7rem;
+  background: rgba(3, 12, 23, 0.58);
+}
+
+.fact-list span {
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.fact-list strong {
+  margin-top: 0.25rem;
+  display: block;
+  font: 700 0.95rem var(--font-body);
+  color: #dbe9f9;
 }
 
 .sector-label {
@@ -402,59 +420,55 @@ main {
   font-weight: 600;
 }
 
-.race-card p:last-child {
+.race-card > p:not(.badge):not(.race-date):not(.race-tag) {
   margin-top: 0.24rem;
   color: var(--muted);
 }
 
-.standings-grid {
+.race-tag {
+  margin-top: 0.45rem;
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.22rem 0.5rem;
+  font: 700 0.66rem var(--font-display);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #001017;
+  background: linear-gradient(120deg, #ff8d53 0%, #ffc978 100%);
+}
+
+.facts-grid {
   margin-top: 1rem;
   display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.6rem;
 }
 
-.team-row {
+.fact-card {
   border: 1px solid rgba(115, 177, 246, 0.23);
   border-radius: 14px;
   padding: 0.85rem 0.9rem;
   background: rgba(3, 12, 24, 0.6);
 }
 
-.team-row header {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.7rem;
-}
-
-.team-row h3 {
-  font: 700 0.95rem var(--font-display);
+.fact-label {
+  font: 700 0.7rem var(--font-display);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  color: var(--muted);
 }
 
-.team-row header span {
+.fact-card h3 {
+  margin-top: 0.42rem;
+  font: 700 1.15rem var(--font-display);
+  text-transform: uppercase;
   color: var(--signal);
-  font: 700 0.88rem var(--font-display);
 }
 
-.team-bar {
-  margin-top: 0.62rem;
-  height: 9px;
-  border-radius: 99px;
-  background: rgba(102, 156, 223, 0.2);
-  overflow: hidden;
-}
-
-.team-bar span {
-  display: block;
-  width: 0;
-  height: 100%;
-  border-radius: inherit;
-  background: linear-gradient(90deg, #ff643f 0%, #fed069 40%, #1effbf 100%);
-  transition: width 820ms ease;
-}
-
-.team-row.is-visible .team-bar span {
-  width: var(--fill, 0%);
+.fact-card p:last-child {
+  margin-top: 0.35rem;
+  color: var(--muted);
+  line-height: 1.45;
 }
 
 .tech-grid {
@@ -515,6 +529,30 @@ main {
   font-size: 0.9rem;
 }
 
+.source-list {
+  margin-top: 0.9rem;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.source-list li a {
+  display: block;
+  border: 1px solid rgba(113, 177, 245, 0.23);
+  border-radius: 12px;
+  padding: 0.72rem 0.82rem;
+  color: #d4e5f8;
+  background: rgba(4, 13, 25, 0.58);
+  font-size: 0.95rem;
+  line-height: 1.42;
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+.source-list li a:hover {
+  border-color: rgba(0, 239, 169, 0.5);
+  transform: translateY(-1px);
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -569,6 +607,7 @@ main {
   }
 
   .schedule-grid,
+  .facts-grid,
   .tech-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -608,6 +647,7 @@ main {
   }
 
   .schedule-grid,
+  .facts-grid,
   .tech-grid {
     grid-template-columns: 1fr;
   }
