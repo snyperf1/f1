@@ -5,8 +5,8 @@
   --panel-strong: rgba(6, 19, 36, 0.9);
   --line: rgba(106, 198, 255, 0.28);
   --line-soft: rgba(106, 198, 255, 0.16);
-  --text: #ecf5ff;
-  --muted: #9eb4cc;
+  --text: #f2f8ff;
+  --muted: #c3d4e8;
   --electric: #39d3ff;
   --signal: #00f0a8;
   --warn: #ffc26a;
@@ -237,13 +237,13 @@ h1 {
 .lead {
   margin-top: 0.95rem;
   max-width: 58ch;
-  color: var(--muted);
+  color: #d3e2f2;
   font-size: 1.03rem;
   line-height: 1.55;
 }
 
 .subtle {
-  color: var(--muted);
+  color: #d0dff0;
   margin-top: 0.45rem;
 }
 
@@ -315,7 +315,7 @@ h1 {
   font-size: 0.72rem;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: #d5e5f5;
 }
 
 .kpi-card strong {
@@ -343,7 +343,7 @@ h1 {
   align-items: center;
   gap: 0.5rem;
   font-size: 0.9rem;
-  color: var(--muted);
+  color: #d3e4f4;
   white-space: nowrap;
 }
 
@@ -419,7 +419,7 @@ h1 {
 
 .card p {
   margin-top: 0.36rem;
-  color: var(--muted);
+  color: #c8d9ec;
   line-height: 1.45;
 }
 
@@ -427,13 +427,14 @@ h1 {
   color: #dcecff;
 }
 
+.card p.badge,
 .badge {
   display: inline-block;
   border-radius: 999px;
   padding: 0.28rem 0.52rem;
   font: 700 0.68rem var(--font-display);
   letter-spacing: 0.08em;
-  color: #00111b;
+  color: #03283a;
   background: linear-gradient(120deg, #00f4ba 0%, #57d6ff 100%);
 }
 
@@ -443,6 +444,7 @@ h1 {
   font-weight: 600;
 }
 
+.card p.race-tag,
 .race-tag {
   margin-top: 0.45rem;
   display: inline-block;
@@ -451,7 +453,7 @@ h1 {
   font: 700 0.66rem var(--font-display);
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: #001017;
+  color: #4a2200;
   background: linear-gradient(120deg, #ff8d53 0%, #ffc978 100%);
 }
 
@@ -465,7 +467,7 @@ h1 {
   text-align: left;
   font: 700 0.72rem var(--font-display);
   letter-spacing: 0.08em;
-  color: var(--muted);
+  color: #d5e6f7;
   text-transform: uppercase;
   padding: 0.62rem 0.45rem;
   border-bottom: 1px solid var(--line-soft);
@@ -580,7 +582,7 @@ h1 {
 .site-footer {
   width: min(1200px, 94vw);
   margin: 0 auto 1.8rem;
-  color: #8da1ba;
+  color: #bacde2;
   font-size: 0.84rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
