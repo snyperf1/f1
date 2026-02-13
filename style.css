@@ -471,6 +471,72 @@ main {
   line-height: 1.45;
 }
 
+.standings-layout {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.standings-board {
+  border: 1px solid rgba(115, 177, 246, 0.23);
+  border-radius: 14px;
+  background: rgba(3, 12, 24, 0.6);
+  padding: 0.9rem;
+}
+
+.standings-board h3 {
+  font: 700 0.95rem var(--font-display);
+  text-transform: uppercase;
+  color: #d4e8ff;
+}
+
+.table-wrap {
+  margin-top: 0.6rem;
+  overflow: auto;
+}
+
+.standings-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 280px;
+}
+
+.standings-table thead th {
+  text-align: left;
+  font: 700 0.72rem var(--font-display);
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-transform: uppercase;
+  padding: 0.5rem 0.35rem;
+  border-bottom: 1px solid rgba(115, 177, 246, 0.22);
+}
+
+.standings-table tbody td {
+  padding: 0.5rem 0.35rem;
+  border-bottom: 1px solid rgba(115, 177, 246, 0.14);
+  color: #d7e8fa;
+  font-size: 0.9rem;
+}
+
+.standings-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.standings-table th:first-child,
+.standings-table td:first-child {
+  width: 2.25rem;
+  color: var(--signal);
+  font-weight: 700;
+}
+
+.standings-table th:last-child,
+.standings-table td:last-child {
+  width: 3.2rem;
+  text-align: right;
+  font-weight: 700;
+}
+
 .tech-grid {
   margin-top: 1rem;
   display: grid;
@@ -607,6 +673,7 @@ main {
   }
 
   .schedule-grid,
+  .standings-layout,
   .facts-grid,
   .tech-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -647,6 +714,7 @@ main {
   }
 
   .schedule-grid,
+  .standings-layout,
   .facts-grid,
   .tech-grid {
     grid-template-columns: 1fr;

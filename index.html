@@ -7,14 +7,14 @@
       name="description"
       content="F1 2026 Quantum Grid: verified Formula 1 facts, official 2026 calendar, sprint weekends, and regulation updates."
     />
-    <title>F1 2026 | Quantum Grid</title>
+    <title>Formula 1 2026 Hub | Calendar, Standings, and Rules</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css?v=20260213b" />
+    <link rel="stylesheet" href="style.css?v=20260213c" />
   </head>
   <body>
     <div class="ambient ambient-one" aria-hidden="true"></div>
@@ -28,7 +28,7 @@
       <nav class="site-nav" aria-label="Primary navigation">
         <a href="#countdown">Countdown</a>
         <a href="#schedule">Calendar</a>
-        <a href="#standings">Facts</a>
+        <a href="#standings">Standings</a>
         <a href="#tech">Regs</a>
         <a href="#sources">Sources</a>
       </nav>
@@ -39,7 +39,7 @@
       <section id="hero" class="hero">
         <div class="hero-copy reveal">
           <p class="eyebrow">Official 2026 data</p>
-          <h1>F1 2026 facts only. No placeholder stats.</h1>
+          <h1>Everything you need for the 2026 F1 season.</h1>
           <p class="lead">
             Built from official Formula 1 and FIA publications: complete calendar, sprint venues, confirmed entries, and regulation changes.
           </p>
@@ -277,40 +277,74 @@
 
       <section id="standings" class="module reveal">
         <div class="module-head">
-          <p class="eyebrow">Season Facts</p>
-          <h2>Live status from official 2026 dates</h2>
-          <p class="subtle">This section calculates race progress using your current date.</p>
+          <p class="eyebrow">Standings</p>
+          <h2>2026 championship standings</h2>
+          <p class="subtle">Live tables are enabled. Points are set to 0 for now.</p>
         </div>
-        <div class="facts-grid">
-          <article class="fact-card">
-            <p class="fact-label">Today</p>
-            <h3 id="todayDate">--</h3>
-            <p>Local browser date</p>
+        <div class="standings-layout">
+          <article class="standings-board">
+            <h3>Drivers' Championship</h3>
+            <div class="table-wrap">
+              <table class="standings-table" aria-label="Drivers championship table">
+                <thead>
+                  <tr>
+                    <th>P</th>
+                    <th>Driver</th>
+                    <th>PTS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>1</td><td>Driver 01</td><td>0</td></tr>
+                  <tr><td>2</td><td>Driver 02</td><td>0</td></tr>
+                  <tr><td>3</td><td>Driver 03</td><td>0</td></tr>
+                  <tr><td>4</td><td>Driver 04</td><td>0</td></tr>
+                  <tr><td>5</td><td>Driver 05</td><td>0</td></tr>
+                  <tr><td>6</td><td>Driver 06</td><td>0</td></tr>
+                  <tr><td>7</td><td>Driver 07</td><td>0</td></tr>
+                  <tr><td>8</td><td>Driver 08</td><td>0</td></tr>
+                  <tr><td>9</td><td>Driver 09</td><td>0</td></tr>
+                  <tr><td>10</td><td>Driver 10</td><td>0</td></tr>
+                  <tr><td>11</td><td>Driver 11</td><td>0</td></tr>
+                  <tr><td>12</td><td>Driver 12</td><td>0</td></tr>
+                  <tr><td>13</td><td>Driver 13</td><td>0</td></tr>
+                  <tr><td>14</td><td>Driver 14</td><td>0</td></tr>
+                  <tr><td>15</td><td>Driver 15</td><td>0</td></tr>
+                  <tr><td>16</td><td>Driver 16</td><td>0</td></tr>
+                  <tr><td>17</td><td>Driver 17</td><td>0</td></tr>
+                  <tr><td>18</td><td>Driver 18</td><td>0</td></tr>
+                  <tr><td>19</td><td>Driver 19</td><td>0</td></tr>
+                  <tr><td>20</td><td>Driver 20</td><td>0</td></tr>
+                </tbody>
+              </table>
+            </div>
           </article>
-          <article class="fact-card">
-            <p class="fact-label">Rounds Completed</p>
-            <h3 id="roundsCompleted">0</h3>
-            <p>Race weekends finished</p>
-          </article>
-          <article class="fact-card">
-            <p class="fact-label">Rounds Remaining</p>
-            <h3 id="roundsRemaining">24</h3>
-            <p>Until Abu Dhabi finale</p>
-          </article>
-          <article class="fact-card">
-            <p class="fact-label">Sprint Weekends</p>
-            <h3>6</h3>
-            <p>China, Miami, Canada, Britain, Netherlands, Singapore</p>
-          </article>
-          <article class="fact-card">
-            <p class="fact-label">Season Phase</p>
-            <h3 id="seasonPhase">Pre-season</h3>
-            <p>Auto-updates with date</p>
-          </article>
-          <article class="fact-card">
-            <p class="fact-label">Grid Expansion</p>
-            <h3>11 Teams</h3>
-            <p>Cadillac approved as additional 2026 entry</p>
+
+          <article class="standings-board">
+            <h3>Constructors' Championship</h3>
+            <div class="table-wrap">
+              <table class="standings-table" aria-label="Constructors championship table">
+                <thead>
+                  <tr>
+                    <th>P</th>
+                    <th>Team</th>
+                    <th>PTS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>1</td><td>Team 01</td><td>0</td></tr>
+                  <tr><td>2</td><td>Team 02</td><td>0</td></tr>
+                  <tr><td>3</td><td>Team 03</td><td>0</td></tr>
+                  <tr><td>4</td><td>Team 04</td><td>0</td></tr>
+                  <tr><td>5</td><td>Team 05</td><td>0</td></tr>
+                  <tr><td>6</td><td>Team 06</td><td>0</td></tr>
+                  <tr><td>7</td><td>Team 07</td><td>0</td></tr>
+                  <tr><td>8</td><td>Team 08</td><td>0</td></tr>
+                  <tr><td>9</td><td>Team 09</td><td>0</td></tr>
+                  <tr><td>10</td><td>Team 10</td><td>0</td></tr>
+                  <tr><td>11</td><td>Team 11</td><td>0</td></tr>
+                </tbody>
+              </table>
+            </div>
           </article>
         </div>
       </section>
@@ -418,6 +452,6 @@
       <p>F1 2026 Quantum Grid. Facts sourced from official Formula 1 and FIA publications.</p>
     </footer>
 
-    <script src="script.js?v=20260213b"></script>
+    <script src="script.js?v=20260213c"></script>
   </body>
 </html>
