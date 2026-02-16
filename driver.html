@@ -36,9 +36,20 @@
 
     <main id="driverDetailRoot" class="page-main">
       <section class="module page-hero reveal">
-        <p class="eyebrow">Driver profile</p>
-        <h1 id="driverTitle">Loading driver...</h1>
-        <p id="driverLead" class="lead">Loading official 2026 entry data.</p>
+        <div class="profile-hero-grid">
+          <div>
+            <p class="eyebrow">Driver profile</p>
+            <h1 id="driverTitle">Loading driver...</h1>
+            <p id="driverLead" class="lead">Loading official 2026 entry data.</p>
+            <div class="hero-actions">
+              <a id="jumpTeam" class="btn btn-primary" href="teams.html">Team page</a>
+              <a class="btn btn-outline" href="drivers.html">All drivers</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <img id="driverPortrait" class="hero-visual-image" src="" alt="" />
+          </div>
+        </div>
       </section>
 
       <section class="module reveal">
@@ -46,6 +57,20 @@
           <h2>Core information</h2>
         </div>
         <div id="driverInfo" class="cards cards-3"></div>
+      </section>
+
+      <section class="module reveal">
+        <div class="module-head">
+          <h2>Driver focus</h2>
+        </div>
+        <div id="driverHighlights" class="cards cards-3"></div>
+      </section>
+
+      <section class="module reveal">
+        <div class="module-head">
+          <h2>Team machinery</h2>
+        </div>
+        <div id="driverTeamCar" class="cards cards-1"></div>
       </section>
 
       <section class="module reveal">
@@ -61,6 +86,14 @@
           <p class="subtle">Jump from this driver to each circuit page.</p>
         </div>
         <div id="driverUpcoming" class="cards cards-3"></div>
+      </section>
+
+      <section class="module reveal">
+        <div class="module-head">
+          <h2>Photo pack</h2>
+          <p class="subtle">Driver, team, and circuit visuals in one place.</p>
+        </div>
+        <div id="driverGallery" class="cards cards-3"></div>
       </section>
     </main>
 

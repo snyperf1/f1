@@ -382,6 +382,327 @@ export const DRIVERS_2026 = [
   { name: "Valtteri Bottas", nationality: "Finland", team: "Cadillac Formula 1 Team" },
 ];
 
+const TEAM_MEDIA_BASE =
+  "https://media.formula1.com/image/upload/c_lfill,w_512/q_auto/d_common:f1:2026:fallback:car:2026fallbackcarright.webp/v1740000000/common/f1/2026";
+const TEAM_LOGO_BASE =
+  "https://media.formula1.com/image/upload/c_lfill,w_64/q_auto/v1740000000/common/f1/2026";
+const DRIVER_MEDIA_BASE =
+  "https://media.formula1.com/image/upload/c_lfill,w_720/q_auto/d_common:f1:2026:fallback:driver:2026fallbackdriverright.webp/v1740000000/common/f1/2026";
+const RACE_CARD_BASE =
+  "https://media.formula1.com/image/upload/c_lfill,w_1200/q_auto/v1740000000/fom-website/static-assets/2026/races/card";
+const CIRCUIT_MAP_BASE = "https://res.cloudinary.com/ddzssf2sx/image/upload/t_400bot";
+
+const TEAM_SLUGS_2026 = {
+  "McLaren Mastercard F1 Team": "mclaren",
+  "Mercedes-AMG PETRONAS Formula One Team": "mercedes",
+  "Oracle Red Bull Racing": "redbullracing",
+  "Scuderia Ferrari HP": "ferrari",
+  "Atlassian Williams F1 Team": "williams",
+  "Visa Cash App Racing Bulls Formula One Team": "racingbulls",
+  "Aston Martin Aramco Formula One Team": "astonmartin",
+  "TGR Haas F1 Team": "haasf1team",
+  "Audi Revolut F1 Team": "audi",
+  "BWT Alpine Formula One Team": "alpine",
+  "Cadillac Formula 1 Team": "cadillac",
+};
+
+const TEAM_COLORS_2026 = {
+  "McLaren Mastercard F1 Team": "#ff8700",
+  "Mercedes-AMG PETRONAS Formula One Team": "#00d2be",
+  "Oracle Red Bull Racing": "#1e41ff",
+  "Scuderia Ferrari HP": "#ff2800",
+  "Atlassian Williams F1 Team": "#005bff",
+  "Visa Cash App Racing Bulls Formula One Team": "#4561ff",
+  "Aston Martin Aramco Formula One Team": "#006f62",
+  "TGR Haas F1 Team": "#9b9b9b",
+  "Audi Revolut F1 Team": "#cb0000",
+  "BWT Alpine Formula One Team": "#2293d1",
+  "Cadillac Formula 1 Team": "#0046ff",
+};
+
+export const TEAM_MEDIA_2026 = Object.fromEntries(
+  TEAMS_2026.map((team) => {
+    const slug = TEAM_SLUGS_2026[team.name];
+    return [
+      team.name,
+      {
+        slug,
+        color: TEAM_COLORS_2026[team.name] || "#6ac6ff",
+        logo: `${TEAM_LOGO_BASE}/${slug}/2026${slug}logowhite.webp`,
+        car: `${TEAM_MEDIA_BASE}/${slug}/2026${slug}carright.webp`,
+      },
+    ];
+  })
+);
+
+const DRIVER_ASSETS_2026 = {
+  "Lando Norris": { teamSlug: "mclaren", driverSlug: "lannor01", code: "NOR", number: "4" },
+  "Oscar Piastri": { teamSlug: "mclaren", driverSlug: "oscpia01", code: "PIA", number: "81" },
+  "George Russell": { teamSlug: "mercedes", driverSlug: "georus01", code: "RUS", number: "63" },
+  "Andrea Kimi Antonelli": { teamSlug: "mercedes", driverSlug: "andant01", code: "ANT", number: "12" },
+  "Max Verstappen": { teamSlug: "redbullracing", driverSlug: "maxver01", code: "VER", number: "1" },
+  "Isack Hadjar": { teamSlug: "redbullracing", driverSlug: "isahad01", code: "HAD", number: "6" },
+  "Charles Leclerc": { teamSlug: "ferrari", driverSlug: "chalec01", code: "LEC", number: "16" },
+  "Lewis Hamilton": { teamSlug: "ferrari", driverSlug: "lewham01", code: "HAM", number: "44" },
+  "Alexander Albon": { teamSlug: "williams", driverSlug: "alealb01", code: "ALB", number: "23" },
+  "Carlos Sainz": { teamSlug: "williams", driverSlug: "carsai01", code: "SAI", number: "55" },
+  "Arvid Lindblad": { teamSlug: "racingbulls", driverSlug: "arvlin01", code: "LIN", number: "47" },
+  "Liam Lawson": { teamSlug: "racingbulls", driverSlug: "lialaw01", code: "LAW", number: "30" },
+  "Lance Stroll": { teamSlug: "astonmartin", driverSlug: "lanstr01", code: "STR", number: "18" },
+  "Fernando Alonso": { teamSlug: "astonmartin", driverSlug: "feralo01", code: "ALO", number: "14" },
+  "Esteban Ocon": { teamSlug: "haasf1team", driverSlug: "estoco01", code: "OCO", number: "31" },
+  "Oliver Bearman": { teamSlug: "haasf1team", driverSlug: "olibea01", code: "BEA", number: "87" },
+  "Nico Hulkenberg": { teamSlug: "audi", driverSlug: "nichul01", code: "HUL", number: "27" },
+  "Gabriel Bortoleto": { teamSlug: "audi", driverSlug: "gabbor01", code: "BOR", number: "5" },
+  "Pierre Gasly": { teamSlug: "alpine", driverSlug: "piegas01", code: "GAS", number: "10" },
+  "Franco Colapinto": { teamSlug: "alpine", driverSlug: "fracol01", code: "COL", number: "43" },
+  "Sergio Perez": { teamSlug: "cadillac", driverSlug: "serper01", code: "PER", number: "11" },
+  "Valtteri Bottas": { teamSlug: "cadillac", driverSlug: "valbot01", code: "BOT", number: "77" },
+};
+
+const DRIVER_STORY_2026 = {
+  "Lando Norris": "McLaren lead driver with sharp one-lap pace and long-run consistency.",
+  "Oscar Piastri": "Calm race-craft specialist building momentum as a front-running contender.",
+  "George Russell": "Mercedes reference point, combining measured strategy calls with aggressive execution.",
+  "Andrea Kimi Antonelli": "Young talent stepping into a full-season campaign under heavy spotlight.",
+  "Max Verstappen": "Multiple-time champion anchoring Red Bull's title ambitions.",
+  "Isack Hadjar": "Rookie season built on raw speed and rapid adaptation to full race distances.",
+  "Charles Leclerc": "Ferrari qualifier known for decisive commitment in high-pressure sessions.",
+  "Lewis Hamilton": "Veteran benchmark bringing race management and deep development feedback.",
+  "Alexander Albon": "Williams team leader, balancing tyre life with attacking race starts.",
+  "Carlos Sainz": "Technical driver profile with strong setup feel and consistent points conversion.",
+  "Arvid Lindblad": "Next-generation entrant targeting quick progression through the opening rounds.",
+  "Liam Lawson": "Fast in mixed conditions with an assertive overtaking style.",
+  "Lance Stroll": "Established Aston Martin racer focused on maximizing midfield opportunities.",
+  "Fernando Alonso": "Two-time world champion leveraging strategic reading of race flow.",
+  "Esteban Ocon": "Reliable race executor with strong lap-one positioning and defensive work.",
+  "Oliver Bearman": "Young Haas driver aiming to convert qualifying speed into weekend points.",
+  "Nico Hulkenberg": "Experienced development driver helping shape Audi's competitive baseline.",
+  "Gabriel Bortoleto": "Rookie profile with strong junior single-seater momentum.",
+  "Pierre Gasly": "Alpine lead reference for pace extraction and setup stability.",
+  "Franco Colapinto": "Aggressive rising talent focused on rapid adaptation to new circuits.",
+  "Sergio Perez": "Proven front-runner adding race craft to Cadillac's launch era.",
+  "Valtteri Bottas": "Highly experienced driver bringing technical consistency to project build-up.",
+};
+
+export const DRIVER_PROFILES_2026 = Object.fromEntries(
+  DRIVERS_2026.map((driver) => {
+    const asset = DRIVER_ASSETS_2026[driver.name];
+    const teamMedia = TEAM_MEDIA_2026[driver.team] || null;
+    const portrait = asset
+      ? `${DRIVER_MEDIA_BASE}/${asset.teamSlug}/${asset.driverSlug}/2026${asset.teamSlug}${asset.driverSlug}right.webp`
+      : "";
+
+    return [
+      driver.name,
+      {
+        code: asset?.code || "F1",
+        number: asset?.number || "--",
+        portrait,
+        teamColor: teamMedia?.color || "#6ac6ff",
+        teamLogo: teamMedia?.logo || "",
+        teamCar: teamMedia?.car || "",
+        story: DRIVER_STORY_2026[driver.name] || `${driver.name} is part of the official ${SEASON.year} Formula 1 entry list.`,
+      },
+    ];
+  })
+);
+
+const CIRCUIT_CARD_SLUG_BY_ROUND = {
+  1: "australia",
+  2: "china",
+  3: "japan",
+  4: "bahrain",
+  5: "saudi-arabia",
+  6: "miami",
+  7: "canada",
+  8: "monaco",
+  9: "spain",
+  10: "austria",
+  11: "great-britain",
+  12: "belgium",
+  13: "hungary",
+  14: "netherlands",
+  15: "italy",
+  16: "spain",
+  17: "azerbaijan",
+  18: "singapore",
+  19: "united-states",
+  20: "mexico",
+  21: "brazil",
+  22: "las-vegas",
+  23: "qatar",
+  24: "abu-dhabi",
+};
+
+const CIRCUIT_MAP_SLUG_BY_ROUND = {
+  1: "Australia",
+  2: "China",
+  3: "Japan",
+  4: "Bahrain",
+  5: "Saudi_Arabia",
+  6: "Miami",
+  7: "Canada",
+  8: "Monaco",
+  9: "Spain",
+  10: "Austria",
+  11: "Great_Britain",
+  12: "Belgium",
+  13: "Hungary",
+  14: "Netherlands",
+  15: "Italy",
+  16: "Spain",
+  17: "Baku",
+  18: "Singapore",
+  19: "USA",
+  20: "Mexico",
+  21: "Brazil",
+  22: "Las_Vegas",
+  23: "Qatar",
+  24: "Abu_Dhabi",
+};
+
+const CIRCUIT_STORY_BY_ROUND = {
+  1: {
+    type: "Parkland semi-street",
+    signature: "Fast direction changes and heavy-braking zones around Albert Park.",
+    challenge: "Precision on kerbs while protecting rear tyres in hotter race stints.",
+  },
+  2: {
+    type: "Permanent circuit",
+    signature: "Long-radius corners and one of the longest straights of the season.",
+    challenge: "Balancing front-grip in sector one with top speed for overtaking.",
+  },
+  3: {
+    type: "Permanent circuit",
+    signature: "High-speed Esses reward committed rhythm and aero confidence.",
+    challenge: "Maintaining tyre life through repeated long-load corner phases.",
+  },
+  4: {
+    type: "Permanent circuit",
+    signature: "Rear-limited traction zones and strong braking events.",
+    challenge: "Thermal management in warm evening conditions.",
+  },
+  5: {
+    type: "Street circuit",
+    signature: "Ultra-fast walls and late-braking opportunities through Jeddah.",
+    challenge: "Threading high-speed sections with minimal margin for error.",
+  },
+  6: {
+    type: "Stadium-style street",
+    signature: "Mixed-speed sectors and long acceleration phases in Miami.",
+    challenge: "Keeping tyre core temperatures stable over repeated traction exits.",
+  },
+  7: {
+    type: "Permanent circuit",
+    signature: "Stop-start profile around the island circuit in Montreal.",
+    challenge: "Aggressive kerb usage while preserving rear traction.",
+  },
+  8: {
+    type: "Historic street circuit",
+    signature: "Tight walls and low-speed precision through iconic Monaco sectors.",
+    challenge: "Building tyre temperature for qualifying-critical single laps.",
+  },
+  9: {
+    type: "Permanent circuit",
+    signature: "Long medium-speed arcs where front-end bite is decisive.",
+    challenge: "Managing front tyre degradation in sustained lateral load.",
+  },
+  10: {
+    type: "Permanent circuit",
+    signature: "Short lap with strong altitude effect and heavy braking zones.",
+    challenge: "Maximizing launch traction up steep exits.",
+  },
+  11: {
+    type: "Historic permanent circuit",
+    signature: "High-speed flow with rapid direction changes at Silverstone.",
+    challenge: "Maintaining stability in fast crosswind conditions.",
+  },
+  12: {
+    type: "Historic permanent circuit",
+    signature: "Long lap with major elevation changes and compression zones.",
+    challenge: "Set-up compromise between sector one straight-line speed and sector two grip.",
+  },
+  13: {
+    type: "Permanent circuit",
+    signature: "Technical medium-speed corners and repeated traction demands.",
+    challenge: "Race management under high ambient temperatures.",
+  },
+  14: {
+    type: "Coastal permanent circuit",
+    signature: "Banked final corner and quick transitions through dune-lined sectors.",
+    challenge: "Managing tyre wear from long loaded right-handers.",
+  },
+  15: {
+    type: "Historic permanent circuit",
+    signature: "Very high-speed straights combined with heavy-braking chicanes.",
+    challenge: "Braking consistency after prolonged full-throttle running.",
+  },
+  16: {
+    type: "Urban circuit",
+    signature: "New-era city challenge designed for close wheel-to-wheel racing.",
+    challenge: "Fast adaptation to evolving surface grip across sessions.",
+  },
+  17: {
+    type: "Street circuit",
+    signature: "Long flat-out sections split by 90-degree braking zones.",
+    challenge: "Lock-up risk management with low grip at corner entry.",
+  },
+  18: {
+    type: "Night street circuit",
+    signature: "Bumpy, humid, and physically demanding under floodlights.",
+    challenge: "Cooling and brake stability across one of the toughest races.",
+  },
+  19: {
+    type: "Permanent circuit",
+    signature: "Mixed-speed sectors with strong overtaking opportunities into heavy stops.",
+    challenge: "Set-up balance between technical infield and power sections.",
+  },
+  20: {
+    type: "High-altitude circuit",
+    signature: "Thin air changes aero load and cooling behavior.",
+    challenge: "Braking consistency and energy deployment at altitude.",
+  },
+  21: {
+    type: "Historic permanent circuit",
+    signature: "Undulating lap with dramatic corner camber variation.",
+    challenge: "Rear traction control through repeated low-speed exits.",
+  },
+  22: {
+    type: "Street circuit",
+    signature: "Night race tempo with long straights and heavy braking.",
+    challenge: "Tyre warm-up on a low-grip, evolving city surface.",
+  },
+  23: {
+    type: "Permanent circuit",
+    signature: "Fast modern layout with flowing medium-speed sections.",
+    challenge: "Balancing downforce for high-speed commitment and braking stability.",
+  },
+  24: {
+    type: "Permanent circuit",
+    signature: "Twilight finale with traction-heavy exits and long acceleration zones.",
+    challenge: "Energy management over repeated overtaking attempts.",
+  },
+};
+
+export const CIRCUIT_PROFILES_2026 = Object.fromEntries(
+  RACES_2026.map((race) => {
+    const cardSlug = CIRCUIT_CARD_SLUG_BY_ROUND[race.round];
+    const mapSlug = CIRCUIT_MAP_SLUG_BY_ROUND[race.round];
+    const story = CIRCUIT_STORY_BY_ROUND[race.round];
+    return [
+      race.round,
+      {
+        heroImage: `${RACE_CARD_BASE}/${cardSlug}.webp`,
+        mapImage: `${CIRCUIT_MAP_BASE}/${mapSlug}_Circuit.avif`,
+        type: story?.type || "Grand Prix circuit",
+        signature: story?.signature || `${race.circuit} hosts the ${race.grandPrix}.`,
+        challenge: story?.challenge || "Set-up and tyre management remain critical across the weekend.",
+      },
+    ];
+  })
+);
+
 export const REGULATION_FACTS_2026 = [
   {
     title: "Smaller Footprint",

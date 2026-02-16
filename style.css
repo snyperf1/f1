@@ -196,6 +196,29 @@ a {
   gap: 1.15rem;
 }
 
+.profile-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.hero-visual {
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  background: rgba(2, 10, 21, 0.58);
+  min-height: 280px;
+  overflow: hidden;
+}
+
+.hero-visual-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
 .hero-copy,
 .hero-panel {
   border: 1px solid var(--line);
@@ -419,6 +442,62 @@ h1 {
   flex-direction: column;
   align-items: flex-start;
   gap: 0.45rem;
+}
+
+.media-card {
+  overflow: hidden;
+}
+
+.card-media {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--line-soft);
+  object-fit: cover;
+  background: rgba(2, 11, 23, 0.6);
+}
+
+.driver-media {
+  aspect-ratio: 4 / 3;
+  object-position: top center;
+}
+
+.circuit-media {
+  aspect-ratio: 16 / 9;
+}
+
+.car-media {
+  aspect-ratio: 16 / 6;
+  object-fit: contain;
+  background: linear-gradient(130deg, rgba(0, 242, 184, 0.12) 0%, rgba(72, 124, 255, 0.14) 100%);
+  padding: 0.4rem;
+}
+
+.card-blurb {
+  color: #b7ccdf !important;
+  font-size: 0.9rem;
+}
+
+.driver-id-line {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.65rem;
+  align-items: baseline;
+}
+
+.driver-code {
+  font: 700 0.72rem var(--font-display);
+  color: var(--signal);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.team-logo-mark {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  margin-top: 0.15rem;
 }
 
 .card-link {
@@ -662,6 +741,10 @@ h1 {
     grid-template-columns: 1fr;
   }
 
+  .profile-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
   .cards-3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -712,6 +795,12 @@ h1 {
   .join,
   .table-header {
     grid-template-columns: 1fr;
+  }
+
+  .driver-id-line {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
   }
 
   .join {

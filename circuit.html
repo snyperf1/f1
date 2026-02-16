@@ -36,12 +36,19 @@
 
     <main id="circuitDetailRoot" class="page-main">
       <section class="module page-hero reveal">
-        <p id="circuitKicker" class="eyebrow">Round</p>
-        <h1 id="circuitTitle">Loading circuit...</h1>
-        <p id="circuitLead" class="lead">Loading track details.</p>
-        <div class="hero-actions">
-          <a id="jumpCircuits" class="btn btn-outline" href="circuits.html">All circuits</a>
-          <a id="jumpCalendar" class="btn btn-primary" href="calendar.html">Full calendar</a>
+        <div class="profile-hero-grid">
+          <div>
+            <p id="circuitKicker" class="eyebrow">Round</p>
+            <h1 id="circuitTitle">Loading circuit...</h1>
+            <p id="circuitLead" class="lead">Loading track details.</p>
+            <div class="hero-actions">
+              <a id="jumpCircuits" class="btn btn-outline" href="circuits.html">All circuits</a>
+              <a id="jumpCalendar" class="btn btn-primary" href="calendar.html">Full calendar</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <img id="circuitHeroImage" class="hero-visual-image" src="" alt="" />
+          </div>
         </div>
       </section>
 
@@ -50,6 +57,13 @@
           <h2>Track weekend info</h2>
         </div>
         <div id="circuitInfoCards" class="cards cards-3"></div>
+      </section>
+
+      <section class="module reveal">
+        <div class="module-head">
+          <h2>Circuit visuals</h2>
+        </div>
+        <div id="circuitVisuals" class="cards cards-2"></div>
       </section>
 
       <section class="module reveal">
