@@ -577,7 +577,9 @@ h1 {
 }
 
 .team-accent-card {
-  border-left: 3px solid var(--team-color, #6ac6ff);
+  border: 1px solid var(--team-color, #6ac6ff);
+  border-left-width: 3px;
+  box-shadow: inset 0 0 0 1px var(--team-color, #6ac6ff);
 }
 
 .team-accent-module {

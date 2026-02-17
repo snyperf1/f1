@@ -91,7 +91,7 @@ function renderTeamSection() {
         .join(" / ");
 
       return `
-      <article class="card team-card media-card">
+      <article class="card team-card media-card team-accent-card" style="--team-color:${media?.color || "#6ac6ff"}">
         ${
           media?.car
             ? `<img class="card-media car-media" src="${media.car}" alt="${team.name} 2026 car" loading="lazy" decoding="async" />`
@@ -102,7 +102,7 @@ function renderTeamSection() {
             ? `<img class="team-logo-mark" src="${media.logo}" alt="${team.name} logo" loading="lazy" decoding="async" />`
             : ""
         }
-        <h3><a class="inline-link" href="${buildTeamUrl(team.name)}">${team.name}</a></h3>
+        <h3><a class="inline-link team-inline-link" style="--team-color:${media?.color || "#6ac6ff"}" href="${buildTeamUrl(team.name)}">${team.name}</a></h3>
         <p><strong>Power Unit:</strong> ${team.powerUnit}</p>
         <p><strong>Drivers:</strong> ${drivers}</p>
       </article>

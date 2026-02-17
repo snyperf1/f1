@@ -32,20 +32,21 @@ function renderNotFound() {
 function renderTeamFacts(team) {
   const wrap = document.getElementById("teamFacts");
   if (!wrap) return;
+  const teamColor = TEAM_MEDIA_2026[team.name]?.color || "#6ac6ff";
 
   wrap.innerHTML = `
-    <article class="card">
+    <article class="card team-accent-card" style="--team-color:${teamColor}">
       <h3>Base</h3>
       <p>${team.base}</p>
     </article>
-    <article class="card">
+    <article class="card team-accent-card" style="--team-color:${teamColor}">
       <h3>Power Unit</h3>
       <p>${team.powerUnit}</p>
     </article>
-    <article class="card">
+    <article class="card team-accent-card" style="--team-color:${teamColor}">
       <h3>Driver Lineup</h3>
       <p>${team.drivers
-        .map((name) => `<a class="inline-link" href="${buildDriverUrl(name)}">${name}</a>`)
+        .map((name) => `<a class="inline-link driver-inline-link" style="--team-color:${teamColor}" href="${buildDriverUrl(name)}">${name}</a>`)
         .join(" / ")}</p>
     </article>
   `;
@@ -117,6 +118,12 @@ function renderTeamPage() {
   document.title = `Formula 1 2026 Hub | ${team.name}`;
   setText("teamTitle", team.name);
   setText("teamLead", `${team.base} | Power unit: ${team.powerUnit}`);
+  const teamColor = TEAM_MEDIA_2026[team.name]?.color || "#6ac6ff";
+  const hero = document.querySelector("#teamDetailRoot .page-hero");
+  if (hero) {
+    hero.classList.add("team-accent-module");
+    hero.style.setProperty("--team-color", teamColor);
+  }
 
   renderTeamFacts(team);
   renderDrivers(team);
