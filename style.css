@@ -289,6 +289,31 @@ h1 {
   line-height: 1.45;
 }
 
+.home-feature-media {
+  margin-top: 0.9rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: rgba(2, 11, 23, 0.55);
+  padding: 0.55rem;
+}
+
+.home-feature-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  border: 1px solid var(--line-soft);
+  object-fit: cover;
+  display: block;
+}
+
+.home-feature-caption {
+  margin-top: 0.5rem;
+  color: #cfe0f2;
+  font-size: 0.84rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
 .hero-actions {
   margin-top: 1.35rem;
   display: flex;

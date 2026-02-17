@@ -1,4 +1,4 @@
-import { RACES_2026, TESTING_SESSIONS, SEASON } from "./f1-data.js";
+import { RACES_2026, TESTING_SESSIONS, SEASON, CIRCUIT_PROFILES_2026 } from "./f1-data.js";
 import {
   initSite,
   getNextRace,
@@ -7,6 +7,27 @@ import {
   formatDateRange,
   buildCircuitUrl,
 } from "./site.js";
+
+const TESTING_VISUAL =
+  "https://media.formula1.com/image/upload/c_lfill,w_1200/q_auto/v1740000000/fom-website/static-assets/2026/races/card/pre-season-testing.webp";
+
+function setHomeFeature(race) {
+  const imageEl = document.getElementById("homeFeatureImage");
+  const captionEl = document.getElementById("homeFeatureCaption");
+  if (!imageEl || !captionEl) return;
+
+  if (!race) {
+    imageEl.src = TESTING_VISUAL;
+    imageEl.alt = "Pre-season testing visual";
+    captionEl.textContent = "Season complete. Pre-season testing visual.";
+    return;
+  }
+
+  const profile = CIRCUIT_PROFILES_2026[race.round];
+  imageEl.src = profile?.heroImage || TESTING_VISUAL;
+  imageEl.alt = `${race.grandPrix} featured visual`;
+  captionEl.textContent = `Round ${String(race.round).padStart(2, "0")} | ${race.grandPrix}`;
+}
 
 function renderUpcoming() {
   const wrap = document.getElementById("upcomingRaces");
@@ -23,8 +44,11 @@ function renderUpcoming() {
 
   wrap.innerHTML = slice
     .map(
-      (race) => `
+      (race) => {
+        const profile = CIRCUIT_PROFILES_2026[race.round];
+        return `
       <a class="card race-card card-link" href="${buildCircuitUrl(race.round)}" aria-label="Open ${race.circuit} page">
+        <img class="card-media circuit-media" src="${profile?.heroImage || TESTING_VISUAL}" alt="${race.grandPrix} image" loading="lazy" decoding="async" />
         <p class="badge">Round ${String(race.round).padStart(2, "0")}</p>
         <h3>${race.grandPrix}</h3>
         <p class="race-date">${formatDateRange(race.start, race.end)}</p>
@@ -32,7 +56,8 @@ function renderUpcoming() {
         <p>${race.circuit}</p>
         ${race.sprint ? '<p class="race-tag">Sprint weekend</p>' : ""}
       </a>
-    `
+    `;
+      }
     )
     .join("");
 }
@@ -42,8 +67,9 @@ function renderTesting() {
   if (!wrap) return;
 
   wrap.innerHTML = TESTING_SESSIONS.map(
-    (session) => `
+    (session, index) => `
       <a class="card card-link" href="calendar.html" aria-label="Open calendar page">
+        <img class="card-media circuit-media" src="${TESTING_VISUAL}" alt="Pre-season testing ${index + 1} visual" loading="lazy" decoding="async" />
         <h3>${session.name}</h3>
         <p class="race-date">${formatDateRange(session.start, session.end)}</p>
         <p>${session.location}</p>
@@ -65,6 +91,7 @@ function updateCountdown() {
   const metaEl = document.getElementById("nextRaceMeta");
 
   if (!nextRace) {
+    setHomeFeature(null);
     setCountdownValue("days", 0);
     setCountdownValue("hours", 0);
     setCountdownValue("minutes", 0);
@@ -78,6 +105,7 @@ function updateCountdown() {
   const start = parseUtcDay(nextRace.start);
   const end = parseUtcDay(nextRace.end);
   end.setUTCHours(23, 59, 59, 999);
+  setHomeFeature(nextRace);
 
   if (nameEl) {
     nameEl.innerHTML = `<a class="inline-link" href="${buildCircuitUrl(nextRace.round)}">${nextRace.grandPrix} (Round ${String(nextRace.round).padStart(2, "0")})</a>`;
