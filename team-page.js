@@ -52,6 +52,37 @@ function renderTeamFacts(team) {
   `;
 }
 
+function renderTeamCar(team) {
+  const wrap = document.getElementById("teamCarShowcase");
+  if (!wrap) return;
+
+  const media = TEAM_MEDIA_2026[team.name] || null;
+  const teamColor = media?.color || "#6ac6ff";
+
+  if (!media?.car) {
+    wrap.innerHTML = `
+      <article class="card team-accent-card" style="--team-color:${teamColor}">
+        <h3>${team.name}</h3>
+        <p>Car render is currently unavailable.</p>
+      </article>
+    `;
+    return;
+  }
+
+  wrap.innerHTML = `
+    <article class="card media-card team-accent-card" style="--team-color:${teamColor}">
+      <img class="card-media car-media" src="${media.car}" alt="${team.name} 2026 car render" loading="lazy" decoding="async" />
+      ${
+        media.logo
+          ? `<img class="team-logo-mark" src="${media.logo}" alt="${team.name} logo" loading="lazy" decoding="async" />`
+          : ""
+      }
+      <h3>${team.name}</h3>
+      <p>Official 2026 team car render.</p>
+    </article>
+  `;
+}
+
 function renderDrivers(team) {
   const wrap = document.getElementById("teamDrivers");
   if (!wrap) return;
@@ -126,6 +157,7 @@ function renderTeamPage() {
   }
 
   renderTeamFacts(team);
+  renderTeamCar(team);
   renderDrivers(team);
   renderSeasonPath();
   renderCrossLinks(team);
