@@ -1,12 +1,10 @@
-import { DRIVERS_2026, TEAMS_2026, DRIVER_PROFILES_2026, TEAM_MEDIA_2026, CIRCUIT_PROFILES_2026 } from "./f1-data.js";
+import { CIRCUIT_PROFILES_2026 } from "./f1-data.js";
 import {
   initSite,
   getQueryParam,
   findRaceByRound,
   formatDateRange,
   buildCircuitUrl,
-  buildDriverUrl,
-  buildTeamUrl,
 } from "./site.js";
 
 function setText(id, value) {
@@ -79,61 +77,6 @@ function renderVisuals(race, profile) {
   `;
 }
 
-function renderTeamSection() {
-  const wrap = document.getElementById("circuitTeams");
-  if (!wrap) return;
-
-  wrap.innerHTML = TEAMS_2026.map(
-    (team) => {
-      const media = TEAM_MEDIA_2026[team.name];
-      const drivers = team.drivers
-        .map((name) => `<a class="inline-link" href="${buildDriverUrl(name)}">${name}</a>`)
-        .join(" / ");
-
-      return `
-      <article class="card team-card media-card team-accent-card" style="--team-color:${media?.color || "#6ac6ff"}">
-        ${
-          media?.car
-            ? `<img class="card-media car-media" src="${media.car}" alt="${team.name} 2026 car" loading="lazy" decoding="async" />`
-            : ""
-        }
-        ${
-          media?.logo
-            ? `<img class="team-logo-mark" src="${media.logo}" alt="${team.name} logo" loading="lazy" decoding="async" />`
-            : ""
-        }
-        <h3><a class="inline-link team-inline-link" style="--team-color:${media?.color || "#6ac6ff"}" href="${buildTeamUrl(team.name)}">${team.name}</a></h3>
-        <p><strong>Power Unit:</strong> ${team.powerUnit}</p>
-        <p><strong>Drivers:</strong> ${drivers}</p>
-      </article>
-    `;
-    }
-  ).join("");
-}
-
-function renderDriverSection() {
-  const wrap = document.getElementById("circuitDrivers");
-  if (!wrap) return;
-
-  wrap.innerHTML = DRIVERS_2026.map(
-    (driver) => {
-      const profile = DRIVER_PROFILES_2026[driver.name];
-      const teamColor = TEAM_MEDIA_2026[driver.team]?.color || "#6ac6ff";
-      return `
-      <article class="card media-card team-accent-card" style="--team-color:${teamColor}">
-        <a class="media-link" href="${buildDriverUrl(driver.name)}" aria-label="Open ${driver.name} driver page">
-          <img class="card-media driver-media" src="${profile?.portrait || ""}" alt="${driver.name} portrait" loading="lazy" decoding="async" />
-        </a>
-        <h3><a class="inline-link driver-inline-link" style="--team-color:${teamColor}" href="${buildDriverUrl(driver.name)}">${driver.name}</a></h3>
-        <p>${driver.nationality}</p>
-        <p><a class="inline-link team-inline-link" style="--team-color:${teamColor}" href="${buildTeamUrl(driver.team)}">${driver.team}</a></p>
-        <p class="card-blurb">#${profile?.number || "--"} ${profile?.code || ""}</p>
-      </article>
-    `;
-    }
-  ).join("");
-}
-
 function renderRelatedRaces(race) {
   const wrap = document.getElementById("relatedRaces");
   if (!wrap) return;
@@ -193,8 +136,6 @@ function renderCircuitPage() {
 
   renderInfoCards(race, profile);
   renderVisuals(race, profile);
-  renderTeamSection();
-  renderDriverSection();
   renderRelatedRaces(race);
 }
 
