@@ -10,13 +10,15 @@ function renderDrivers() {
       const profile = DRIVER_PROFILES_2026[driver.name];
       return `
       <article class="card driver-card media-card">
-        <img
-          class="card-media driver-media"
-          src="${profile?.portrait || ""}"
-          alt="${driver.name} driver portrait"
-          loading="lazy"
-          decoding="async"
-        />
+        <a class="media-link" href="${buildDriverUrl(driver.name)}" aria-label="Open ${driver.name} driver page">
+          <img
+            class="card-media driver-media"
+            src="${profile?.portrait || ""}"
+            alt="${driver.name} driver portrait"
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
         <p class="badge">Driver ${String(index + 1).padStart(2, "0")}</p>
         <div class="driver-id-line">
           <h3><a class="inline-link" href="${buildDriverUrl(driver.name)}">${driver.name}</a></h3>

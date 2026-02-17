@@ -530,6 +530,11 @@ h1 {
   color: inherit;
 }
 
+.media-link {
+  width: 100%;
+  display: block;
+}
+
 .card:hover {
   border-color: rgba(0, 239, 169, 0.45);
   transform: translateY(-1px);

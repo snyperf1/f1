@@ -66,16 +66,16 @@ function renderVisuals(race, profile) {
   if (!wrap) return;
 
   wrap.innerHTML = `
-    <article class="card media-card">
+    <a class="card card-link media-card" href="${buildCircuitUrl(race.round)}" aria-label="Open ${race.grandPrix} circuit page">
       <img class="card-media circuit-media" src="${profile?.heroImage || ""}" alt="${race.grandPrix} hero image" loading="lazy" decoding="async" />
       <h3>${race.grandPrix}</h3>
       <p class="race-date">${race.city}, ${race.country}</p>
-    </article>
-    <article class="card media-card">
+    </a>
+    <a class="card card-link media-card" href="${buildCircuitUrl(race.round)}" aria-label="Open ${race.circuit} page">
       <img class="card-media circuit-media" src="${profile?.mapImage || ""}" alt="${race.circuit} layout image" loading="lazy" decoding="async" />
       <h3>Track map</h3>
       <p>${race.circuit}</p>
-    </article>
+    </a>
   `;
 }
 
@@ -120,7 +120,9 @@ function renderDriverSection() {
       const profile = DRIVER_PROFILES_2026[driver.name];
       return `
       <article class="card media-card">
-        <img class="card-media driver-media" src="${profile?.portrait || ""}" alt="${driver.name} portrait" loading="lazy" decoding="async" />
+        <a class="media-link" href="${buildDriverUrl(driver.name)}" aria-label="Open ${driver.name} driver page">
+          <img class="card-media driver-media" src="${profile?.portrait || ""}" alt="${driver.name} portrait" loading="lazy" decoding="async" />
+        </a>
         <h3><a class="inline-link" href="${buildDriverUrl(driver.name)}">${driver.name}</a></h3>
         <p>${driver.nationality}</p>
         <p><a class="inline-link" href="${buildTeamUrl(driver.team)}">${driver.team}</a></p>

@@ -14,9 +14,12 @@ const TESTING_VISUAL =
 function setHomeFeature(race) {
   const imageEl = document.getElementById("homeFeatureImage");
   const captionEl = document.getElementById("homeFeatureCaption");
-  if (!imageEl || !captionEl) return;
+  const linkEl = document.getElementById("homeFeatureLink");
+  if (!imageEl || !captionEl || !linkEl) return;
 
   if (!race) {
+    linkEl.href = "calendar.html";
+    linkEl.setAttribute("aria-label", "Open calendar page");
     imageEl.src = TESTING_VISUAL;
     imageEl.alt = "Pre-season testing visual";
     captionEl.textContent = "Season complete. Pre-season testing visual.";
@@ -24,6 +27,8 @@ function setHomeFeature(race) {
   }
 
   const profile = CIRCUIT_PROFILES_2026[race.round];
+  linkEl.href = buildCircuitUrl(race.round);
+  linkEl.setAttribute("aria-label", `Open ${race.grandPrix} circuit page`);
   imageEl.src = profile?.heroImage || TESTING_VISUAL;
   imageEl.alt = `${race.grandPrix} featured visual`;
   captionEl.textContent = `Round ${String(race.round).padStart(2, "0")} | ${race.grandPrix}`;
