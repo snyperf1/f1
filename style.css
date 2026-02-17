@@ -576,6 +576,14 @@ h1 {
   display: block;
 }
 
+.team-accent-card {
+  border-left: 3px solid var(--team-color, #6ac6ff);
+}
+
+.team-accent-module {
+  border-color: var(--team-color, var(--line));
+}
+
 .card:hover {
   border-color: rgba(0, 239, 169, 0.45);
   transform: translateY(-1px);
@@ -612,6 +620,20 @@ h1 {
 .inline-link:hover {
   color: #b6f7ff;
   text-decoration-color: rgba(182, 247, 255, 0.85);
+}
+
+.team-inline-link,
+.driver-inline-link {
+  color: var(--team-color, #8defff) !important;
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+  text-underline-offset: 2px;
+}
+
+.team-inline-link:hover,
+.driver-inline-link:hover {
+  color: var(--team-color, #b6f7ff) !important;
+  filter: brightness(1.15);
 }
 
 .tiny-link {
@@ -704,6 +726,27 @@ h1 {
   border: 1px solid var(--line-soft);
   border-radius: 12px;
   background: rgba(3, 11, 22, 0.58);
+}
+
+.team-pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--team-color, #6ac6ff);
+  border-radius: 999px;
+  padding: 0.2rem 0.5rem;
+  color: var(--team-color, #8defff);
+  background: rgba(2, 11, 23, 0.62);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.team-pill:hover {
+  filter: brightness(1.12);
+}
+
+.team-accent-row td:first-child,
+.team-accent-row td:last-child {
+  color: var(--team-color, var(--signal));
 }
 
 .driver-card,

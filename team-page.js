@@ -1,4 +1,4 @@
-import { DRIVERS_2026, RACES_2026 } from "./f1-data.js";
+import { DRIVERS_2026, RACES_2026, TEAM_MEDIA_2026 } from "./f1-data.js";
 import {
   initSite,
   getQueryParam,
@@ -56,14 +56,15 @@ function renderDrivers(team) {
   if (!wrap) return;
 
   const teamDrivers = getDriversByTeam(team.name);
+  const teamColor = TEAM_MEDIA_2026[team.name]?.color || "#6ac6ff";
 
   wrap.innerHTML = teamDrivers
     .map(
       (driver) => `
-      <a class="card card-link" href="${buildDriverUrl(driver.name)}">
+      <a class="card card-link team-accent-card" style="--team-color:${teamColor}" href="${buildDriverUrl(driver.name)}">
         <h3>${driver.name}</h3>
         <p class="race-date">${driver.nationality}</p>
-        <p>${team.name}</p>
+        <p class="team-inline-link" style="--team-color:${teamColor}">${team.name}</p>
       </a>
     `
     )
@@ -92,14 +93,15 @@ function renderCrossLinks(team) {
 
   const otherDrivers = DRIVERS_2026.filter((driver) => driver.team !== team.name).slice(0, 6);
   wrap.innerHTML = otherDrivers
-    .map(
-      (driver) => `
-      <a class="card card-link" href="${buildDriverUrl(driver.name)}">
+    .map((driver) => {
+      const teamColor = TEAM_MEDIA_2026[driver.team]?.color || "#6ac6ff";
+      return `
+      <a class="card card-link team-accent-card" style="--team-color:${teamColor}" href="${buildDriverUrl(driver.name)}">
         <h3>${driver.name}</h3>
-        <p>${driver.team}</p>
+        <p class="team-inline-link" style="--team-color:${teamColor}">${driver.team}</p>
       </a>
-    `
-    )
+    `;
+    })
     .join("");
 }
 

@@ -61,6 +61,12 @@ function getUpcomingRaces(limit = 8) {
 function renderHero(driver, profile) {
   setText("driverTitle", driver.name);
   setText("driverLead", `${driver.nationality} | #${profile.number} ${profile.code} | ${driver.team}`);
+  const teamColor = profile?.teamColor || "#6ac6ff";
+  const hero = document.querySelector("#driverDetailRoot .page-hero");
+  if (hero) {
+    hero.classList.add("team-accent-module");
+    hero.style.setProperty("--team-color", teamColor);
+  }
 
   const portrait = document.getElementById("driverPortrait");
   if (portrait && profile?.portrait) {
@@ -77,6 +83,7 @@ function renderHero(driver, profile) {
 function renderInfo(driver, team, profile) {
   const wrap = document.getElementById("driverInfo");
   if (!wrap) return;
+  const teamColor = profile?.teamColor || "#6ac6ff";
 
   const teammates = team ? team.drivers.filter((name) => name !== driver.name) : [];
 
@@ -91,7 +98,7 @@ function renderInfo(driver, team, profile) {
     </article>
     <article class="card">
       <h3>Team</h3>
-      <p><a class="inline-link" href="${buildTeamUrl(driver.team)}">${driver.team}</a></p>
+      <p><a class="inline-link team-inline-link" style="--team-color:${teamColor}" href="${buildTeamUrl(driver.team)}">${driver.team}</a></p>
     </article>
     <article class="card">
       <h3>Teammate</h3>
@@ -133,6 +140,7 @@ function renderHighlights(driver, profile) {
 function renderTeamCar(driver, profile) {
   const wrap = document.getElementById("driverTeamCar");
   if (!wrap) return;
+  const teamColor = profile?.teamColor || "#6ac6ff";
 
   if (!profile?.teamCar) {
     wrap.innerHTML = `<article class="card"><h3>Team car</h3><p>Car image currently unavailable.</p></article>`;
@@ -140,7 +148,7 @@ function renderTeamCar(driver, profile) {
   }
 
   wrap.innerHTML = `
-    <article class="card media-card">
+    <article class="card media-card team-accent-card" style="--team-color:${teamColor}">
       <img class="card-media car-media" src="${profile.teamCar}" alt="${driver.team} 2026 car render" loading="lazy" decoding="async" />
       <h3>${driver.team}</h3>
       <p>2026 package preview with official team render styling.</p>

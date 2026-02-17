@@ -118,14 +118,15 @@ function renderDriverSection() {
   wrap.innerHTML = DRIVERS_2026.map(
     (driver) => {
       const profile = DRIVER_PROFILES_2026[driver.name];
+      const teamColor = TEAM_MEDIA_2026[driver.team]?.color || "#6ac6ff";
       return `
-      <article class="card media-card">
+      <article class="card media-card team-accent-card" style="--team-color:${teamColor}">
         <a class="media-link" href="${buildDriverUrl(driver.name)}" aria-label="Open ${driver.name} driver page">
           <img class="card-media driver-media" src="${profile?.portrait || ""}" alt="${driver.name} portrait" loading="lazy" decoding="async" />
         </a>
-        <h3><a class="inline-link" href="${buildDriverUrl(driver.name)}">${driver.name}</a></h3>
+        <h3><a class="inline-link driver-inline-link" style="--team-color:${teamColor}" href="${buildDriverUrl(driver.name)}">${driver.name}</a></h3>
         <p>${driver.nationality}</p>
-        <p><a class="inline-link" href="${buildTeamUrl(driver.team)}">${driver.team}</a></p>
+        <p><a class="inline-link team-inline-link" style="--team-color:${teamColor}" href="${buildTeamUrl(driver.team)}">${driver.team}</a></p>
         <p class="card-blurb">#${profile?.number || "--"} ${profile?.code || ""}</p>
       </article>
     `;
