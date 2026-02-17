@@ -203,6 +203,30 @@ a {
   align-items: stretch;
 }
 
+.profile-copy {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.hero-core-info {
+  margin-top: 1.15rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line-soft);
+}
+
+.hero-core-info .module-head h2 {
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+}
+
+.hero-core-info .cards {
+  margin-top: 0.8rem;
+}
+
+.hero-core-info .card {
+  padding: 0.9rem;
+}
+
 .hero-visual {
   border: 1px solid var(--line-soft);
   border-radius: var(--radius);
@@ -211,12 +235,29 @@ a {
   overflow: hidden;
 }
 
+.driver-hero-visual {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  aspect-ratio: 3 / 4;
+  min-height: 420px;
+  max-height: 780px;
+}
+
 .hero-visual-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: top center;
   display: block;
+}
+
+.driver-hero-visual .hero-visual-image {
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
 }
 
 .hero-copy,
