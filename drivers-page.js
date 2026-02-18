@@ -29,6 +29,7 @@ const FORMULA1_DRIVERS_PAGE_ORDER = [
 const DRIVER_ORDER_INDEX = Object.fromEntries(
   FORMULA1_DRIVERS_PAGE_ORDER.map((name, index) => [name, index])
 );
+const DRIVER_DATA_INDEX = Object.fromEntries(DRIVERS_2026.map((driver, index) => [driver.name, index]));
 
 function renderDrivers() {
   const wrap = document.getElementById("driversGrid");
@@ -38,7 +39,9 @@ function renderDrivers() {
     const orderA = DRIVER_ORDER_INDEX[a.name] ?? Number.MAX_SAFE_INTEGER;
     const orderB = DRIVER_ORDER_INDEX[b.name] ?? Number.MAX_SAFE_INTEGER;
     if (orderA !== orderB) return orderA - orderB;
-    return a.name.localeCompare(b.name);
+    const dataIndexA = DRIVER_DATA_INDEX[a.name] ?? Number.MAX_SAFE_INTEGER;
+    const dataIndexB = DRIVER_DATA_INDEX[b.name] ?? Number.MAX_SAFE_INTEGER;
+    return dataIndexA - dataIndexB;
   });
 
   wrap.innerHTML = orderedDrivers.map(

@@ -5,9 +5,12 @@ function renderDrivers() {
   const body = document.getElementById("driversStandingBody");
   if (!body) return;
 
-  const sortedDrivers = [...DRIVERS_2026].sort((a, b) => a.name.localeCompare(b.name));
+  const driverByName = Object.fromEntries(DRIVERS_2026.map((driver) => [driver.name, driver]));
+  const teamOrderedDrivers = TEAMS_2026.flatMap((team) =>
+    team.drivers.map((name) => driverByName[name]).filter(Boolean)
+  );
 
-  body.innerHTML = sortedDrivers.map((driver, index) => {
+  body.innerHTML = teamOrderedDrivers.map((driver, index) => {
     const teamColor = TEAM_MEDIA_2026[driver.team]?.color || "#6ac6ff";
     return `
       <tr class="team-accent-row" style="--team-color:${teamColor}">
