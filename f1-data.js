@@ -383,7 +383,7 @@ export const DRIVERS_2026 = [
 ];
 
 const TEAM_MEDIA_BASE =
-  "https://media.formula1.com/image/upload/c_lfill,w_512/q_auto/d_common:f1:2026:fallback:car:2026fallbackcarright.webp/v1740000000/common/f1/2026";
+  "https://media.formula1.com/image/upload/c_limit,w_1800/f_auto/q_auto/d_common:f1:2026:fallback:car:2026fallbackcarright.webp/v1740000000/common/f1/2026";
 const TEAM_LOGO_BASE =
   "https://media.formula1.com/image/upload/c_lfill,w_64/q_auto/v1740000000/common/f1/2026";
 const DRIVER_MEDIA_BASE =
