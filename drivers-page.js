@@ -1,13 +1,47 @@
 import { DRIVERS_2026, DRIVER_PROFILES_2026, TEAM_MEDIA_2026 } from "./f1-data.js";
 import { initSite, buildDriverUrl, buildTeamUrl } from "./site.js";
 
+const FORMULA1_DRIVERS_PAGE_ORDER = [
+  "Pierre Gasly",
+  "Franco Colapinto",
+  "Fernando Alonso",
+  "Lance Stroll",
+  "Nico Hulkenberg",
+  "Gabriel Bortoleto",
+  "Sergio Perez",
+  "Valtteri Bottas",
+  "Charles Leclerc",
+  "Lewis Hamilton",
+  "Esteban Ocon",
+  "Oliver Bearman",
+  "Lando Norris",
+  "Oscar Piastri",
+  "George Russell",
+  "Andrea Kimi Antonelli",
+  "Liam Lawson",
+  "Arvid Lindblad",
+  "Max Verstappen",
+  "Isack Hadjar",
+  "Carlos Sainz",
+  "Alexander Albon",
+];
+
+const DRIVER_ORDER_INDEX = Object.fromEntries(
+  FORMULA1_DRIVERS_PAGE_ORDER.map((name, index) => [name, index])
+);
+
 function renderDrivers() {
   const wrap = document.getElementById("driversGrid");
   if (!wrap) return;
 
-  const sortedDrivers = [...DRIVERS_2026].sort((a, b) => a.name.localeCompare(b.name));
+  const orderedDrivers = [...DRIVERS_2026].sort((a, b) => {
+    const orderA = DRIVER_ORDER_INDEX[a.name] ?? Number.MAX_SAFE_INTEGER;
+    const orderB = DRIVER_ORDER_INDEX[b.name] ?? Number.MAX_SAFE_INTEGER;
+    if (orderA !== orderB) return orderA - orderB;
+    return a.name.localeCompare(b.name);
+  });
 
-  wrap.innerHTML = sortedDrivers.map(
+  wrap.innerHTML = orderedDrivers.map(
     (driver, index) => {
       const profile = DRIVER_PROFILES_2026[driver.name];
       const teamColor = TEAM_MEDIA_2026[driver.team]?.color || "#6ac6ff";
